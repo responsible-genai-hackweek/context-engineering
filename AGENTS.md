@@ -1,0 +1,1 @@
+This is a repository that contains material for a gen-AI tutorial. If you see instructions for building slides, go to the slide deck folder and read the agents.md file there for further instructions. 
