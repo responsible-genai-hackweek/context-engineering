@@ -12,7 +12,7 @@ Duration: 60 minutes (slides + live demos interleaved)
 **Two-pass workflow.** This deck is built in two passes, and SLIDES.md governs only the first.
 
 - **First pass (this file): content and structure only.** Build the deck to a publishable-looking, intentional state using only typography, layout, color palette, and the gold accent. Use no photographs and no decorative icons in this pass. The deck should look complete on its own — if it had to be presented tomorrow with no images, it should feel finished rather than naked.
-- **Second pass (separate VISUALS.md): additive visual elements.** After the first pass is rendered and rehearsed, VISUALS.md specifies photographs, diagrammatic accents, and iconography to *add* to existing slides. The second pass modifies the already-rendered HTML; it does not rebuild slides from scratch.
+- **Second pass (separate VISUALS.md): additive visual elements.** After the first pass is rendered and rehearsed, VISUALS.md specifies photographs, diagrammatic accents, and iconography to _add_ to existing slides. The second pass modifies the already-rendered HTML; it does not rebuild slides from scratch.
 - **Do not anticipate the second pass during the first.** If a slide feels visually sparse, the correct response is stronger typography or layout, not a placeholder.
 
 **General rules:**
@@ -31,271 +31,161 @@ Duration: 60 minutes (slides + live demos interleaved)
 ## 01-title
 
 Title slide with UW branding.
+
 - Title: "Context Engineering for AI Coding Agents"
 - Subtitle: "Making your project knowledge durable"
-- Presenter names: Anthony Arendt, Joe Meyer
-- Affiliation: University of Washington / eScience Institute
+- Presenter names: Anthony Arendt, Joachim Meyer
+- Affiliation: University of Washington / eScience Institute, Boise State University
 - Date: August 2026
 
 ## 02-the-problem
 
-- Key message: "Your agent forgets everything between sessions"
-- The model knows Python. It does not know your data, your conventions, or your goals.
-- Every new session starts from zero — unless you engineer durability into the context.
-- Note to self: Bridge from Tutorial 1's "built-in knowledge vs. in the prompt" distinction. That tutorial showed the gap; this one shows how to close it permanently.
+- Key message: "Your agent does not remember most of your project context"
+- An Agent is good at reverse engineering (and eager to). It does not know your data, your conventions, or your goals.
+- Every new session starts from minimal "memory"
+- Persistent durability into the context is dependent on you.
 
 ## 03-durability-spectrum
 
-- Key message: "A spectrum of durability"
-- The agent forgets everything between sessions. You make context durable by placing it somewhere the agent will find it again — but where?
-- Present as a horizontal spectrum from "always present" to "summoned on demand":
-  - **Always loaded** — Context documents (AGENTS.md, CLAUDE.md). Read at session start, every time, regardless of task.
+- Key message: "Persistent context options in current landscape"
+- Agents are starting to build "memory" features, but the durability of context is still largely in your hands.
+- Present as a horizontal spectrum from "always present" to "on demand":
+  - **Always loaded** — Context documents (AGENTS.md). Read every time, regardless of task.
+  - **Invoked on match** — Skills, named procedures. Loaded when a task fits.
   - **Auto-triggered** — Rules, path-scoped constraints. Fire when specific files are touched.
-  - **Invoked on match** — Skills, named procedures. The agent reaches for them when a task fits.
   - **Delegated** — Subagents, specialized personas. Summoned for specific expertise.
-- Note to self: Don't present this as a canonical four-item list. The specific mechanisms vary by tool and will evolve. What's durable is the spectrum concept: you're choosing how broadly and how automatically context gets loaded. Say something like "Current tools give you several controls along this spectrum — here are the ones you'll encounter today."
 
-## 04-tradeoff
+## 04-today-focus
 
-- Key message: "Always-on costs tokens. On-demand requires recognition."
-- The core tradeoff on the spectrum:
-  - Left side (always loaded): guaranteed to be present, but consumes context budget every turn whether needed or not
-  - Right side (on demand): precise and efficient, but the agent must recognize when to reach for it
-- This is not a fixed taxonomy — tools are evolving and the specific mechanisms will change. The tradeoff is what's durable: you're always choosing between "pay the cost of loading it every time" and "trust the agent to know when it's needed."
-- Note to self: This is the conceptual slide that makes the rest of the tutorial make sense. When someone asks "why not just put everything in AGENTS.md?" — point back here. When someone asks "why not make everything a skill?" — same answer.
-
-## 05-today-focus
-
-- Key message: "Today: two points on the spectrum"
+- Key message: "Today: Two options on the spectrum"
 - We'll work with the two most common and transferable mechanisms:
   - A context document (AGENTS.md) — always-on, loaded every session
   - A skill — on-demand, invoked when the task matches
-- The pattern: observe failure → add targeted context → verify improvement.
-- These two cover most researchers' needs. The others are refinements you'll reach for as projects grow.
-- Note to self: Don't say "the other two levers are for later" — that reifies the count. Say "other mechanisms exist for finer control; these two get you most of the way."
+- These cover most researchers' needs. The others are refinements you'll reach for as projects grow.
 
-## 06-introducing-snowex
+## 05-introducing-snowex
 
-- Key message: "SnowEx: a real research database"
-- Briefly introduce the SnowEx SQL database: snow hydrology measurements, multiple campaigns, domain-specific vocabulary.
-- This is a real scientific artifact — not a toy example. It has naming conventions, table relationships, and domain terms the model has never seen.
-- Note to self: Keep this short. The point is just to establish that participants are working with something realistic, not a demo repo designed to make AI look good.
+- Key message: "SnowEx: a Python library for a research database"
+- SnowEx ....
+- Clone the forked repo - Hint: Agents cheat!
 
-## 07-the-task
+## 06-scientific-use-case
 
-- Key message: The prompt we'll use throughout
+- Key message: "Scientific use case: Querying snow depth layer data"
 - Display the exact prompt in large monospace:
   "Create me a code block that queries the database and returns snow depth layer data for a snow pit and date during the Alaska campaign"
-- This question has a correct answer and multiple wrong paths to it.
-- Note to self: Emphasize that this prompt stays constant — the only variable is what context the agent has.
+- This question has multiple answers. One for a standard user and one for a power user.
+- For the default answer, we want to guide users to the simple solution first.
 
 ## 08-demo-no-context
 
 [LIVE DEMO]
 
-- Display text: "Demo: Agent with no context"
-- Show the prompt being sent
-- Orienting statement: "Watch for: guessed column names, wrong tables, confident wrong turns"
-- Note to self: Run the prompt against Claude Code with no AGENTS.md. Narrate what the agent does. Let it fail visibly. ~3 minutes.
+- Display text: "Demo: Repository with no context"
 
-## 09-failure-modes
+## 09-first-result
 
-- Key message: "Confident, fast, and wrong"
-- After the demo, name the failure modes the audience just saw:
-  - Guesses at column names that don't exist
-  - Picks the wrong table
-  - Applies naming conventions from other projects
-  - Takes many turns fumbling toward something that looks right but isn't
-- The problem isn't slowness — it's confident wrong turns that waste the researcher's time.
-- Note to self: Ask participants to buddy up and compare what they saw. 2 minutes.
+- Key message: "Confident, fast, and complicated"
+- After the demo, highlight the observed issues:
+  - The agent went straight into reverse engineering
+  - It confidently suggested the more technical solution, even though the README shows the simpler as preferred
+  - It burned a lot of tokens guessing the query parameters
 
-## 10-partner-compare-1
+## 10-hands-on-01
 
-- Key message: "Compare with a partner"
+- Key message: "HANDS ON - Compare your output with a partner"
 - Instruction slide: "Buddy up. Compare your agent's output. How different are they?"
-- Note to self: This is the first pair activity. Give 2 minutes. The point is that without context, outputs diverge wildly — the agent is guessing differently each time.
 
-## 11-building-incrementally
+## 11-start-adding-context
 
-- Key message: "Context is added in response to observed behavior"
-- The authoring pattern:
-  1. Observe a failure
-  2. Add targeted context
-  3. Re-run the same prompt
-  4. Verify improvement
-- You don't write AGENTS.md speculatively. You write it in response to what you saw go wrong.
-- Note to self: This is the core pedagogical message. Don't front-load the authoring — let the failures drive what gets written.
+- Key message: "How to guide the LLM with context?"
+- First option: Add a central context document - AGENTS.md
+- Official guidelines: <https://agents.md>
+- Put the quote as the central message on the slide:
+- "Think of AGENTS.md as a README for agents: a dedicated, predictable place to provide the context and instructions to help AI coding agents"
 
-## 12-step1-minimal
+## 12-writing-tips
 
-- Key message: "Start with one sentence"
-- Show a minimal AGENTS.md: just "This is a snow hydrology database built on PostgreSQL."
-- That's it. One line. Enough to orient but not enough to prevent the failures we saw.
-- Note to self: Transition to the demo — we'll add this file and re-run.
+- Key message: "A good AGENTS.md is concise and actionable"
+- Start simple and expand as needed
+- Be specific - "Follow best practices" vs "Run lint after every change"
+- Shorter is better. Keep under 200 lines or 32 KiB
+- Nested files are good for big repos or if a folder diverges from main file. The "closest" file wins.
+- It's a guide not an enforcement. There is no guarantee that "DO NOT EDIT" files won't get changed
+- Keep everything for humans in the repo README, LLMs will read that too
+- Be aware that future version of LLM models might have learned from public information
 
-## 13-demo-minimal-context
-
-[LIVE DEMO]
-
-- Display text: "Demo: Re-run with minimal AGENTS.md"
-- Show: adding the one-line AGENTS.md, then re-running the same prompt
-- Orienting statement: "Watch for: Does it pick the right database type? Does it still guess at table names?"
-- Note to self: Modest improvement expected — it knows it's PostgreSQL now but still doesn't know the schema. ~2 minutes.
-
-## 14-step2-structure
-
-- Key message: "Add project structure"
-- Show the AGENTS.md growing: table names, how they relate, primary key conventions.
-- The agent now knows what exists — it doesn't have to guess at table names.
-- Note to self: This is the "navigation" layer. The agent can find things but may still misinterpret domain terms.
-
-## 15-demo-with-structure
+## 13-demo-with-agents
 
 [LIVE DEMO]
 
-- Display text: "Demo: Re-run with structure added"
-- Show: the updated AGENTS.md with table/relationship info, then re-running the prompt
-- Orienting statement: "Watch for: correct table navigation, but possible domain confusion (what is a 'layer'? what counts as 'Alaska campaign'?)"
-- Note to self: Better navigation, still domain confusion. ~2 minutes.
+- Display text: "Demo: Re-run with AGENTS.md"
+- Orienting statement:
+  - Does it pick the right connection type?
+  - Does it still guess at filter options?
 
-## 16-step3-vocabulary
-
-- Key message: "Add domain vocabulary"
-- Show AGENTS.md gaining domain terms: what "layer" means in snow science, how campaigns are named, what units are used, how time series are stored.
-- This is knowledge the model cannot get from reading code — it's expert knowledge about the scientific domain.
-- Note to self: This is the key insight for researchers: YOUR domain knowledge is exactly what the agent lacks. You are the source of truth for vocabulary.
-
-## 17-demo-with-vocabulary
-
-[LIVE DEMO]
-
-- Display text: "Demo: Re-run with domain vocabulary"
-- Show: full AGENTS.md with vocabulary, re-running the same prompt
-- Orienting statement: "Watch for: correct interpretation of 'snow depth layer', correct campaign filter, appropriate units"
-- Note to self: This should be the "aha" moment — same prompt, dramatically better result. ~2 minutes.
-
-## 18-partner-compare-2
+## 14-hands-on-02
 
 - Key message: "Compare again — what changed?"
-- Instruction slide: "Same pairs. Compare outputs now. How different are they from each other? From the first attempt?"
-- Note to self: Outputs should converge — with shared context, agents produce more consistent results. 2 minutes. The convergence itself is evidence that context engineering works.
+- Instruction slide:
+  - Compare outputs now.
+    - How different are they from each other?
+    - From the first attempt?
 
-## 19-what-belongs
+## 15-agents-summary
 
 - Key message: "What goes in, what stays out"
 - Two columns or a split layout:
   - **Belongs:** Project structure, naming conventions, domain vocabulary the model can't infer, common pitfalls, standards for how work should be done
   - **Does not belong:** Anything the agent can discover by reading code, information that changes frequently, contradictions with the actual codebase, personal preferences that don't apply to others
-- Note to self: Connect to the guidelines from agents.md — keep under 200 lines / 32 KiB, be specific not vague, shorter is better.
+- KISS principle: Keep it simple stup...
 
-## 20-goldilocks
-
-- Key message: "Too much context is also a failure mode"
-- Over-stuffing: bloated file consumes context window on every turn, crowds out task-specific context, agent drowns in instructions
-- Under-stuffing: agent falls back to guessing, produces confident hallucinations
-- The test: does agent behavior improve on realistic prompts? That's how you know you have the balance right.
-- Note to self: This is a common mistake — people try to document everything. The AGENTS.md is not a README.
-
-## 21-transition-to-skills
+## 16-introduction-skills
 
 - Key message: "Context documents are always-on. Skills are on-demand."
 - AGENTS.md fires on every session, every task — it's the foundation.
-- But some context only matters for specific tasks. That's what skills are for.
+- A skill = a reusable procedure with a trigger
 - A skill is a named procedure the agent invokes when the task matches — like a recipe it reaches for only when cooking that dish.
-- Note to self: Transition to the second lever. Refer back to the spectrum slide (04).
+- Show the structure of a skill on the side
+  - name, description (used for matching), and instructions.
+- This is the very basic start. Skills can be advanced through multiple options. See: <https://agentskills.io>
 
-## 22-skills-intro
-
-- Key message: "A skill = a reusable procedure with a trigger"
-- Structure of a skill: a name, a description (used for matching), and step-by-step instructions.
-- The agent decides when to invoke it based on task match — you don't have to remember to ask.
-- Source: https://agentskills.io
-- Note to self: Keep this conceptual. The demo will make it concrete.
-
-## 23-skill-example
+## 17-skill-example
 
 - Key message: Show the db-query skill structure
 - Display the skeleton of the skill file in monospace: name, description, the key steps it encodes.
-- The skill knows: connection details, which tables to query for what, the correct join patterns, output format expectations.
-- Note to self: This is the actual db-query.md skill file from Joe's materials. Don't show the whole thing — just enough to see the pattern.
 
-## 24-demo-adding-skill
+## 18-demo-adding-skill
 
 [LIVE DEMO]
 
 - Display text: "Demo: Adding a skill and re-running"
 - Show: creating the llm/skills/ directory, adding the skill file, updating AGENTS.md to reference it, re-running the prompt
-- Orienting statement: "Watch for: does the agent invoke the skill? Does the output follow the skill's prescribed pattern?"
-- Note to self: Add the skill file, add the reference to AGENTS.md ("## Skills — See llm/skills for a list of skills and their descriptions"), re-run the same prompt. ~3 minutes.
+- Orienting statement:
+  - Does the agent invoke the skill?
+  - Does the output follow the skill's prescribed pattern?
 
-## 25-partner-compare-3
+## 19-hands-on03
 
 - Key message: "What changed with the skill?"
-- Instruction slide: "Same pairs. What's different now? Is the output more consistent between partners? Think of ways to improve the skill."
-- Note to self: 2 minutes. Outputs should be very consistent now — the skill prescribes a procedure, not just vocabulary. The procedure converges behavior.
+- Instruction slide:
+  - What's different now?
+  - Is the output more consistent between partners?
+  - Think of ways to improve the skill.
 
-## 26-context-vs-skill
+## 20-context-vs-skill
 
 - Key message: "Always-on context vs. on-demand procedure"
 - When to use each:
   - Context document: information needed regardless of task (structure, vocabulary, conventions)
-  - Skill: a specific procedure that only applies to a class of tasks (querying the DB, running the test suite, deploying)
-- A skill reference in AGENTS.md is the bridge — the context document points to the skill so the agent knows it exists.
-- Note to self: Reinforce the "levers" framing. You're choosing a durability mechanism based on how broadly applicable the context is.
+  - Skill: a specific procedure that only applies to tasks (querying the DB, running the test suite)
+- Create bridges to skills in the AGENTS.md so the LLM knows about them
 
-## 27-iterative-refinement
-
-- Key message: "The loop never ends"
-- Context engineering is not a one-time setup. It's an ongoing practice:
-  - Observe agent behavior → identify failures → add context → verify
-  - Remove context that's no longer needed (the codebase changed, the convention evolved)
-  - Ask the agent what's missing — it can tell you what confused it
-- Note to self: Mention the optional exercise: "Ask the agent what's missing in the agents.md or skills file." Be critical of its suggestions — remember what belongs and what doesn't.
-
-## 28-demo-ask-agent
-
-[LIVE DEMO]
-
-- Display text: "Demo: Asking the agent what's missing"
-- Show: prompting the agent to review the AGENTS.md and suggest improvements
-- Orienting statement: "Be critical of suggestions. Does the agent recommend things it could discover by reading code? Is it too specific? Too generic?"
-- Note to self: Optional/time-permitting. The agent will often over-suggest. Use this to reinforce the "what belongs" criteria. ~3 minutes if time allows.
-
-## 29-guidelines-summary
-
-- Key message: "Practical guidelines"
-- The rules of thumb from agents.md:
-  - Start simple and expand as needed
-  - Be specific: "Run lint after every change" not "Follow best practices"
-  - Keep under 200 lines / 32 KiB
-  - Nested files for subdirectories that diverge from root
-  - It's a guide, not enforcement — no guarantee the agent obeys
-  - Keep human-readable content in README; machine-optimized content in AGENTS.md
-- Source: https://agents.md
-- Note to self: These are reference points, not things to read aloud. The slide should be scannable.
-
-## 30-spectrum-revisited
-
-- Key message: "You now own two points on the spectrum"
-- Return to the spectrum diagram from slide 03, now with context documents and skills highlighted as "practiced today."
-- As your project grows, you may reach for finer-grained mechanisms — path-scoped rules, specialized subagents, or whatever new controls tools introduce next.
-- The transferable skill is the spectrum thinking: how broadly does this context apply, and how should it get loaded?
-- Note to self: Brief forward-looking slide. Don't enumerate what's left — the point is that the mental model transfers even as tooling changes.
-
-## 31-takeaways
+## 21-takeaways
 
 - Key message: "Context engineering is the researcher's primary lever"
 - Three takeaways:
-  1. The model's built-in knowledge ends at your project boundary. Everything specific to your work must be engineered in.
-  2. Context is added in response to observed behavior — not written speculatively in advance.
-  3. Durability is a spectrum: from always-on (documents) to on-demand (skills) to triggered (rules) to delegated (subagents). Choose the mechanism that matches how broadly the context applies.
-- Note to self: This is the synthesis. Connect back to Tutorial 1's framing and forward to whatever comes next.
-
-## 32-next-steps
-
-- Key message: "What to do after this tutorial"
-- Practical next steps:
-  - Write an AGENTS.md for one of your own research repositories this week
-  - Start with one sentence. Run a prompt. Observe. Add context. Repeat.
-  - Share your AGENTS.md with a collaborator — does the agent behave consistently for them too?
-- Note to self: Give participants a concrete commitment. One repo, this week.
+  1. The model's built-in knowledge ends at your project boundary.
+  1. Domain knowledge of your work must be engineered in.
+  1. Add context as you observer LLM behavior
+  1. Choose the mechanism that matches how broadly the context applies.
