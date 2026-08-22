@@ -1,32 +1,36 @@
-# Context Engineering
+# Context Engineering Slide Deck
 
-UW-branded presentation using a two-pass, fragment-based architecture.
+A 22-slide HTML presentation for a 60-minute tutorial on context engineering for AI coding agents. UW-branded, designed for classroom delivery with back-of-room readability.
 
-## Pass 1 — Content and structure
+## Build
 
-1. Edit `SLIDES.md` to plan your presentation
-2. Request slides through conversation (LLM reads SLIDES.md, writes to `content/`)
-3. Build: `./build.sh`
-4. Preview: `open build/index.html`
-5. Rehearse and revise — repeat until content is settled
+```
+bash build.sh .
+```
 
-## Pass 2 — Visual additions
+Reads `## XX-name` headings from SLIDES.md and concatenates corresponding `content/*.html` files into `build/index.html`.
 
-1. Edit `VISUALS.md` to specify photographs, diagrammatic accents, and icons
-2. Run `/uw-slides:apply-visuals` (LLM reads VISUALS.md, writes to `content-with-visuals/`)
-3. Build: `./build-visuals.sh`
-4. Preview: `open build/index-with-visuals.html`
+## Key files
 
-## Reordering Slides
+- `SLIDES.md` — Design brief for all slides. Content and plain-English layout descriptions. NO CSS in this file.
+- `VISUALS.md` — Second-pass visual additions (photos, diagrams, icons). Documents what's already built.
+- `shared/slide-patterns.css` — CSS recipe book. NOT a linked stylesheet. Read it, copy patterns into inline `<style>` blocks.
+- `shared/header.html` — Base styles, CSS custom properties, navigation JS.
+- `content/*.html` — Individual slide files with inline `<style>` blocks using `.slide-XX` prefixes.
 
-Edit the `## slide-id` order in `SLIDES.md`, then rebuild with `./build.sh`.
+## Architecture
 
-## Structure
+Each slide is a `<section class="slide">` with its own `<style>` block using `.slide-XX` prefixed classes. Shared CSS classes from `styles.css` lose specificity against `section.slide.active { display: flex }` in header.html — never use them.
 
-- `SLIDES.md` — Pass-1 planning document (slide order + content briefs)
-- `VISUALS.md` — Pass-2 visual additions specification
-- `content/` — Pass-1 HTML fragments (source of truth; never modified by pass 2)
-- `content-with-visuals/` — Pass-2 HTML fragments (only slides that received additions)
-- `shared/` — Header and footer templates
-- `build/` — Generated presentations (git-ignored)
-- `assets/` — Images, diagrams, and fonts
+## Skills
+
+- **slide-redesign** (`skills/slide-redesign.md`) — Use when creating, restyling, or fixing any slide. Covers pedagogy principles, accessibility constraints, and the exact build procedure.
+
+## Critical rules
+
+- White background = content slides. Purple gradient = activity slides (demos, hands-on).
+- Gold (#ffc700) is NEVER text on white backgrounds. Gold for borders/accents only on white.
+- Always update SLIDES.md AND VISUALS.md when changing a slide.
+- Every activity slide must have audience instructions (WATCH FOR or DISCUSS box).
+- Design for back-of-room readability: large fonts, thick strokes, high contrast.
+- No CSS syntax in SLIDES.md — describe layouts in plain English, reference pattern names from slide-patterns.css.
