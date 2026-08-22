@@ -150,7 +150,7 @@
 
 .demo-slide .cmd {
   font-family: var(--font-mono);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--uw-spirit-gold);
   margin-bottom: var(--space-4);
   opacity: 0.9;
@@ -163,7 +163,7 @@
 
 .demo-slide .desc {
   font-family: var(--font-body);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--uw-white);
   opacity: 0.75;
   width: 100%;
@@ -174,7 +174,7 @@
 
 .demo-slide .callout {
   font-family: var(--font-body);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: var(--uw-white);
   line-height: 1.5;
   background: rgba(255,199,0,0.08);
@@ -188,7 +188,7 @@
 .demo-slide .callout-label {
   font-family: var(--font-display-wide);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--uw-spirit-gold);
@@ -276,7 +276,7 @@
 
 .handson-slide .instruction-item {
   font-family: var(--font-body);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--uw-white);
   opacity: 0.9;
   line-height: 1.5;
@@ -295,7 +295,7 @@
 
 .handson-slide .callout {
   font-family: var(--font-body);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: var(--uw-white);
   line-height: 1.5;
   background: rgba(255,199,0,0.08);
@@ -309,7 +309,7 @@
 .handson-slide .callout-label {
   font-family: var(--font-display-wide);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--uw-spirit-gold);
@@ -388,7 +388,7 @@
 
 .handson-slide .activity-label {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--uw-white);
 }
@@ -412,7 +412,7 @@
 
 .handson-slide .prompt-box .prompt-label {
   font-family: var(--font-display-condensed);
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--uw-spirit-gold);
@@ -421,7 +421,7 @@
 
 .handson-slide .prompt-box .prompt-text {
   font-family: var(--font-mono);
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   color: var(--uw-white);
   line-height: 1.5;
   opacity: 0.9;
@@ -527,14 +527,14 @@
 .transition-slide .progress-dot.next span {
   font-family: var(--font-display-wide);
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: var(--uw-spirit-gold);
 }
 
 .transition-slide .progress-label {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   letter-spacing: 0.03em;
 }
 
@@ -573,7 +573,7 @@
 
 .transition-slide .context-box p {
   font-family: var(--font-body);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: var(--uw-white);
   line-height: 1.6;
 }
@@ -699,21 +699,21 @@
 .content-card-grid .card-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: var(--uw-gray-90);
   margin-bottom: 3px;
 }
 
 .content-card-grid .card-desc {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1.5rem;
   color: var(--uw-gray-70);
   line-height: 1.4;
 }
 
 .content-card-grid .card-desc code {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 1.5rem;
   background: rgba(75,46,131,0.08);
   padding: 2px 6px;
   border-radius: 3px;
@@ -801,7 +801,7 @@
 .content-two-col .col-header {
   font-family: var(--font-display-wide);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: var(--space-3);
@@ -840,7 +840,7 @@
 
 .content-two-col .col-item {
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   padding: var(--space-2) 0;
   padding-left: 1.4em;
@@ -873,7 +873,7 @@
 
 .content-two-col .principle {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: var(--uw-gray-70);
   margin-top: var(--space-5);
   padding: var(--space-3) var(--space-4);
@@ -939,7 +939,7 @@
 
 .content-side-visual .quote-block {
   font-family: var(--font-body);
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 300;
   font-style: italic;
   color: var(--uw-gray-70);
@@ -951,7 +951,7 @@
 
 .content-side-visual .body-text {
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   color: var(--uw-gray-70);
   margin-top: var(--space-4);
   line-height: 1.5;
@@ -1085,7 +1085,7 @@
 
 .content-focus-cards .card-desc {
   font-family: var(--font-body);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: var(--uw-gray-70);
   line-height: 1.6;
@@ -1185,13 +1185,13 @@
 .content-h-cards .card-label {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--uw-gray-90);
 }
 
 .content-h-cards .card-desc {
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   color: var(--uw-gray-70);
   line-height: 1.5;
 }
@@ -1246,7 +1246,7 @@
 
 .content-list .item {
   font-family: var(--font-body);
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   color: var(--uw-gray-70);
   line-height: 1.5;
   padding-left: var(--space-3);
@@ -1261,7 +1261,7 @@
 
 .content-list .item code {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   background: rgba(75,46,131,0.06);
   padding: 2px 6px;
   border-radius: 3px;
@@ -1331,7 +1331,7 @@
 
 .doc-card .doc-filename {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
   letter-spacing: -0.02em;
@@ -1401,7 +1401,7 @@
 /* Variant: on purple/dark backgrounds */
 .callout--dark {
   font-family: var(--font-body);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: var(--uw-white);
   line-height: 1.5;
   background: rgba(255,199,0,0.08);
@@ -1414,7 +1414,7 @@
 .callout--dark .callout-label {
   font-family: var(--font-display-wide);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--uw-spirit-gold);
@@ -1424,7 +1424,7 @@
 /* Variant: on white/light backgrounds */
 .callout--light {
   font-family: var(--font-body);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: var(--uw-gray-70);
   line-height: 1.5;
   padding: var(--space-3) var(--space-4);
