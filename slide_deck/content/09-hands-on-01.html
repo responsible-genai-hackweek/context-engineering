@@ -26,12 +26,12 @@
       .slide-09 .badge {
         font-family: var(--font-display-wide);
         font-weight: 800;
-        font-size: 1.2rem;
+        font-size: 2rem;
         text-transform: uppercase;
         letter-spacing: 0.2em;
         color: var(--uw-spirit-gold);
-        border: 2px solid var(--uw-spirit-gold);
-        padding: var(--space-1) var(--space-4);
+        border: 3px solid var(--uw-spirit-gold);
+        padding: var(--space-2) var(--space-6);
         border-radius: var(--radius-md);
         margin-bottom: var(--space-4);
         display: inline-block;
@@ -110,14 +110,23 @@
       }
       .slide-09 .discussion {
         font-family: var(--font-body);
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         color: var(--uw-white);
-        opacity: 0.8;
-        line-height: 1.6;
+        line-height: 1.5;
+        background: rgba(255,199,0,0.08);
+        border: 1px solid rgba(255,199,0,0.3);
+        border-radius: 10px;
+        padding: var(--space-3) var(--space-5);
+        max-width: 70%;
       }
-      .slide-09 .discussion strong {
+      .slide-09 .discuss-label {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
         color: var(--uw-spirit-gold);
-        font-weight: 600;
+        margin-bottom: var(--space-1);
       }
     </style>
     <div class="slide-09">
@@ -155,6 +164,9 @@
         <p class="prompt-label">Paste this prompt into your terminal</p>
         <p class="prompt-text">"Create me a code block that queries the database and returns snow depth layer data for a snow pit and date during the Alaska campaign"</p>
       </div>
-      <p class="discussion"><strong>Discuss:</strong> How different are the outputs? Did you get the same solution?</p>
+      <div class="discussion">
+        <p class="discuss-label">Discuss</p>
+        <p>How different are the outputs? Did you get the same solution?</p>
+      </div>
     </div>
   </section>

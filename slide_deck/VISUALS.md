@@ -50,7 +50,7 @@ No additions.
 
 ### 05-introducing-snowex
 
-- **Logo (built):** SnowEx logo from https://snowexsql.readthedocs.io/en/latest/_static/logo.png, 90×90px, top-left beside headline.
+- **Logo (built):** SnowEx logo from https://snowexsql.readthedocs.io/en/latest/_static/logo.png, 280×280px, absolute top-right (space-5/space-8), object-fit contain, opacity 0.9.
 - **Schematic diagram (built):** SVG flow diagram showing data access pattern: "Your code" → "snowexsql" (with PointMeasurements, LayerMeasurements listed) → "SnowEx DB", with a return path labeled "→ DataFrame". Gold-highlighted border on the snowexsql box to draw attention to the package as the focal point.
 - **Photograph option:** A wide-frame shot of a SnowEx field campaign — researchers at a snow pit with instruments. Would reinforce the real-world scientific context. Place as a subtle background strip across the top 20% of the slide with low opacity (10-15%) and a white gradient fade at the bottom edge.
 
@@ -62,7 +62,7 @@ No additions.
 
 ### 07-demo-no-context
 
-- **Terminal window (built):** Semi-transparent dark rounded rectangle (70%×60%) centered on slide with three gold traffic-light dots in top-left. Signals "we are in the terminal" without using a black background. Applied consistently to all demo slides (08, 13, 18).
+- **Terminal window (built):** Semi-transparent dark rounded rectangle (70%×75%) centered on slide with three gold traffic-light dots in top-left. Signals "we are in the terminal" without using a black background. Applied consistently to all demo slides (07, 12, 17).
 - **`$ claude` command (built):** Gold monospace text showing the command being executed.
 
 ### 08-first-result
@@ -76,7 +76,7 @@ No additions.
 
 ### 10-start-adding-context
 
-No additions.
+- Document card mockup (built) — right side of slide, CSS-only. Purple gradient header with gold file icon (SVG) and "AGENTS.md" filename in monospace. Body shows abstract content lines (rounded bars in varying widths) grouped in 3 sections with gold bullet dots. Card has soft shadow and rounded corners.
 
 ### 11-writing-tips
 
@@ -96,7 +96,9 @@ No additions.
 
 ### 15-introduction-skills
 
-No additions.
+- **Icons (built):** Two inline SVG icons inside rounded purple-tinted squares (48×48px). Left card: pinned note icon (rectangle with pin dot at top + content lines — represents AGENTS.md, always posted on the wall). Right card: card with lightning bolt (represents Skills — invoked on demand). Purple stroke, no fill, width 1.8.
+- **Analogy callout (built):** Full-width gold-tinted band (rgba gold bg + 1.5px gold border, radius-lg). House/kitchen SVG icon (38×38, gold stroke) on left. Italic text with bold purple lead-in. Kitchen metaphor reinforcing the concept.
+- **Tip box (built):** Full-width purple-tinted card with info circle SVG icon. Portability tip about referencing skills in AGENTS.md.
 
 ### 16-skill-example
 
@@ -112,8 +114,11 @@ No additions.
 
 ### 19-context-vs-skill
 
-No additions.
+- **Journey step icons (built):** Three SVG icons in 60×60 purple-tinted rounded squares (radius 14px): monitor/screen (bare repo), file/document (AGENTS.md), card with lightning bolt (Skill). Purple stroke, width 2, 32×32.
+- **Result badges (built):** Monospace pills below each step showing progression: "Confident but wrong" → "Right direction" → "Consistent output". Purple-tinted bg, 1rem font-display weight 600.
+- **Gold arrows (built):** 2.4rem "→" characters connecting the three steps.
+- **Outcome callout (built):** Full-width gold-tinted box (2px gold border) with checkmark circle SVG (36×36, purple stroke-width 2.5).
 
 ### 20-takeaways
 
-No additions.
+- **Column header icons (built):** Two SVG icons in column headers — file/document icon for AGENTS.md column, card-with-lightning for Skills column. 20×20, purple stroke.

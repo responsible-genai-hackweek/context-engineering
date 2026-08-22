@@ -4,8 +4,8 @@
       .slide-06 {
         width: 100%;
         height: 100%;
-        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
-        color: var(--uw-white);
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -16,7 +16,7 @@
         font-family: var(--font-display);
         font-weight: 600;
         font-size: 1.5rem;
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
         margin-bottom: var(--space-4);
         text-transform: uppercase;
         letter-spacing: 0.04em;
@@ -26,9 +26,9 @@
         font-family: var(--font-mono);
         font-size: 1.25rem;
         line-height: 1.6;
-        color: var(--uw-white);
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,199,0,0.3);
+        color: var(--uw-gray-90);
+        background: rgba(75,46,131,0.04);
+        border: 1px solid rgba(75,46,131,0.2);
         border-radius: var(--radius-lg);
         padding: var(--space-3) var(--space-5);
         max-width: 80%;
@@ -44,10 +44,10 @@
       }
       .slide-06 .path-card {
         flex: 1;
-        background: rgba(255,255,255,0.05);
+        background: rgba(75,46,131,0.03);
         border-radius: var(--radius-lg);
         padding: var(--space-4) var(--space-4);
-        border: 1px solid rgba(255,255,255,0.15);
+        border: 1px solid rgba(75,46,131,0.12);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -55,7 +55,8 @@
       }
       .slide-06 .path-card.recommended {
         border-color: var(--uw-spirit-gold);
-        background: rgba(255,199,0,0.06);
+        border-top: 4px solid var(--uw-spirit-gold);
+        background: rgba(255,199,0,0.04);
       }
       .slide-06 .path-card .path-icon {
         margin-bottom: var(--space-2);
@@ -67,15 +68,16 @@
         text-transform: uppercase;
         letter-spacing: 0.08em;
         margin-bottom: var(--space-2);
+        color: var(--uw-husky-purple);
       }
       .slide-06 .path-card.recommended .path-label {
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
       }
       .slide-06 .path-card .path-desc {
         font-family: var(--font-body);
         font-size: 1rem;
         line-height: 1.5;
-        opacity: 0.85;
+        color: var(--uw-gray-70);
       }
       .slide-06 .path-card .path-badge {
         font-family: var(--font-display-condensed);
@@ -95,8 +97,7 @@
       .slide-06 .note {
         font-family: var(--font-body);
         font-size: 1.3rem;
-        color: var(--uw-white);
-        opacity: 0.8;
+        color: var(--uw-gray-70);
         margin-top: var(--space-4);
         font-weight: 400;
         text-align: center;
@@ -109,12 +110,12 @@
 
       <!-- Forking path SVG -->
       <svg class="fork-diagram" width="320" height="60" viewBox="0 0 320 60" aria-label="Two possible answer paths">
-        <line x1="160" y1="0" x2="160" y2="20" stroke="rgba(255,199,0,0.6)" stroke-width="2"/>
-        <circle cx="160" cy="22" r="4" fill="#ffc700"/>
-        <line x1="160" y1="26" x2="80" y2="55" stroke="rgba(255,199,0,0.5)" stroke-width="2"/>
-        <line x1="160" y1="26" x2="240" y2="55" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="4 3"/>
-        <circle cx="80" cy="55" r="5" fill="#ffc700" opacity="0.8"/>
-        <circle cx="240" cy="55" r="5" fill="rgba(255,255,255,0.4)"/>
+        <line x1="160" y1="0" x2="160" y2="20" stroke="rgba(75,46,131,0.4)" stroke-width="2"/>
+        <circle cx="160" cy="22" r="4" fill="#4b2e83"/>
+        <line x1="160" y1="26" x2="80" y2="55" stroke="rgba(255,199,0,0.7)" stroke-width="2"/>
+        <line x1="160" y1="26" x2="240" y2="55" stroke="rgba(75,46,131,0.25)" stroke-width="2" stroke-dasharray="4 3"/>
+        <circle cx="80" cy="55" r="5" fill="#ffc700"/>
+        <circle cx="240" cy="55" r="5" fill="rgba(75,46,131,0.3)"/>
       </svg>
 
       <div class="paths-container">
@@ -122,8 +123,8 @@
         <div class="path-card recommended">
           <span class="path-badge">Start here</span>
           <svg class="path-icon" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="16" r="8" fill="none" stroke="#ffc700" stroke-width="2"/>
-            <path d="M12 40 C12 32 36 32 36 40" fill="none" stroke="#ffc700" stroke-width="2"/>
+            <circle cx="24" cy="16" r="8" fill="none" stroke="#4b2e83" stroke-width="2"/>
+            <path d="M12 40 C12 32 36 32 36 40" fill="none" stroke="#4b2e83" stroke-width="2"/>
           </svg>
           <span class="path-label">Standard user</span>
           <p class="path-desc">Simple, readable query using high-level API filters. Fewer lines, easier to understand.</p>
@@ -132,10 +133,10 @@
         <!-- Power User Path -->
         <div class="path-card">
           <svg class="path-icon" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="16" r="8" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <path d="M12 40 C12 32 36 32 36 40" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <path d="M38 8 L42 12 L38 16" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <line x1="34" y1="12" x2="42" y2="12" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            <circle cx="24" cy="16" r="8" fill="none" stroke="rgba(75,46,131,0.5)" stroke-width="2"/>
+            <path d="M12 40 C12 32 36 32 36 40" fill="none" stroke="rgba(75,46,131,0.5)" stroke-width="2"/>
+            <path d="M38 8 L42 12 L38 16" fill="none" stroke="rgba(75,46,131,0.5)" stroke-width="2"/>
+            <line x1="34" y1="12" x2="42" y2="12" stroke="rgba(75,46,131,0.5)" stroke-width="2"/>
           </svg>
           <span class="path-label">Power user</span>
           <p class="path-desc">Advanced joins and raw SQL for complex multi-table queries. More flexible, steeper learning curve.</p>

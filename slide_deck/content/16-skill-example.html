@@ -1,58 +1,175 @@
-  <!-- Slide 17: Skill Example -->
-  <section class="slide" aria-label="Skill Example">
+  <!-- Slide 16: Skill Example -->
+  <section class="slide" aria-label="Skill Example: db-query">
     <style>
       .slide-16 {
-        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
-        color: var(--uw-white);
+        width: 100%;
+        height: 100%;
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-10);
+        position: relative;
+      }
+      .slide-16::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
       }
       .slide-16 .headline {
-        font-family: var(--font-display);
-        font-weight: 600;
-        font-size: 1.4rem;
-        color: var(--uw-spirit-gold);
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 2.2rem;
+        color: var(--uw-husky-purple);
         margin-bottom: var(--space-5);
-        align-self: flex-start;
+        line-height: 1.2;
+      }
+      .slide-16 .content-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: var(--space-6);
+        align-items: stretch;
+        width: 100%;
       }
       .slide-16 .code-block {
         font-family: var(--font-mono);
-        font-size: 1.15rem;
-        line-height: 1.9;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,199,0,0.2);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        background: rgba(75,46,131,0.04);
+        border: 1px solid rgba(75,46,131,0.12);
         border-radius: var(--radius-lg);
-        padding: var(--space-5) var(--space-6);
-        width: 75%;
+        padding: var(--space-4) var(--space-5);
       }
       .slide-16 .code-block .key {
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
+        font-weight: 700;
       }
       .slide-16 .code-block .val {
-        color: var(--uw-gray-30);
+        color: var(--uw-gray-70);
       }
-      .slide-16 .code-block .comment {
-        color: var(--uw-gray-50);
-        font-style: italic;
+      .slide-16 .annotations {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .slide-16 .annotation {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-3) var(--space-4);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
+      }
+      .slide-16 .annotation-icon {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(75,46,131,0.08);
+        border-radius: 6px;
+        margin-top: 2px;
+      }
+      .slide-16 .annotation-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-16 .annotation-content {
+        display: flex;
+        flex-direction: column;
+      }
+      .slide-16 .annotation-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--uw-gray-90);
+        margin-bottom: 2px;
+      }
+      .slide-16 .annotation-desc {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: var(--uw-gray-70);
+        line-height: 1.4;
+      }
+      .slide-16 .download-link {
+        margin-top: var(--space-3);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        padding: var(--space-2) var(--space-3);
+        background: rgba(255,199,0,0.08);
+        border: 1.5px solid rgba(255,199,0,0.3);
+        border-radius: var(--radius-lg);
+      }
+      .slide-16 .download-link svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-16 .download-link a {
+        color: var(--uw-husky-purple);
+        text-decoration: none;
+        font-weight: 600;
       }
     </style>
     <div class="slide-16">
-      <h2 class="headline">The db-query skill</h2>
-      <div class="code-block">
-        <span class="key">name:</span> <span class="val">db-query</span><br>
-        <span class="key">description:</span> <span class="val">"Query the SnowEx database</span><br>
-        <span class="val">&nbsp;&nbsp;for layer or point data"</span><br><br>
-        <span class="key">instructions:</span><br>
-        <span class="val">&nbsp;&nbsp;1. Use the simple API (not raw SQL)</span><br>
-        <span class="val">&nbsp;&nbsp;2. Connect with db_session()</span><br>
-        <span class="val">&nbsp;&nbsp;3. Use LayerData for profiles,</span><br>
-        <span class="val">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PointData for single values</span><br>
-        <span class="val">&nbsp;&nbsp;4. Filter with campaign=, date=</span><br>
-        <span class="val">&nbsp;&nbsp;5. Return as DataFrame</span>
+      <h2 class="headline">A real skill: <code style="font-family: var(--font-mono); background: rgba(75,46,131,0.08); padding: 2px 10px; border-radius: 4px;">db-query</code></h2>
+      <div class="content-grid">
+        <div class="code-block">
+          <span class="key">---</span><br>
+          <span class="key">name:</span> <span class="val">db-query</span><br>
+          <span class="key">description:</span> <span class="val">Guide to answering SnowEx database query questions</span><br>
+          <span class="key">whenToUse:</span> <span class="val">When the user asks how to query, access, or filter data</span><br>
+          <span class="key">---</span><br><br>
+          <span class="val">## No setup required</span><br>
+          <span class="val">Use the preferred Lambda client. No env vars, credentials, or AWS account.</span><br><br>
+          <span class="val" style="opacity: 0.5;">... (filtering, query limits)</span>
+        </div>
+        <div class="annotations">
+          <div class="annotation">
+            <div class="annotation-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+            <div class="annotation-content">
+              <div class="annotation-title">name</div>
+              <div class="annotation-desc">How you invoke it — short and memorable</div>
+            </div>
+          </div>
+          <div class="annotation">
+            <div class="annotation-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="annotation-content">
+              <div class="annotation-title">description + whenToUse</div>
+              <div class="annotation-desc">How the agent decides whether to load this skill — match criteria</div>
+            </div>
+          </div>
+          <div class="annotation">
+            <div class="annotation-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="annotation-content">
+              <div class="annotation-title">body (instructions)</div>
+              <div class="annotation-desc">The procedure the agent follows — constraints, tips, and guardrails</div>
+            </div>
+          </div>
+          <div class="download-link">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <a href="https://github.com/user-attachments/files/31163900/db-query.md" target="_blank">Download full skill: db-query.md</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

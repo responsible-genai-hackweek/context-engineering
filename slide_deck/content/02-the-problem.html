@@ -9,7 +9,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-10);
         position: relative;
       }
       .slide-02::before {
@@ -24,102 +24,200 @@
       .slide-02 .headline {
         font-family: var(--font-display-wide);
         font-weight: 700;
-        font-size: 3.4rem;
-        line-height: 1.12;
+        font-size: 2.8rem;
+        line-height: 1.15;
         color: var(--uw-husky-purple);
-        margin-bottom: var(--space-8);
+        margin-bottom: var(--space-6);
+      }
+      .slide-02 .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: var(--space-8);
+        align-items: center;
+        width: 100%;
       }
       .slide-02 .points {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-5) var(--space-8);
-        max-width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
       }
       .slide-02 .point {
-        font-family: var(--font-body);
-        font-size: 1.3rem;
-        font-weight: 300;
-        color: var(--uw-gray-70);
-        line-height: 1.5;
-        padding-left: var(--space-3);
-        border-left: 3px solid var(--uw-spirit-gold);
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-3) var(--space-4);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
       }
-      .slide-02 .point em {
-        color: var(--uw-spirit-purple);
-        font-style: normal;
-        font-weight: 600;
+      .slide-02 .point-icon {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(75,46,131,0.08);
+        border-radius: 8px;
+        margin-top: 2px;
+      }
+      .slide-02 .point-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-02 .point-content {
+        display: flex;
+        flex-direction: column;
+      }
+      .slide-02 .point-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--uw-gray-90);
+        margin-bottom: 2px;
+      }
+      .slide-02 .point-desc {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: var(--uw-gray-70);
+        line-height: 1.4;
+      }
+      .slide-02 .visual-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .slide-02 .visual {
-        position: absolute;
-        right: var(--space-8);
-        bottom: var(--space-8);
-        width: 420px;
-        height: 300px;
+        width: 100%;
+        height: auto;
       }
-      .slide-02 .visual circle.outline {
-        fill: none;
+      .slide-02 .visual .brain-circle {
+        fill: rgba(75,46,131,0.06);
+        stroke: var(--uw-husky-purple);
+        stroke-width: 3.5;
+      }
+      .slide-02 .visual .agent-circle {
+        fill: rgba(75,46,131,0.03);
+        stroke: var(--uw-husky-purple);
+        stroke-width: 3;
+        stroke-dasharray: 8 5;
+      }
+      .slide-02 .visual .connector {
         stroke: var(--uw-spirit-gold);
-        stroke-width: 2;
+        stroke-width: 5;
+        stroke-dasharray: 12 7;
       }
-      .slide-02 .visual line.connector {
-        stroke: var(--uw-spirit-gold);
-        stroke-width: 1.5;
-        stroke-dasharray: 8 6;
+      .slide-02 .visual .dot {
+        fill: var(--uw-husky-purple);
       }
-      .slide-02 .visual circle.dot {
-        fill: var(--uw-spirit-gold);
+      .slide-02 .visual .dot-faint {
+        fill: var(--uw-husky-purple);
+        opacity: 0.12;
       }
-      .slide-02 .visual circle.dot-faint {
-        fill: var(--uw-spirit-gold);
-        opacity: 0.25;
+      .slide-02 .visual .label {
+        font-family: var(--font-display-wide);
+        font-size: 18px;
+        font-weight: 800;
+        fill: var(--uw-husky-purple);
+        text-anchor: middle;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
-      .slide-02 .visual text {
-        font-family: var(--font-display-condensed);
+      .slide-02 .visual .sublabel {
+        font-family: var(--font-body);
         font-size: 13px;
-        fill: var(--uw-gray-50);
+        fill: var(--uw-gray-60, #666);
+        text-anchor: middle;
+      }
+      .slide-02 .visual .arrow-head {
+        fill: var(--uw-spirit-gold);
+      }
+      .slide-02 .visual .question-marks {
+        font-family: var(--font-display-wide);
+        font-size: 32px;
+        font-weight: 800;
+        fill: var(--uw-husky-purple);
+        opacity: 0.25;
         text-anchor: middle;
       }
     </style>
     <div class="slide-02">
       <h2 class="headline">Your agent does not remember<br>most of your project context</h2>
-      <div class="points">
-        <p class="point">Every new session starts from <em>minimal memory</em>.</p>
-        <p class="point">It doesn't know your data, your conventions, or your goals.</p>
-        <p class="point">It's good at reverse engineering — and eager to try.</p>
-        <p class="point">Persistent durability is dependent on <em>you</em>.</p>
+      <div class="content-grid">
+        <div class="points">
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg></div>
+            <div class="point-content">
+              <div class="point-title">Blind to your project</div>
+              <div class="point-desc">Doesn't know your data, conventions, or goals</div>
+            </div>
+          </div>
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg></div>
+            <div class="point-content">
+              <div class="point-title">Resets every session</div>
+              <div class="point-desc">No memory carries over — starts fresh each time</div>
+            </div>
+          </div>
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4m0 4h.01"/></svg></div>
+            <div class="point-content">
+              <div class="point-title">Fills gaps confidently</div>
+              <div class="point-desc">Good at reverse engineering — and eager to guess wrong</div>
+            </div>
+          </div>
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="point-content">
+              <div class="point-title">Durability is up to you</div>
+              <div class="point-desc">You decide what persists — the agent won't do it for you</div>
+            </div>
+          </div>
+        </div>
+        <div class="visual-container">
+          <svg class="visual" viewBox="0 0 500 320" aria-hidden="true">
+            <!-- Left circle: your knowledge (dense, full) -->
+            <circle class="brain-circle" cx="135" cy="150" r="115"/>
+            <text class="label" x="135" y="290">YOU</text>
+            <text class="sublabel" x="135" y="308">conventions, data, goals</text>
+            <!-- Dense dots — rich domain knowledge -->
+            <circle class="dot" cx="85" cy="95" r="7"/>
+            <circle class="dot" cx="120" cy="85" r="6.5"/>
+            <circle class="dot" cx="160" cy="90" r="7"/>
+            <circle class="dot" cx="95" cy="125" r="6.5"/>
+            <circle class="dot" cx="135" cy="115" r="7"/>
+            <circle class="dot" cx="175" cy="120" r="6"/>
+            <circle class="dot" cx="75" cy="150" r="6.5"/>
+            <circle class="dot" cx="110" cy="145" r="7"/>
+            <circle class="dot" cx="150" cy="143" r="6.5"/>
+            <circle class="dot" cx="185" cy="148" r="6"/>
+            <circle class="dot" cx="88" cy="180" r="7"/>
+            <circle class="dot" cx="125" cy="172" r="6.5"/>
+            <circle class="dot" cx="162" cy="175" r="7"/>
+            <circle class="dot" cx="100" cy="205" r="6"/>
+            <circle class="dot" cx="140" cy="200" r="6.5"/>
+            <circle class="dot" cx="175" cy="185" r="6"/>
+
+            <!-- Arrow connector -->
+            <line class="connector" x1="255" y1="150" x2="320" y2="150"/>
+            <polygon class="arrow-head" points="316,140 340,150 316,160"/>
+
+            <!-- Right circle: agent's knowledge (nearly empty) -->
+            <circle class="agent-circle" cx="400" cy="150" r="85"/>
+            <text class="label" x="400" y="258">AGENT</text>
+            <text class="sublabel" x="400" y="276">each new session</text>
+            <!-- Sparse faint dots — almost nothing -->
+            <circle class="dot-faint" cx="385" cy="135" r="6"/>
+            <circle class="dot-faint" cx="415" cy="160" r="5.5"/>
+            <!-- Question marks to emphasize emptiness -->
+            <text class="question-marks" x="400" y="158">? ?</text>
+          </svg>
+        </div>
       </div>
-      <svg class="visual" viewBox="0 0 420 300" aria-hidden="true">
-        <!-- Left circle: researcher's knowledge (dense) -->
-        <circle class="outline" cx="115" cy="140" r="90"/>
-        <text x="115" y="260">YOU</text>
-        <!-- Dense dots — representing rich domain knowledge -->
-        <circle class="dot" cx="80" cy="105" r="4"/>
-        <circle class="dot" cx="105" cy="95" r="3.5"/>
-        <circle class="dot" cx="135" cy="100" r="4"/>
-        <circle class="dot" cx="90" cy="125" r="3.5"/>
-        <circle class="dot" cx="120" cy="120" r="4"/>
-        <circle class="dot" cx="145" cy="125" r="3"/>
-        <circle class="dot" cx="75" cy="145" r="3.5"/>
-        <circle class="dot" cx="100" cy="140" r="4"/>
-        <circle class="dot" cx="130" cy="138" r="3.5"/>
-        <circle class="dot" cx="150" cy="145" r="3"/>
-        <circle class="dot" cx="85" cy="160" r="4"/>
-        <circle class="dot" cx="110" cy="158" r="3.5"/>
-        <circle class="dot" cx="138" cy="162" r="4"/>
-        <circle class="dot" cx="95" cy="178" r="3"/>
-        <circle class="dot" cx="125" cy="175" r="3.5"/>
-        <circle class="dot" cx="108" cy="115" r="3"/>
-        <circle class="dot" cx="140" cy="155" r="3"/>
-        <circle class="dot" cx="68" cy="130" r="3"/>
-        <!-- Dashed connector with arrow -->
-        <line class="connector" x1="210" y1="140" x2="270" y2="140"/>
-        <polygon points="268,134 280,140 268,146" fill="var(--uw-spirit-gold)" opacity="0.6"/>
-        <!-- Right circle: agent's knowledge (nearly empty) -->
-        <circle class="outline" cx="340" cy="140" r="70" stroke-dasharray="4 3"/>
-        <text x="340" y="235">AGENT</text>
-        <!-- Sparse faint dots -->
-        <circle class="dot-faint" cx="330" cy="130" r="3.5"/>
-        <circle class="dot-faint" cx="350" cy="150" r="3"/>
-      </svg>
     </div>
   </section>

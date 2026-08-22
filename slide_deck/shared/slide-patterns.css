@@ -1,0 +1,1433 @@
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * SLIDE PATTERNS — Recipe Book for AI Agents
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * PURPOSE:
+ * This file is a REFERENCE DOCUMENT, not a linked stylesheet. Agents read
+ * these patterns and write them as inline <style> blocks in each slide HTML,
+ * substituting the generic class name (e.g. `.demo-slide`) with a slide-
+ * specific prefix (e.g. `.slide-07`).
+ *
+ * WHY INLINE?
+ * The base slide system (`section.slide.active { display: flex }` in
+ * header.html) creates specificity conflicts with shared CSS classes.
+ * Inline <style> blocks with unique class prefixes avoid this entirely.
+ *
+ * HOW TO USE:
+ * 1. Read SLIDES.md to find the pattern name (e.g. "uses demo-slide pattern")
+ * 2. Find that pattern below
+ * 3. Copy the CSS into the slide's inline <style> block
+ * 4. Replace the pattern class name with .slide-XX
+ * 5. Fill in content from SLIDES.md
+ *
+ * DESIGN SYSTEM RULES:
+ * - Background signals mode: white = absorb (content), purple = act (activity)
+ * - Gold (#ffc700) is NEVER used as text on white backgrounds (fails WCAG AA)
+ * - On white: gold is for borders, bars, accents only. Text emphasis = purple.
+ * - On purple: gold text is fine (high contrast against dark)
+ * - All text must pass WCAG AA (4.5:1 body, 3:1 large text)
+ *
+ * AVAILABLE DESIGN TOKENS (from :root in header.html):
+ * Colors: --uw-husky-purple, --uw-spirit-purple, --uw-spirit-gold,
+ *         --uw-white, --uw-gray-90, --uw-gray-70, --uw-gray-50, --uw-gray-30, --uw-gray-10
+ * Fonts:  --font-display, --font-display-wide, --font-display-condensed,
+ *         --font-display-narrow, --font-body, --font-mono
+ * Space:  --space-1 (8px) through --space-20 (160px)
+ * Radius: --radius-sm (2px), --radius-md (4px), --radius-lg (8px)
+ * Shadow: --shadow-sm, --shadow-md, --shadow-lg
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * SECTION A: ACTIVITY PATTERNS (purple gradient background)
+ * Used for demos, hands-on exercises, and transition slides.
+ * These signal "do something" to the audience.
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * A1. DEMO SLIDE
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: Live demo placeholder slides. Shown while instructor works
+ * in a terminal. Provides orienting context so audience can follow along.
+ *
+ * HTML structure:
+ *   <div class="demo-slide">
+ *     <div class="terminal-bg">
+ *       <div class="terminal-dots"><span></span><span></span><span></span></div>
+ *     </div>
+ *     <div class="content">
+ *       <div class="badge">Live Demo</div>
+ *       <h2 class="title">Title text here</h2>
+ *       <p class="cmd">command-to-run</p>
+ *       <p class="desc">One-line description of what's happening</p>
+ *       <div class="callout">
+ *         <p class="callout-label">Watch for</p>
+ *         <p>Orienting question for the audience</p>
+ *       </div>
+ *     </div>
+ *   </div>
+ */
+
+.demo-slide {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+  color: var(--uw-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-10);
+  text-align: center;
+  position: relative;
+}
+
+.demo-slide .terminal-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 75%;
+  background: rgba(0,0,0,0.25);
+  border-radius: 12px;
+  border: 1px solid rgba(255,199,0,0.2);
+}
+
+.demo-slide .terminal-dots {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.demo-slide .terminal-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,199,0,0.4);
+}
+
+.demo-slide .terminal-dots span:nth-child(2) {
+  background: rgba(255,199,0,0.25);
+}
+
+.demo-slide .terminal-dots span:nth-child(3) {
+  background: rgba(255,199,0,0.15);
+}
+
+.demo-slide .content {
+  position: relative;
+  z-index: 2;
+}
+
+.demo-slide .badge {
+  font-family: var(--font-display-wide);
+  font-weight: 800;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--uw-spirit-gold);
+  border: 3px solid var(--uw-spirit-gold);
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+  display: inline-block;
+}
+
+.demo-slide .title {
+  font-family: var(--font-mono);
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.demo-slide .cmd {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--uw-spirit-gold);
+  margin-bottom: var(--space-4);
+  opacity: 0.9;
+}
+
+.demo-slide .cmd::before {
+  content: '$ ';
+  opacity: 0.5;
+}
+
+.demo-slide .desc {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--uw-white);
+  opacity: 0.75;
+  width: 100%;
+  text-align: center;
+  line-height: 1.8;
+  margin-bottom: var(--space-5);
+}
+
+.demo-slide .callout {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  color: var(--uw-white);
+  line-height: 1.5;
+  background: rgba(255,199,0,0.08);
+  border: 1px solid rgba(255,199,0,0.3);
+  border-radius: 10px;
+  padding: var(--space-3) var(--space-5);
+  width: 100%;
+  text-align: center;
+}
+
+.demo-slide .callout-label {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--uw-spirit-gold);
+  margin-bottom: var(--space-1);
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * A2. HANDS-ON SLIDE (simple variant)
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: Audience activity slides with instructions and a discussion
+ * prompt. No prompt box or activity-step row.
+ *
+ * HTML structure:
+ *   <div class="handson-slide">
+ *     <div class="badge">Your Turn</div>
+ *     <h2 class="headline">Headline question</h2>
+ *     <div class="instructions">
+ *       <p class="instruction-item">First instruction</p>
+ *       <p class="instruction-item">Second instruction</p>
+ *     </div>
+ *     <div class="callout">
+ *       <p class="callout-label">Discuss</p>
+ *       <p>Discussion question</p>
+ *     </div>
+ *   </div>
+ */
+
+.handson-slide {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+  color: var(--uw-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-8) var(--space-12);
+  position: relative;
+  text-align: center;
+}
+
+.handson-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--uw-spirit-gold);
+}
+
+.handson-slide .badge {
+  font-family: var(--font-display-wide);
+  font-weight: 800;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--uw-spirit-gold);
+  border: 3px solid var(--uw-spirit-gold);
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  display: inline-block;
+}
+
+.handson-slide .headline {
+  font-family: var(--font-display-wide);
+  font-weight: 800;
+  font-size: 2.8rem;
+  margin-bottom: var(--space-6);
+  line-height: 1.1;
+}
+
+.handson-slide .instructions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: rgba(255,255,255,0.04);
+  padding: var(--space-5) var(--space-8);
+  border-radius: 12px;
+  border: 1px solid rgba(255,199,0,0.15);
+  max-width: 70%;
+}
+
+.handson-slide .instruction-item {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--uw-white);
+  opacity: 0.9;
+  line-height: 1.5;
+  text-align: left;
+  padding-left: 1.5em;
+  position: relative;
+}
+
+.handson-slide .instruction-item::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--uw-spirit-gold);
+  font-weight: 700;
+}
+
+.handson-slide .callout {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  color: var(--uw-white);
+  line-height: 1.5;
+  background: rgba(255,199,0,0.08);
+  border: 1px solid rgba(255,199,0,0.3);
+  border-radius: 10px;
+  padding: var(--space-3) var(--space-5);
+  max-width: 70%;
+  margin-top: var(--space-6);
+}
+
+.handson-slide .callout-label {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--uw-spirit-gold);
+  margin-bottom: var(--space-1);
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * A3. HANDS-ON SLIDE (full variant — with activity row and prompt box)
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: First hands-on slide in a section where learners need
+ * explicit step-by-step instructions and a prompt to paste.
+ *
+ * Extends A2 with:
+ *   .activity-row  — horizontal step-by-step visual (icon → label)
+ *   .prompt-box    — dark box with a command/prompt to paste
+ *
+ * HTML structure:
+ *   <div class="handson-slide">
+ *     <div class="badge">Your Turn</div>
+ *     <h2 class="headline">Headline</h2>
+ *     <div class="activity-row">
+ *       <div class="activity-step">
+ *         <svg class="activity-icon" viewBox="0 0 72 72">...</svg>
+ *         <span class="activity-label">Step name</span>
+ *       </div>
+ *       <span class="arrow">&rarr;</span>
+ *       <!-- repeat activity-step + arrow -->
+ *     </div>
+ *     <div class="prompt-box">
+ *       <p class="prompt-label">Instruction label</p>
+ *       <p class="prompt-text">"The prompt to paste"</p>
+ *     </div>
+ *     <div class="callout">
+ *       <p class="callout-label">Discuss</p>
+ *       <p>Discussion question</p>
+ *     </div>
+ *   </div>
+ */
+
+/* Activity row (add to A2 base) */
+.handson-slide .activity-row {
+  display: flex;
+  gap: var(--space-5);
+  align-items: center;
+  margin-bottom: var(--space-6);
+  background: rgba(255,255,255,0.04);
+  padding: var(--space-4) var(--space-6);
+  border-radius: 12px;
+  border: 1px solid rgba(255,199,0,0.15);
+}
+
+.handson-slide .activity-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.handson-slide .activity-icon {
+  width: 72px;
+  height: 72px;
+}
+
+/* SVG elements inside activity icons */
+.handson-slide .activity-icon rect,
+.handson-slide .activity-icon path,
+.handson-slide .activity-icon circle,
+.handson-slide .activity-icon line {
+  fill: none;
+  stroke: var(--uw-spirit-gold);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.handson-slide .activity-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--uw-white);
+}
+
+.handson-slide .arrow {
+  font-size: 2.2rem;
+  color: var(--uw-spirit-gold);
+  opacity: 0.7;
+}
+
+/* Prompt box (add to A2 base) */
+.handson-slide .prompt-box {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,199,0,0.3);
+  border-radius: 12px;
+  padding: var(--space-4) var(--space-6);
+  width: 85%;
+  text-align: left;
+  margin-bottom: var(--space-4);
+}
+
+.handson-slide .prompt-box .prompt-label {
+  font-family: var(--font-display-condensed);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--uw-spirit-gold);
+  margin-bottom: var(--space-2);
+}
+
+.handson-slide .prompt-box .prompt-text {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  color: var(--uw-white);
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * A4. TRANSITION / BRIDGE SLIDE
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: Between major sections of a talk. Signals a topic shift.
+ * Includes a progress indicator and a bridge question.
+ *
+ * HTML structure:
+ *   <div class="transition-slide">
+ *     <div class="progress">
+ *       <div class="progress-step">
+ *         <div class="progress-dot done"><svg>checkmark</svg></div>
+ *         <span class="progress-label done">Completed topic</span>
+ *       </div>
+ *       <div class="progress-line"></div>
+ *       <div class="progress-step">
+ *         <div class="progress-dot next"><span>2</span></div>
+ *         <span class="progress-label next">Next topic</span>
+ *       </div>
+ *     </div>
+ *     <h2 class="question">Bridge question here?</h2>
+ *     <div class="context-box">
+ *       <p><strong>Key phrase</strong> — supporting context.</p>
+ *     </div>
+ *   </div>
+ */
+
+.transition-slide {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+  color: var(--uw-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-10) var(--space-12);
+  text-align: center;
+  position: relative;
+}
+
+.transition-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--uw-spirit-gold);
+}
+
+.transition-slide .progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+  background: rgba(255,255,255,0.04);
+  padding: var(--space-4) var(--space-8);
+  border-radius: 60px;
+  border: 1px solid rgba(255,199,0,0.15);
+}
+
+.transition-slide .progress-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.transition-slide .progress-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.transition-slide .progress-dot.done {
+  background: var(--uw-spirit-gold);
+}
+
+.transition-slide .progress-dot.done svg {
+  width: 22px;
+  height: 22px;
+  stroke: #350056;
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.transition-slide .progress-dot.next {
+  background: rgba(255,255,255,0.08);
+  border: 2px solid var(--uw-spirit-gold);
+}
+
+.transition-slide .progress-dot.next span {
+  font-family: var(--font-display-wide);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--uw-spirit-gold);
+}
+
+.transition-slide .progress-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+}
+
+.transition-slide .progress-label.done {
+  color: var(--uw-spirit-gold);
+}
+
+.transition-slide .progress-label.next {
+  color: var(--uw-white);
+  opacity: 0.8;
+}
+
+.transition-slide .progress-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--uw-spirit-gold), rgba(255,199,0,0.2));
+}
+
+.transition-slide .question {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 1.2;
+  max-width: 80%;
+  margin-bottom: var(--space-6);
+}
+
+.transition-slide .context-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,199,0,0.25);
+  border-radius: 12px;
+  padding: var(--space-4) var(--space-6);
+  max-width: 65%;
+  text-align: center;
+}
+
+.transition-slide .context-box p {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  color: var(--uw-white);
+  line-height: 1.6;
+}
+
+.transition-slide .context-box strong {
+  color: var(--uw-spirit-gold);
+  font-weight: 600;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * SECTION B: CONTENT PATTERNS (white background)
+ * Used for teaching content — concepts, tips, summaries, definitions.
+ * These signal "absorb/read" to the audience.
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * B1. CARD GRID (icon + title + description)
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: Tips, features, key points. Each item gets a small icon,
+ * a bold title, and a short description. Arranged in a 2-column grid.
+ *
+ * HTML structure:
+ *   <div class="content-card-grid">
+ *     <h2 class="headline">Headline with <span>emphasis</span></h2>
+ *     <div class="grid">
+ *       <div class="card">
+ *         <div class="card-icon"><svg>...</svg></div>
+ *         <div class="card-body">
+ *           <div class="card-title">Title</div>
+ *           <div class="card-desc">Description text</div>
+ *         </div>
+ *       </div>
+ *       <!-- repeat cards -->
+ *     </div>
+ *   </div>
+ */
+
+.content-card-grid {
+  width: 100%;
+  height: 100%;
+  background: var(--uw-white);
+  color: var(--uw-gray-90);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-8) var(--space-12);
+  position: relative;
+}
+
+.content-card-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--uw-spirit-gold);
+}
+
+.content-card-grid .headline {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--uw-husky-purple);
+  margin-bottom: var(--space-6);
+  line-height: 1.2;
+}
+
+/* Gold underline emphasis on white (NOT gold text — fails contrast) */
+.content-card-grid .headline span {
+  border-bottom: 4px solid var(--uw-spirit-gold);
+  padding-bottom: 2px;
+}
+
+.content-card-grid .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4) var(--space-6);
+  width: 100%;
+}
+
+.content-card-grid .card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(75,46,131,0.03);
+  border: 1px solid rgba(75,46,131,0.1);
+  border-radius: var(--radius-lg);
+}
+
+.content-card-grid .card-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(75,46,131,0.08);
+  border-radius: 8px;
+  margin-top: 2px;
+}
+
+.content-card-grid .card-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--uw-husky-purple);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.content-card-grid .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-card-grid .card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--uw-gray-90);
+  margin-bottom: 3px;
+}
+
+.content-card-grid .card-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--uw-gray-70);
+  line-height: 1.4;
+}
+
+.content-card-grid .card-desc code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: rgba(75,46,131,0.08);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--uw-husky-purple);
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * B2. TWO-COLUMN COMPARISON (include/exclude, pros/cons, before/after)
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: Contrasting two categories side by side. Each column has
+ * a header with an icon and a list of items with markers.
+ *
+ * HTML structure:
+ *   <div class="content-two-col">
+ *     <h2 class="headline">Headline</h2>
+ *     <div class="columns">
+ *       <div class="col col-positive">
+ *         <div class="col-header"><svg>checkmark</svg> Label</div>
+ *         <p class="col-item">Item text</p>
+ *       </div>
+ *       <div class="col col-negative">
+ *         <div class="col-header"><svg>X mark</svg> Label</div>
+ *         <p class="col-item">Item text</p>
+ *       </div>
+ *     </div>
+ *     <p class="principle">Summary principle (optional)</p>
+ *   </div>
+ */
+
+.content-two-col {
+  width: 100%;
+  height: 100%;
+  background: var(--uw-white);
+  color: var(--uw-gray-90);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-8) var(--space-12);
+  position: relative;
+}
+
+.content-two-col::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--uw-spirit-gold);
+}
+
+.content-two-col .headline {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--uw-husky-purple);
+  margin-bottom: var(--space-5);
+  line-height: 1.2;
+}
+
+.content-two-col .columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.content-two-col .col {
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+}
+
+.content-two-col .col-positive {
+  background: rgba(75,46,131,0.04);
+  border: 1px solid rgba(75,46,131,0.12);
+}
+
+.content-two-col .col-negative {
+  background: rgba(0,0,0,0.02);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.content-two-col .col-header {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.content-two-col .col-positive .col-header {
+  color: var(--uw-husky-purple);
+  border-bottom: 3px solid var(--uw-husky-purple);
+}
+
+.content-two-col .col-negative .col-header {
+  color: var(--uw-gray-50);
+  border-bottom: 3px solid var(--uw-gray-30);
+}
+
+.content-two-col .col-header svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.content-two-col .col-positive .col-header svg {
+  stroke: var(--uw-husky-purple);
+}
+
+.content-two-col .col-negative .col-header svg {
+  stroke: var(--uw-gray-50);
+}
+
+.content-two-col .col-item {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  padding: var(--space-2) 0;
+  padding-left: 1.4em;
+  position: relative;
+}
+
+.content-two-col .col-positive .col-item {
+  color: var(--uw-gray-90);
+}
+
+.content-two-col .col-negative .col-item {
+  color: var(--uw-gray-70);
+}
+
+.content-two-col .col-positive .col-item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--uw-husky-purple);
+  font-weight: 700;
+}
+
+.content-two-col .col-negative .col-item::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  color: var(--uw-gray-50);
+  font-weight: 700;
+}
+
+.content-two-col .principle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--uw-gray-70);
+  margin-top: var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  border-left: 4px solid var(--uw-spirit-gold);
+  font-style: italic;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * B3. CONTENT WITH SIDE VISUAL (text left, decorative element right)
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: Introducing a concept with a visual representation on the
+ * right side (document mockup, diagram, illustration).
+ *
+ * HTML structure:
+ *   <div class="content-side-visual">
+ *     <div class="content-grid">
+ *       <div class="left-content">
+ *         <h2 class="headline">Headline</h2>
+ *         <blockquote class="quote-block">Quote text</blockquote>
+ *         <p class="body-text">Supporting text</p>
+ *         <p class="source-link"><a href="...">Link text</a></p>
+ *       </div>
+ *       <div class="side-visual">
+ *         <!-- Custom visual element here -->
+ *       </div>
+ *     </div>
+ *   </div>
+ */
+
+.content-side-visual {
+  width: 100%;
+  height: 100%;
+  background: var(--uw-white);
+  color: var(--uw-gray-90);
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-8) var(--space-10);
+}
+
+.content-side-visual .content-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.content-side-visual .left-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-side-visual .headline {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--uw-husky-purple);
+  margin-bottom: var(--space-4);
+  line-height: 1.2;
+}
+
+.content-side-visual .quote-block {
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--uw-gray-70);
+  border-left: 5px solid var(--uw-spirit-gold);
+  padding: var(--space-3) var(--space-5);
+  margin: var(--space-3) 0;
+  line-height: 1.5;
+}
+
+.content-side-visual .body-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--uw-gray-70);
+  margin-top: var(--space-4);
+  line-height: 1.5;
+}
+
+.content-side-visual .body-text strong {
+  color: var(--uw-gray-90);
+}
+
+.content-side-visual .source-link {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  margin-top: var(--space-4);
+}
+
+.content-side-visual .source-link a {
+  color: var(--uw-spirit-purple);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid var(--uw-spirit-gold);
+  padding-bottom: 2px;
+}
+
+.content-side-visual .side-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * B4. FOCUS CARDS (numbered items, overview/agenda)
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: Presenting 2-4 major topics or agenda items with large
+ * numbers, bold labels, and short descriptions. Equal-width cards in a row.
+ *
+ * HTML structure:
+ *   <div class="content-focus-cards">
+ *     <h2 class="headline">Headline with <span>emphasis</span></h2>
+ *     <div class="cards">
+ *       <div class="card">
+ *         <span class="card-num">1</span>
+ *         <span class="card-label">Label <code>monospace</code></span>
+ *         <span class="card-desc">Description text</span>
+ *       </div>
+ *       <!-- repeat cards -->
+ *     </div>
+ *   </div>
+ */
+
+.content-focus-cards {
+  width: 100%;
+  height: 100%;
+  background: var(--uw-white);
+  color: var(--uw-gray-90);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-12) var(--space-16);
+  position: relative;
+}
+
+.content-focus-cards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--uw-spirit-gold);
+}
+
+.content-focus-cards .headline {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 1.15;
+  margin-bottom: var(--space-10);
+  color: var(--uw-husky-purple);
+}
+
+/* Gold underline emphasis — NOT gold text on white */
+.content-focus-cards .headline span {
+  color: var(--uw-husky-purple);
+  border-bottom: 4px solid var(--uw-spirit-gold);
+  padding-bottom: 2px;
+}
+
+.content-focus-cards .cards {
+  display: flex;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.content-focus-cards .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: 1px solid rgba(75,46,131,0.15);
+  border-top: 4px solid var(--uw-spirit-gold);
+  border-radius: var(--radius-lg);
+  background: rgba(75,46,131,0.03);
+}
+
+.content-focus-cards .card-num {
+  font-family: var(--font-display-wide);
+  font-weight: 800;
+  font-size: 3.5rem;
+  color: var(--uw-husky-purple);
+  line-height: 1;
+}
+
+.content-focus-cards .card-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--uw-husky-purple);
+  line-height: 1.3;
+}
+
+.content-focus-cards .card-label code {
+  font-family: var(--font-mono);
+  background: rgba(75,46,131,0.08);
+  padding: 3px 12px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.content-focus-cards .card-desc {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--uw-gray-70);
+  line-height: 1.6;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * B5. CONTENT WITH HORIZONTAL CARDS (icon + label + description)
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: Showing 2-4 results, outcomes, or observations as a
+ * horizontal row of equal-width cards with top gold borders and icons.
+ *
+ * HTML structure:
+ *   <div class="content-h-cards">
+ *     <h2 class="headline">Headline</h2>
+ *     <div class="cards">
+ *       <div class="card">
+ *         <svg class="card-icon" viewBox="0 0 48 48">...</svg>
+ *         <span class="card-label">Label</span>
+ *         <p class="card-desc">Description</p>
+ *       </div>
+ *       <!-- repeat cards -->
+ *     </div>
+ *   </div>
+ *
+ * Note: This is the pattern used for slide 08 (first-result). Read
+ * the existing slide for SVG icon examples.
+ */
+
+.content-h-cards {
+  width: 100%;
+  height: 100%;
+  background: var(--uw-white);
+  color: var(--uw-gray-90);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-10) var(--space-12);
+  position: relative;
+}
+
+.content-h-cards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--uw-spirit-gold);
+}
+
+.content-h-cards .headline {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--uw-husky-purple);
+  margin-bottom: var(--space-6);
+  line-height: 1.2;
+}
+
+.content-h-cards .cards {
+  display: flex;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.content-h-cards .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border-top: 4px solid var(--uw-spirit-gold);
+  border-radius: var(--radius-lg);
+  background: rgba(75,46,131,0.03);
+}
+
+.content-h-cards .card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-2);
+}
+
+.content-h-cards .card-icon path,
+.content-h-cards .card-icon circle,
+.content-h-cards .card-icon line,
+.content-h-cards .card-icon polyline {
+  fill: none;
+  stroke: var(--uw-husky-purple);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.content-h-cards .card-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--uw-gray-90);
+}
+
+.content-h-cards .card-desc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--uw-gray-70);
+  line-height: 1.5;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * B6. CONTENT WITH GOLD-BORDER LIST (simple text slides)
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: A headline with several supporting points, each marked
+ * with a gold left border. Simple, text-forward.
+ *
+ * HTML structure:
+ *   <div class="content-list">
+ *     <h2 class="headline">Headline</h2>
+ *     <div class="items">
+ *       <div class="item">
+ *         <strong>Bold label</strong>
+ *         Supporting text
+ *       </div>
+ *       <!-- repeat items -->
+ *     </div>
+ *   </div>
+ */
+
+.content-list {
+  width: 100%;
+  height: 100%;
+  background: var(--uw-white);
+  color: var(--uw-gray-90);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--space-10) var(--space-12);
+}
+
+.content-list .headline {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: var(--uw-husky-purple);
+  margin-bottom: var(--space-6);
+  line-height: 1.2;
+}
+
+.content-list .items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 85%;
+}
+
+.content-list .item {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--uw-gray-70);
+  line-height: 1.5;
+  padding-left: var(--space-3);
+  border-left: 3px solid var(--uw-spirit-gold);
+}
+
+.content-list .item strong {
+  color: var(--uw-gray-90);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.content-list .item code {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  background: rgba(75,46,131,0.06);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--uw-husky-purple);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * SECTION C: SHARED COMPONENT PATTERNS
+ * Reusable sub-components that can be composed into any slide pattern.
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * C1. DOCUMENT MOCKUP CARD
+ * ───────────────────────────────────────────────────────────────────────────
+ * When to use: Visual representation of a file (AGENTS.md, skill file, etc.)
+ * shown as a decorative element alongside text content.
+ *
+ * HTML structure:
+ *   <div class="doc-card">
+ *     <div class="doc-header">
+ *       <div class="doc-icon"><svg>file icon</svg></div>
+ *       <span class="doc-filename">FILENAME.md</span>
+ *     </div>
+ *     <div class="doc-body">
+ *       <div class="doc-section">
+ *         <div class="doc-heading" style="width: 55%;"></div>
+ *         <div class="doc-line"><span class="doc-bullet"></span><span class="doc-text" style="width: 80%;"></span></div>
+ *       </div>
+ *     </div>
+ *   </div>
+ */
+
+.doc-card {
+  width: 240px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(75,46,131,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  border: 1px solid rgba(75,46,131,0.08);
+}
+
+.doc-card .doc-header {
+  background: linear-gradient(135deg, #4b2e83 0%, #350056 100%);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doc-card .doc-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,199,0,0.15);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doc-card .doc-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.doc-card .doc-filename {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.doc-card .doc-body {
+  padding: 20px;
+}
+
+.doc-card .doc-section {
+  margin-bottom: 18px;
+}
+
+.doc-card .doc-section:last-child {
+  margin-bottom: 0;
+}
+
+.doc-card .doc-heading {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(75,46,131,0.25) 0%, rgba(75,46,131,0.10) 100%);
+  margin-bottom: 14px;
+}
+
+.doc-card .doc-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.doc-card .doc-line:last-child {
+  margin-bottom: 0;
+}
+
+.doc-card .doc-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--uw-spirit-gold);
+  flex-shrink: 0;
+}
+
+.doc-card .doc-text {
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, rgba(75,46,131,0.12) 0%, rgba(75,46,131,0.04) 100%);
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * C2. CALLOUT BOX (used in both activity and content slides)
+ * ───────────────────────────────────────────────────────────────────────────
+ * A highlighted container for key messages, discussion prompts, or
+ * important notes.
+ *
+ * On purple backgrounds: gold border, translucent bg
+ * On white backgrounds: purple-tinted border, light bg
+ *
+ * HTML structure:
+ *   <div class="callout">
+ *     <p class="callout-label">Label text</p>
+ *     <p>Body text</p>
+ *   </div>
+ */
+
+/* Variant: on purple/dark backgrounds */
+.callout--dark {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  color: var(--uw-white);
+  line-height: 1.5;
+  background: rgba(255,199,0,0.08);
+  border: 1px solid rgba(255,199,0,0.3);
+  border-radius: 10px;
+  padding: var(--space-3) var(--space-5);
+  text-align: center;
+}
+
+.callout--dark .callout-label {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--uw-spirit-gold);
+  margin-bottom: var(--space-1);
+}
+
+/* Variant: on white/light backgrounds */
+.callout--light {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--uw-gray-70);
+  line-height: 1.5;
+  padding: var(--space-3) var(--space-4);
+  border-left: 4px solid var(--uw-spirit-gold);
+  font-style: italic;
+}

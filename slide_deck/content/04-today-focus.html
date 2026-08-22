@@ -4,8 +4,8 @@
       .slide-04 {
         width: 100%;
         height: 100%;
-        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
-        color: var(--uw-white);
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -28,9 +28,12 @@
         font-size: 3.2rem;
         line-height: 1.15;
         margin-bottom: var(--space-10);
+        color: var(--uw-husky-purple);
       }
       .slide-04 .headline span {
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
+        border-bottom: 4px solid var(--uw-spirit-gold);
+        padding-bottom: 2px;
       }
       .slide-04 .focus-items {
         display: flex;
@@ -43,27 +46,28 @@
         flex-direction: column;
         gap: var(--space-3);
         padding: var(--space-5) var(--space-5);
-        border: 1px solid rgba(255,199,0,0.25);
+        border: 1px solid rgba(75,46,131,0.15);
+        border-top: 4px solid var(--uw-spirit-gold);
         border-radius: var(--radius-lg);
-        background: rgba(255,255,255,0.04);
+        background: rgba(75,46,131,0.03);
       }
       .slide-04 .focus-num {
         font-family: var(--font-display-wide);
         font-weight: 800;
         font-size: 3.5rem;
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
         line-height: 1;
       }
       .slide-04 .focus-label {
         font-family: var(--font-display);
         font-weight: 700;
         font-size: 1.6rem;
-        color: var(--uw-white);
+        color: var(--uw-husky-purple);
         line-height: 1.3;
       }
       .slide-04 .focus-label code {
         font-family: var(--font-mono);
-        background: rgba(255,199,0,0.15);
+        background: rgba(75,46,131,0.08);
         padding: 3px 12px;
         border-radius: 3px;
         font-weight: 600;
@@ -72,9 +76,49 @@
         font-family: var(--font-body);
         font-size: 1.3rem;
         font-weight: 400;
-        color: var(--uw-white);
-        opacity: 0.8;
+        color: var(--uw-gray-70);
         line-height: 1.6;
+      }
+      .slide-04 .ghost-items {
+        display: flex;
+        gap: var(--space-8);
+        margin-top: var(--space-5);
+        width: 100%;
+      }
+      .slide-04 .ghost-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4) var(--space-5);
+        border: 1px dashed rgba(75,46,131,0.2);
+        border-top: 4px solid var(--uw-gray-30, #ccc);
+        border-radius: var(--radius-lg);
+        background: rgba(75,46,131,0.02);
+      }
+      .slide-04 .ghost-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--uw-gray-50);
+      }
+      .slide-04 .ghost-desc {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        color: var(--uw-gray-50);
+        line-height: 1.5;
+      }
+      .slide-04 .ghost-badge {
+        font-family: var(--font-display-condensed);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--uw-gray-50);
+        background: rgba(75,46,131,0.06);
+        padding: 3px 10px;
+        border-radius: 12px;
+        align-self: flex-start;
       }
     </style>
     <div class="slide-04">
@@ -89,6 +133,18 @@
           <span class="focus-num">2</span>
           <span class="focus-label">Skill</span>
           <span class="focus-desc">On-demand, invoked when the task matches — a recipe reached for only when needed</span>
+        </div>
+      </div>
+      <div class="ghost-items">
+        <div class="ghost-item">
+          <span class="ghost-badge">Not covered today</span>
+          <span class="ghost-label">Rules</span>
+          <span class="ghost-desc">Auto-triggered on specific files</span>
+        </div>
+        <div class="ghost-item">
+          <span class="ghost-badge">Not covered today</span>
+          <span class="ghost-label">Subagents</span>
+          <span class="ghost-desc">Delegated specialized personas</span>
         </div>
       </div>
     </div>

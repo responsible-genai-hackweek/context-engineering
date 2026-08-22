@@ -1,68 +1,124 @@
-  <!-- Slide 21: Takeaways -->
+  <!-- Slide 20: Takeaways -->
   <section class="slide" aria-label="Takeaways">
     <style>
       .slide-20 {
-        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
-        color: var(--uw-white);
+        width: 100%;
+        height: 100%;
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: var(--space-12) var(--space-16);
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+      }
+      .slide-20::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
       }
       .slide-20 .headline {
         font-family: var(--font-display-wide);
         font-weight: 700;
-        font-size: 2.6rem;
-        margin-bottom: var(--space-8);
+        font-size: 2.4rem;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-5);
         line-height: 1.2;
       }
-      .slide-20 .headline span {
-        color: var(--uw-spirit-gold);
+      .slide-20 .columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+        width: 100%;
+        margin-bottom: var(--space-5);
       }
-      .slide-20 .takeaways {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-        max-width: 80%;
+      .slide-20 .col {
+        border-radius: var(--radius-lg);
+        padding: var(--space-4) var(--space-5);
       }
-      .slide-20 .takeaway {
-        display: flex;
-        align-items: baseline;
-        gap: var(--space-3);
+      .slide-20 .col-context {
+        background: rgba(75,46,131,0.04);
+        border: 1px solid rgba(75,46,131,0.12);
       }
-      .slide-20 .takeaway-num {
+      .slide-20 .col-skill {
+        background: rgba(75,46,131,0.04);
+        border: 1px solid rgba(75,46,131,0.12);
+      }
+      .slide-20 .col-header {
         font-family: var(--font-display-wide);
-        font-weight: 800;
-        font-size: 1.8rem;
-        color: var(--uw-spirit-gold);
-        min-width: 40px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-3);
+        padding-bottom: var(--space-2);
+        border-bottom: 3px solid var(--uw-husky-purple);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
       }
-      .slide-20 .takeaway-text {
+      .slide-20 .col-header svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-20 .col-item {
         font-family: var(--font-body);
-        font-size: 1.3rem;
-        font-weight: 300;
-        line-height: 1.4;
+        font-size: 1.05rem;
+        line-height: 1.5;
+        padding: var(--space-2) 0;
+        padding-left: 1.4em;
+        position: relative;
+        color: var(--uw-gray-80, #333);
+      }
+      .slide-20 .col-item::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--uw-spirit-gold);
+        font-weight: 700;
+      }
+      .slide-20 .principle {
+        font-family: var(--font-body);
+        font-size: 1.15rem;
+        color: var(--uw-gray-70);
+        padding: var(--space-3) var(--space-4);
+        border-left: 4px solid var(--uw-spirit-gold);
+        font-style: italic;
       }
     </style>
     <div class="slide-20">
-      <h2 class="headline">Context engineering is the<br><span>researcher's primary lever</span></h2>
-      <div class="takeaways">
-        <div class="takeaway">
-          <span class="takeaway-num">1</span>
-          <span class="takeaway-text">The model's built-in knowledge ends at your project boundary</span>
+      <h2 class="headline">You're a context engineer now</h2>
+      <div class="columns">
+        <div class="col col-context">
+          <div class="col-header">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            AGENTS.md
+          </div>
+          <p class="col-item">Start with 5 lines — project name, build command, test command</p>
+          <p class="col-item">Add domain vocabulary the model gets wrong</p>
+          <p class="col-item">Grow it as you observe agent mistakes</p>
         </div>
-        <div class="takeaway">
-          <span class="takeaway-num">2</span>
-          <span class="takeaway-text">Domain knowledge of your work must be engineered in</span>
-        </div>
-        <div class="takeaway">
-          <span class="takeaway-num">3</span>
-          <span class="takeaway-text">Add context as you observe LLM behavior</span>
-        </div>
-        <div class="takeaway">
-          <span class="takeaway-num">4</span>
-          <span class="takeaway-text">Choose the mechanism that matches how broadly the context applies</span>
+        <div class="col col-skill">
+          <div class="col-header">
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><polyline points="13 7 10 12 14 12 11 17"/></svg>
+            Skills
+          </div>
+          <p class="col-item">Identify a task you repeat — that's your first skill</p>
+          <p class="col-item">Write the steps you'd tell a colleague</p>
+          <p class="col-item">Reference the skill from AGENTS.md so the agent finds it</p>
         </div>
       </div>
+      <p class="principle">Context engineering is iterative: observe what the agent gets wrong, then write the context that would have prevented it.</p>
     </div>
   </section>

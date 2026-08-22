@@ -1,85 +1,217 @@
-  <!-- Slide 16: Introduction to Skills -->
+  <!-- Slide 15: Introduction to Skills -->
   <section class="slide" aria-label="Introduction to Skills">
     <style>
       .slide-15 {
+        width: 100%;
+        height: 100%;
         background: var(--uw-white);
         color: var(--uw-gray-90);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+      }
+      .slide-15::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
       }
       .slide-15 .headline {
         font-family: var(--font-display-wide);
         font-weight: 700;
-        font-size: 2.2rem;
+        font-size: 2.4rem;
         color: var(--uw-husky-purple);
-        margin-bottom: var(--space-5);
+        margin-bottom: var(--space-6);
         line-height: 1.2;
       }
       .slide-15 .contrast {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--space-6);
-        margin-bottom: var(--space-6);
-        width: 90%;
+        width: 100%;
+        margin-bottom: var(--space-5);
       }
-      .slide-15 .contrast-item {
-        padding: var(--space-3) var(--space-4);
-        border-top: 4px solid var(--uw-spirit-gold);
+      .slide-15 .contrast-card {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-4) var(--space-5);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
+      }
+      .slide-15 .contrast-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(75,46,131,0.08);
+        border-radius: 10px;
+      }
+      .slide-15 .contrast-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-15 .contrast-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
       }
       .slide-15 .contrast-label {
         font-family: var(--font-display);
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 1.3rem;
+        color: var(--uw-husky-purple);
+      }
+      .slide-15 .contrast-mode {
+        font-family: var(--font-display-condensed);
+        font-size: 0.8rem;
+        font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--uw-spirit-purple);
-        margin-bottom: var(--space-1);
+        letter-spacing: 0.1em;
+        color: var(--uw-gray-50);
+        background: rgba(75,46,131,0.06);
+        padding: 2px 8px;
+        border-radius: 10px;
+        align-self: flex-start;
       }
       .slide-15 .contrast-desc {
         font-family: var(--font-body);
         font-size: 1.1rem;
         color: var(--uw-gray-70);
         line-height: 1.5;
+        margin-top: var(--space-1);
       }
-      .slide-15 .skill-structure {
-        font-family: var(--font-mono);
-        font-size: 1rem;
-        color: var(--uw-gray-70);
-        background: var(--uw-gray-10);
-        padding: var(--space-3) var(--space-4);
+      .slide-15 .analogy {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        width: 100%;
+        background: rgba(255,199,0,0.06);
+        border: 1.5px solid rgba(255,199,0,0.3);
         border-radius: var(--radius-lg);
-        line-height: 1.8;
+        padding: var(--space-4) var(--space-5);
+        margin-top: var(--space-2);
       }
-      .slide-15 .skill-structure .key {
-        color: var(--uw-spirit-purple);
+      .slide-15 .analogy-icon {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .slide-15 .analogy-icon svg {
+        width: 38px;
+        height: 38px;
+        stroke: var(--uw-spirit-gold);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-15 .analogy-text {
+        font-family: var(--font-body);
+        font-size: 1.3rem;
+        color: var(--uw-gray-80, #333);
+        line-height: 1.5;
+        font-style: italic;
+      }
+      .slide-15 .analogy-text strong {
+        font-style: normal;
+        font-weight: 700;
+        color: var(--uw-husky-purple);
+      }
+      .slide-15 .tip {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        margin-top: var(--space-4);
+        width: 100%;
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        color: var(--uw-gray-70);
+        padding: var(--space-3) var(--space-4);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
+      }
+      .slide-15 .tip svg {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-15 .tip strong {
+        color: var(--uw-husky-purple);
         font-weight: 700;
       }
-      .slide-15 .source {
+      .slide-15 .source-link {
         font-family: var(--font-body);
-        font-size: 0.85rem;
-        color: var(--uw-gray-50);
+        font-size: 0.95rem;
         margin-top: var(--space-3);
+      }
+      .slide-15 .source-link a {
+        color: var(--uw-spirit-purple);
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 2px solid var(--uw-spirit-gold);
+        padding-bottom: 2px;
       }
     </style>
     <div class="slide-15">
       <h2 class="headline">Context documents are always-on.<br>Skills are on-demand.</h2>
       <div class="contrast">
-        <div class="contrast-item">
-          <div class="contrast-label">AGENTS.md</div>
-          <div class="contrast-desc">Fires every session, every task — the foundation</div>
+        <div class="contrast-card">
+          <div class="contrast-icon">
+            <!-- Note pinned to a wall -->
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="5" r="1.2" fill="var(--uw-husky-purple)" stroke="none"/><line x1="7" y1="9" x2="17" y2="9"/><line x1="7" y1="12" x2="15" y2="12"/><line x1="7" y1="15" x2="13" y2="15"/><line x1="7" y1="18" x2="11" y2="18"/></svg>
+          </div>
+          <div class="contrast-content">
+            <div class="contrast-label">AGENTS.md</div>
+            <span class="contrast-mode">Always loaded</span>
+            <div class="contrast-desc">Fires every session, every task — the foundation of what your agent knows about this project</div>
+          </div>
         </div>
-        <div class="contrast-item">
-          <div class="contrast-label">Skill</div>
-          <div class="contrast-desc">A named procedure invoked when the task matches — a recipe reached for only when cooking that dish</div>
+        <div class="contrast-card">
+          <div class="contrast-icon">
+            <!-- Card with lightning bolt — invoked on demand -->
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><polyline points="13 7 10 12 14 12 11 17"/></svg>
+          </div>
+          <div class="contrast-content">
+            <div class="contrast-label">Skill</div>
+            <span class="contrast-mode">On demand</span>
+            <div class="contrast-desc">A named procedure invoked only when the task matches — pulled from the drawer when you need that specific recipe</div>
+          </div>
         </div>
       </div>
-      <div class="skill-structure">
-        <span class="key">name:</span> db-query<br>
-        <span class="key">description:</span> "used for matching"<br>
-        <span class="key">instructions:</span> "step-by-step procedure"
+      <div class="analogy">
+        <div class="analogy-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="analogy-text"><strong>Think of it like a kitchen:</strong> AGENTS.md is the house rules posted on the wall. A skill is a recipe card you pull from the drawer when you're making a specific dish.</div>
       </div>
-      <p class="source">agentskills.io</p>
+      <div class="tip">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+        <span><strong>Tip:</strong> Reference your skills in AGENTS.md — any agent that reads it will discover them, regardless of tool.</span>
+      </div>
+      <p class="source-link">Further reading: <a href="https://agentskills.io" target="_blank">agentskills.io</a></p>
     </div>
   </section>

@@ -51,12 +51,12 @@
       .slide-07 .demo-badge {
         font-family: var(--font-display-wide);
         font-weight: 800;
-        font-size: 1.1rem;
+        font-size: 2rem;
         text-transform: uppercase;
         letter-spacing: 0.2em;
         color: var(--uw-spirit-gold);
-        border: 2px solid var(--uw-spirit-gold);
-        padding: var(--space-1) var(--space-4);
+        border: 3px solid var(--uw-spirit-gold);
+        padding: var(--space-2) var(--space-6);
         border-radius: var(--radius-md);
         margin-bottom: var(--space-5);
         display: inline-block;
@@ -86,6 +86,28 @@
         width: 100%;
         text-align: center;
         line-height: 1.8;
+        margin-bottom: var(--space-5);
+      }
+      .slide-07 .discuss {
+        font-family: var(--font-body);
+        font-size: 1.4rem;
+        color: var(--uw-white);
+        line-height: 1.5;
+        background: rgba(255,199,0,0.08);
+        border: 1px solid rgba(255,199,0,0.3);
+        border-radius: 10px;
+        padding: var(--space-3) var(--space-5);
+        width: 100%;
+        text-align: center;
+      }
+      .slide-07 .discuss-label {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--uw-spirit-gold);
+        margin-bottom: var(--space-1);
       }
     </style>
     <div class="slide-07">
@@ -97,6 +119,10 @@
         <h2 class="demo-title">Repository with no context</h2>
         <p class="demo-cmd">claude</p>
         <p class="demo-text">Running the snow depth query prompt against a bare repository — no AGENTS.md, no skills.</p>
+        <div class="discuss">
+          <p class="discuss-label">Watch for</p>
+          <p>What does the agent do when it has no guidance? Where does it guess?</p>
+        </div>
       </div>
     </div>
   </section>

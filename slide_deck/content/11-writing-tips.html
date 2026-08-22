@@ -1,13 +1,26 @@
-  <!-- Slide 12: Writing Tips -->
-  <section class="slide" aria-label="Writing Tips">
+  <!-- Slide 11: Writing Tips -->
+  <section class="slide" aria-label="Writing Tips for AGENTS.md">
     <style>
       .slide-11 {
+        width: 100%;
+        height: 100%;
         background: var(--uw-white);
         color: var(--uw-gray-90);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+      }
+      .slide-11::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
       }
       .slide-11 .headline {
         font-family: var(--font-display-wide);
@@ -15,60 +28,118 @@
         font-size: 2.4rem;
         color: var(--uw-husky-purple);
         margin-bottom: var(--space-6);
+        line-height: 1.2;
+      }
+      .slide-11 .headline span {
+        border-bottom: 4px solid var(--uw-spirit-gold);
+        padding-bottom: 2px;
       }
       .slide-11 .tips-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: var(--space-4) var(--space-8);
-        max-width: 90%;
+        gap: var(--space-4) var(--space-6);
+        width: 100%;
       }
       .slide-11 .tip {
-        font-family: var(--font-body);
-        font-size: 1.15rem;
-        color: var(--uw-gray-70);
-        line-height: 1.5;
-        padding-left: var(--space-3);
-        border-left: 3px solid var(--uw-spirit-gold);
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-3) var(--space-4);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
       }
-      .slide-11 .tip strong {
+      .slide-11 .tip-icon {
+        font-size: 1.4rem;
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(75,46,131,0.08);
+        border-radius: 8px;
+        margin-top: 2px;
+      }
+      .slide-11 .tip-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-11 .tip-content {
+        display: flex;
+        flex-direction: column;
+      }
+      .slide-11 .tip-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.1rem;
         color: var(--uw-gray-90);
-        display: block;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
       }
-      .slide-11 .tip code {
+      .slide-11 .tip-desc {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: var(--uw-gray-70);
+        line-height: 1.4;
+      }
+      .slide-11 .tip-desc code {
         font-family: var(--font-mono);
-        font-size: 0.9rem;
-        background: rgba(75,46,131,0.06);
+        font-size: 0.85rem;
+        background: rgba(75,46,131,0.08);
         padding: 2px 6px;
         border-radius: 3px;
+        color: var(--uw-husky-purple);
       }
     </style>
     <div class="slide-11">
-      <h2 class="headline">A good AGENTS.md is concise and actionable</h2>
+      <h2 class="headline">A good AGENTS.md is <span>concise and actionable</span></h2>
       <div class="tips-grid">
         <div class="tip">
-          <strong>Start simple</strong>
-          Expand as needed over time
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Be specific</div>
+            <div class="tip-desc">Not "follow best practices" — instead <code>Run lint after every change</code></div>
+          </div>
         </div>
         <div class="tip">
-          <strong>Be specific</strong>
-          Not "follow best practices" — instead <code>Run lint after every change</code>
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Start simple</div>
+            <div class="tip-desc">Begin with a few lines — expand as you learn what the agent needs</div>
+          </div>
         </div>
         <div class="tip">
-          <strong>Keep it short</strong>
-          Under 200 lines or 32 KiB
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Keep it short</div>
+            <div class="tip-desc">Under 200 lines or 32 KiB — less to parse, less to contradict</div>
+          </div>
         </div>
         <div class="tip">
-          <strong>Nest for big repos</strong>
-          The "closest" AGENTS.md wins
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">It's a guide, not enforcement</div>
+            <div class="tip-desc">No guarantee agents honor "DO NOT EDIT" — verify what matters</div>
+          </div>
         </div>
         <div class="tip">
-          <strong>It's a guide, not enforcement</strong>
-          No guarantee "DO NOT EDIT" is honored
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zm11 0h7v7h-7zM3 14h7v7H3zm11 0h7v7h-7z"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Nest for big repos</div>
+            <div class="tip-desc">Subdirectory files override the root — the "closest" one wins</div>
+          </div>
         </div>
         <div class="tip">
-          <strong>Keep human docs in README</strong>
-          LLMs will read that too
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Public repos: models may learn from it</div>
+            <div class="tip-desc">Future models might train on your file — keep secrets out</div>
+          </div>
         </div>
       </div>
     </div>

@@ -359,7 +359,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-10);
         position: relative;
       }
       .slide-02::before {
@@ -374,103 +374,201 @@
       .slide-02 .headline {
         font-family: var(--font-display-wide);
         font-weight: 700;
-        font-size: 3.4rem;
-        line-height: 1.12;
+        font-size: 2.8rem;
+        line-height: 1.15;
         color: var(--uw-husky-purple);
-        margin-bottom: var(--space-8);
+        margin-bottom: var(--space-6);
+      }
+      .slide-02 .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: var(--space-8);
+        align-items: center;
+        width: 100%;
       }
       .slide-02 .points {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-5) var(--space-8);
-        max-width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
       }
       .slide-02 .point {
-        font-family: var(--font-body);
-        font-size: 1.3rem;
-        font-weight: 300;
-        color: var(--uw-gray-70);
-        line-height: 1.5;
-        padding-left: var(--space-3);
-        border-left: 3px solid var(--uw-spirit-gold);
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-3) var(--space-4);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
       }
-      .slide-02 .point em {
-        color: var(--uw-spirit-purple);
-        font-style: normal;
-        font-weight: 600;
+      .slide-02 .point-icon {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(75,46,131,0.08);
+        border-radius: 8px;
+        margin-top: 2px;
+      }
+      .slide-02 .point-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-02 .point-content {
+        display: flex;
+        flex-direction: column;
+      }
+      .slide-02 .point-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--uw-gray-90);
+        margin-bottom: 2px;
+      }
+      .slide-02 .point-desc {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: var(--uw-gray-70);
+        line-height: 1.4;
+      }
+      .slide-02 .visual-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .slide-02 .visual {
-        position: absolute;
-        right: var(--space-8);
-        bottom: var(--space-8);
-        width: 420px;
-        height: 300px;
+        width: 100%;
+        height: auto;
       }
-      .slide-02 .visual circle.outline {
-        fill: none;
+      .slide-02 .visual .brain-circle {
+        fill: rgba(75,46,131,0.06);
+        stroke: var(--uw-husky-purple);
+        stroke-width: 3.5;
+      }
+      .slide-02 .visual .agent-circle {
+        fill: rgba(75,46,131,0.03);
+        stroke: var(--uw-husky-purple);
+        stroke-width: 3;
+        stroke-dasharray: 8 5;
+      }
+      .slide-02 .visual .connector {
         stroke: var(--uw-spirit-gold);
-        stroke-width: 2;
+        stroke-width: 5;
+        stroke-dasharray: 12 7;
       }
-      .slide-02 .visual line.connector {
-        stroke: var(--uw-spirit-gold);
-        stroke-width: 1.5;
-        stroke-dasharray: 8 6;
+      .slide-02 .visual .dot {
+        fill: var(--uw-husky-purple);
       }
-      .slide-02 .visual circle.dot {
-        fill: var(--uw-spirit-gold);
+      .slide-02 .visual .dot-faint {
+        fill: var(--uw-husky-purple);
+        opacity: 0.12;
       }
-      .slide-02 .visual circle.dot-faint {
-        fill: var(--uw-spirit-gold);
-        opacity: 0.25;
+      .slide-02 .visual .label {
+        font-family: var(--font-display-wide);
+        font-size: 18px;
+        font-weight: 800;
+        fill: var(--uw-husky-purple);
+        text-anchor: middle;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
-      .slide-02 .visual text {
-        font-family: var(--font-display-condensed);
+      .slide-02 .visual .sublabel {
+        font-family: var(--font-body);
         font-size: 13px;
-        fill: var(--uw-gray-50);
+        fill: var(--uw-gray-60, #666);
+        text-anchor: middle;
+      }
+      .slide-02 .visual .arrow-head {
+        fill: var(--uw-spirit-gold);
+      }
+      .slide-02 .visual .question-marks {
+        font-family: var(--font-display-wide);
+        font-size: 32px;
+        font-weight: 800;
+        fill: var(--uw-husky-purple);
+        opacity: 0.25;
         text-anchor: middle;
       }
     </style>
     <div class="slide-02">
       <h2 class="headline">Your agent does not remember<br>most of your project context</h2>
-      <div class="points">
-        <p class="point">Every new session starts from <em>minimal memory</em>.</p>
-        <p class="point">It doesn't know your data, your conventions, or your goals.</p>
-        <p class="point">It's good at reverse engineering — and eager to try.</p>
-        <p class="point">Persistent durability is dependent on <em>you</em>.</p>
+      <div class="content-grid">
+        <div class="points">
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg></div>
+            <div class="point-content">
+              <div class="point-title">Blind to your project</div>
+              <div class="point-desc">Doesn't know your data, conventions, or goals</div>
+            </div>
+          </div>
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg></div>
+            <div class="point-content">
+              <div class="point-title">Resets every session</div>
+              <div class="point-desc">No memory carries over — starts fresh each time</div>
+            </div>
+          </div>
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4m0 4h.01"/></svg></div>
+            <div class="point-content">
+              <div class="point-title">Fills gaps confidently</div>
+              <div class="point-desc">Good at reverse engineering — and eager to guess wrong</div>
+            </div>
+          </div>
+          <div class="point">
+            <div class="point-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="point-content">
+              <div class="point-title">Durability is up to you</div>
+              <div class="point-desc">You decide what persists — the agent won't do it for you</div>
+            </div>
+          </div>
+        </div>
+        <div class="visual-container">
+          <svg class="visual" viewBox="0 0 500 320" aria-hidden="true">
+            <!-- Left circle: your knowledge (dense, full) -->
+            <circle class="brain-circle" cx="135" cy="150" r="115"/>
+            <text class="label" x="135" y="290">YOU</text>
+            <text class="sublabel" x="135" y="308">conventions, data, goals</text>
+            <!-- Dense dots — rich domain knowledge -->
+            <circle class="dot" cx="85" cy="95" r="7"/>
+            <circle class="dot" cx="120" cy="85" r="6.5"/>
+            <circle class="dot" cx="160" cy="90" r="7"/>
+            <circle class="dot" cx="95" cy="125" r="6.5"/>
+            <circle class="dot" cx="135" cy="115" r="7"/>
+            <circle class="dot" cx="175" cy="120" r="6"/>
+            <circle class="dot" cx="75" cy="150" r="6.5"/>
+            <circle class="dot" cx="110" cy="145" r="7"/>
+            <circle class="dot" cx="150" cy="143" r="6.5"/>
+            <circle class="dot" cx="185" cy="148" r="6"/>
+            <circle class="dot" cx="88" cy="180" r="7"/>
+            <circle class="dot" cx="125" cy="172" r="6.5"/>
+            <circle class="dot" cx="162" cy="175" r="7"/>
+            <circle class="dot" cx="100" cy="205" r="6"/>
+            <circle class="dot" cx="140" cy="200" r="6.5"/>
+            <circle class="dot" cx="175" cy="185" r="6"/>
+
+            <!-- Arrow connector -->
+            <line class="connector" x1="255" y1="150" x2="320" y2="150"/>
+            <polygon class="arrow-head" points="316,140 340,150 316,160"/>
+
+            <!-- Right circle: agent's knowledge (nearly empty) -->
+            <circle class="agent-circle" cx="400" cy="150" r="85"/>
+            <text class="label" x="400" y="258">AGENT</text>
+            <text class="sublabel" x="400" y="276">each new session</text>
+            <!-- Sparse faint dots — almost nothing -->
+            <circle class="dot-faint" cx="385" cy="135" r="6"/>
+            <circle class="dot-faint" cx="415" cy="160" r="5.5"/>
+            <!-- Question marks to emphasize emptiness -->
+            <text class="question-marks" x="400" y="158">? ?</text>
+          </svg>
+        </div>
       </div>
-      <svg class="visual" viewBox="0 0 420 300" aria-hidden="true">
-        <!-- Left circle: researcher's knowledge (dense) -->
-        <circle class="outline" cx="115" cy="140" r="90"/>
-        <text x="115" y="260">YOU</text>
-        <!-- Dense dots — representing rich domain knowledge -->
-        <circle class="dot" cx="80" cy="105" r="4"/>
-        <circle class="dot" cx="105" cy="95" r="3.5"/>
-        <circle class="dot" cx="135" cy="100" r="4"/>
-        <circle class="dot" cx="90" cy="125" r="3.5"/>
-        <circle class="dot" cx="120" cy="120" r="4"/>
-        <circle class="dot" cx="145" cy="125" r="3"/>
-        <circle class="dot" cx="75" cy="145" r="3.5"/>
-        <circle class="dot" cx="100" cy="140" r="4"/>
-        <circle class="dot" cx="130" cy="138" r="3.5"/>
-        <circle class="dot" cx="150" cy="145" r="3"/>
-        <circle class="dot" cx="85" cy="160" r="4"/>
-        <circle class="dot" cx="110" cy="158" r="3.5"/>
-        <circle class="dot" cx="138" cy="162" r="4"/>
-        <circle class="dot" cx="95" cy="178" r="3"/>
-        <circle class="dot" cx="125" cy="175" r="3.5"/>
-        <circle class="dot" cx="108" cy="115" r="3"/>
-        <circle class="dot" cx="140" cy="155" r="3"/>
-        <circle class="dot" cx="68" cy="130" r="3"/>
-        <!-- Dashed connector with arrow -->
-        <line class="connector" x1="210" y1="140" x2="270" y2="140"/>
-        <polygon points="268,134 280,140 268,146" fill="var(--uw-spirit-gold)" opacity="0.6"/>
-        <!-- Right circle: agent's knowledge (nearly empty) -->
-        <circle class="outline" cx="340" cy="140" r="70" stroke-dasharray="4 3"/>
-        <text x="340" y="235">AGENT</text>
-        <!-- Sparse faint dots -->
-        <circle class="dot-faint" cx="330" cy="130" r="3.5"/>
-        <circle class="dot-faint" cx="350" cy="150" r="3"/>
-      </svg>
     </div>
   </section>
   <!-- Slide 03: Durability Spectrum -->
@@ -611,8 +709,8 @@
       .slide-04 {
         width: 100%;
         height: 100%;
-        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
-        color: var(--uw-white);
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -635,9 +733,12 @@
         font-size: 3.2rem;
         line-height: 1.15;
         margin-bottom: var(--space-10);
+        color: var(--uw-husky-purple);
       }
       .slide-04 .headline span {
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
+        border-bottom: 4px solid var(--uw-spirit-gold);
+        padding-bottom: 2px;
       }
       .slide-04 .focus-items {
         display: flex;
@@ -650,27 +751,28 @@
         flex-direction: column;
         gap: var(--space-3);
         padding: var(--space-5) var(--space-5);
-        border: 1px solid rgba(255,199,0,0.25);
+        border: 1px solid rgba(75,46,131,0.15);
+        border-top: 4px solid var(--uw-spirit-gold);
         border-radius: var(--radius-lg);
-        background: rgba(255,255,255,0.04);
+        background: rgba(75,46,131,0.03);
       }
       .slide-04 .focus-num {
         font-family: var(--font-display-wide);
         font-weight: 800;
         font-size: 3.5rem;
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
         line-height: 1;
       }
       .slide-04 .focus-label {
         font-family: var(--font-display);
         font-weight: 700;
         font-size: 1.6rem;
-        color: var(--uw-white);
+        color: var(--uw-husky-purple);
         line-height: 1.3;
       }
       .slide-04 .focus-label code {
         font-family: var(--font-mono);
-        background: rgba(255,199,0,0.15);
+        background: rgba(75,46,131,0.08);
         padding: 3px 12px;
         border-radius: 3px;
         font-weight: 600;
@@ -679,9 +781,49 @@
         font-family: var(--font-body);
         font-size: 1.3rem;
         font-weight: 400;
-        color: var(--uw-white);
-        opacity: 0.8;
+        color: var(--uw-gray-70);
         line-height: 1.6;
+      }
+      .slide-04 .ghost-items {
+        display: flex;
+        gap: var(--space-8);
+        margin-top: var(--space-5);
+        width: 100%;
+      }
+      .slide-04 .ghost-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4) var(--space-5);
+        border: 1px dashed rgba(75,46,131,0.2);
+        border-top: 4px solid var(--uw-gray-30, #ccc);
+        border-radius: var(--radius-lg);
+        background: rgba(75,46,131,0.02);
+      }
+      .slide-04 .ghost-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--uw-gray-50);
+      }
+      .slide-04 .ghost-desc {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        color: var(--uw-gray-50);
+        line-height: 1.5;
+      }
+      .slide-04 .ghost-badge {
+        font-family: var(--font-display-condensed);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--uw-gray-50);
+        background: rgba(75,46,131,0.06);
+        padding: 3px 10px;
+        border-radius: 12px;
+        align-self: flex-start;
       }
     </style>
     <div class="slide-04">
@@ -696,6 +838,18 @@
           <span class="focus-num">2</span>
           <span class="focus-label">Skill</span>
           <span class="focus-desc">On-demand, invoked when the task matches — a recipe reached for only when needed</span>
+        </div>
+      </div>
+      <div class="ghost-items">
+        <div class="ghost-item">
+          <span class="ghost-badge">Not covered today</span>
+          <span class="ghost-label">Rules</span>
+          <span class="ghost-desc">Auto-triggered on specific files</span>
+        </div>
+        <div class="ghost-item">
+          <span class="ghost-badge">Not covered today</span>
+          <span class="ghost-label">Subagents</span>
+          <span class="ghost-desc">Delegated specialized personas</span>
         </div>
       </div>
     </div>
@@ -884,8 +1038,8 @@
       .slide-06 {
         width: 100%;
         height: 100%;
-        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
-        color: var(--uw-white);
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -896,7 +1050,7 @@
         font-family: var(--font-display);
         font-weight: 600;
         font-size: 1.5rem;
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
         margin-bottom: var(--space-4);
         text-transform: uppercase;
         letter-spacing: 0.04em;
@@ -906,9 +1060,9 @@
         font-family: var(--font-mono);
         font-size: 1.25rem;
         line-height: 1.6;
-        color: var(--uw-white);
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,199,0,0.3);
+        color: var(--uw-gray-90);
+        background: rgba(75,46,131,0.04);
+        border: 1px solid rgba(75,46,131,0.2);
         border-radius: var(--radius-lg);
         padding: var(--space-3) var(--space-5);
         max-width: 80%;
@@ -924,10 +1078,10 @@
       }
       .slide-06 .path-card {
         flex: 1;
-        background: rgba(255,255,255,0.05);
+        background: rgba(75,46,131,0.03);
         border-radius: var(--radius-lg);
         padding: var(--space-4) var(--space-4);
-        border: 1px solid rgba(255,255,255,0.15);
+        border: 1px solid rgba(75,46,131,0.12);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -935,7 +1089,8 @@
       }
       .slide-06 .path-card.recommended {
         border-color: var(--uw-spirit-gold);
-        background: rgba(255,199,0,0.06);
+        border-top: 4px solid var(--uw-spirit-gold);
+        background: rgba(255,199,0,0.04);
       }
       .slide-06 .path-card .path-icon {
         margin-bottom: var(--space-2);
@@ -947,15 +1102,16 @@
         text-transform: uppercase;
         letter-spacing: 0.08em;
         margin-bottom: var(--space-2);
+        color: var(--uw-husky-purple);
       }
       .slide-06 .path-card.recommended .path-label {
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
       }
       .slide-06 .path-card .path-desc {
         font-family: var(--font-body);
         font-size: 1rem;
         line-height: 1.5;
-        opacity: 0.85;
+        color: var(--uw-gray-70);
       }
       .slide-06 .path-card .path-badge {
         font-family: var(--font-display-condensed);
@@ -975,8 +1131,7 @@
       .slide-06 .note {
         font-family: var(--font-body);
         font-size: 1.3rem;
-        color: var(--uw-white);
-        opacity: 0.8;
+        color: var(--uw-gray-70);
         margin-top: var(--space-4);
         font-weight: 400;
         text-align: center;
@@ -989,12 +1144,12 @@
 
       <!-- Forking path SVG -->
       <svg class="fork-diagram" width="320" height="60" viewBox="0 0 320 60" aria-label="Two possible answer paths">
-        <line x1="160" y1="0" x2="160" y2="20" stroke="rgba(255,199,0,0.6)" stroke-width="2"/>
-        <circle cx="160" cy="22" r="4" fill="#ffc700"/>
-        <line x1="160" y1="26" x2="80" y2="55" stroke="rgba(255,199,0,0.5)" stroke-width="2"/>
-        <line x1="160" y1="26" x2="240" y2="55" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="4 3"/>
-        <circle cx="80" cy="55" r="5" fill="#ffc700" opacity="0.8"/>
-        <circle cx="240" cy="55" r="5" fill="rgba(255,255,255,0.4)"/>
+        <line x1="160" y1="0" x2="160" y2="20" stroke="rgba(75,46,131,0.4)" stroke-width="2"/>
+        <circle cx="160" cy="22" r="4" fill="#4b2e83"/>
+        <line x1="160" y1="26" x2="80" y2="55" stroke="rgba(255,199,0,0.7)" stroke-width="2"/>
+        <line x1="160" y1="26" x2="240" y2="55" stroke="rgba(75,46,131,0.25)" stroke-width="2" stroke-dasharray="4 3"/>
+        <circle cx="80" cy="55" r="5" fill="#ffc700"/>
+        <circle cx="240" cy="55" r="5" fill="rgba(75,46,131,0.3)"/>
       </svg>
 
       <div class="paths-container">
@@ -1002,8 +1157,8 @@
         <div class="path-card recommended">
           <span class="path-badge">Start here</span>
           <svg class="path-icon" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="16" r="8" fill="none" stroke="#ffc700" stroke-width="2"/>
-            <path d="M12 40 C12 32 36 32 36 40" fill="none" stroke="#ffc700" stroke-width="2"/>
+            <circle cx="24" cy="16" r="8" fill="none" stroke="#4b2e83" stroke-width="2"/>
+            <path d="M12 40 C12 32 36 32 36 40" fill="none" stroke="#4b2e83" stroke-width="2"/>
           </svg>
           <span class="path-label">Standard user</span>
           <p class="path-desc">Simple, readable query using high-level API filters. Fewer lines, easier to understand.</p>
@@ -1012,10 +1167,10 @@
         <!-- Power User Path -->
         <div class="path-card">
           <svg class="path-icon" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="16" r="8" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <path d="M12 40 C12 32 36 32 36 40" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <path d="M38 8 L42 12 L38 16" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <line x1="34" y1="12" x2="42" y2="12" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            <circle cx="24" cy="16" r="8" fill="none" stroke="rgba(75,46,131,0.5)" stroke-width="2"/>
+            <path d="M12 40 C12 32 36 32 36 40" fill="none" stroke="rgba(75,46,131,0.5)" stroke-width="2"/>
+            <path d="M38 8 L42 12 L38 16" fill="none" stroke="rgba(75,46,131,0.5)" stroke-width="2"/>
+            <line x1="34" y1="12" x2="42" y2="12" stroke="rgba(75,46,131,0.5)" stroke-width="2"/>
           </svg>
           <span class="path-label">Power user</span>
           <p class="path-desc">Advanced joins and raw SQL for complex multi-table queries. More flexible, steeper learning curve.</p>
@@ -1078,12 +1233,12 @@
       .slide-07 .demo-badge {
         font-family: var(--font-display-wide);
         font-weight: 800;
-        font-size: 1.1rem;
+        font-size: 2rem;
         text-transform: uppercase;
         letter-spacing: 0.2em;
         color: var(--uw-spirit-gold);
-        border: 2px solid var(--uw-spirit-gold);
-        padding: var(--space-1) var(--space-4);
+        border: 3px solid var(--uw-spirit-gold);
+        padding: var(--space-2) var(--space-6);
         border-radius: var(--radius-md);
         margin-bottom: var(--space-5);
         display: inline-block;
@@ -1113,6 +1268,28 @@
         width: 100%;
         text-align: center;
         line-height: 1.8;
+        margin-bottom: var(--space-5);
+      }
+      .slide-07 .discuss {
+        font-family: var(--font-body);
+        font-size: 1.4rem;
+        color: var(--uw-white);
+        line-height: 1.5;
+        background: rgba(255,199,0,0.08);
+        border: 1px solid rgba(255,199,0,0.3);
+        border-radius: 10px;
+        padding: var(--space-3) var(--space-5);
+        width: 100%;
+        text-align: center;
+      }
+      .slide-07 .discuss-label {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--uw-spirit-gold);
+        margin-bottom: var(--space-1);
       }
     </style>
     <div class="slide-07">
@@ -1124,6 +1301,10 @@
         <h2 class="demo-title">Repository with no context</h2>
         <p class="demo-cmd">claude</p>
         <p class="demo-text">Running the snow depth query prompt against a bare repository — no AGENTS.md, no skills.</p>
+        <div class="discuss">
+          <p class="discuss-label">Watch for</p>
+          <p>What does the agent do when it has no guidance? Where does it guess?</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1264,12 +1445,12 @@
       .slide-09 .badge {
         font-family: var(--font-display-wide);
         font-weight: 800;
-        font-size: 1.2rem;
+        font-size: 2rem;
         text-transform: uppercase;
         letter-spacing: 0.2em;
         color: var(--uw-spirit-gold);
-        border: 2px solid var(--uw-spirit-gold);
-        padding: var(--space-1) var(--space-4);
+        border: 3px solid var(--uw-spirit-gold);
+        padding: var(--space-2) var(--space-6);
         border-radius: var(--radius-md);
         margin-bottom: var(--space-4);
         display: inline-block;
@@ -1348,14 +1529,23 @@
       }
       .slide-09 .discussion {
         font-family: var(--font-body);
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         color: var(--uw-white);
-        opacity: 0.8;
-        line-height: 1.6;
+        line-height: 1.5;
+        background: rgba(255,199,0,0.08);
+        border: 1px solid rgba(255,199,0,0.3);
+        border-radius: 10px;
+        padding: var(--space-3) var(--space-5);
+        max-width: 70%;
       }
-      .slide-09 .discussion strong {
+      .slide-09 .discuss-label {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
         color: var(--uw-spirit-gold);
-        font-weight: 600;
+        margin-bottom: var(--space-1);
       }
     </style>
     <div class="slide-09">
@@ -1393,10 +1583,13 @@
         <p class="prompt-label">Paste this prompt into your terminal</p>
         <p class="prompt-text">"Create me a code block that queries the database and returns snow depth layer data for a snow pit and date during the Alaska campaign"</p>
       </div>
-      <p class="discussion"><strong>Discuss:</strong> How different are the outputs? Did you get the same solution?</p>
+      <div class="discussion">
+        <p class="discuss-label">Discuss</p>
+        <p>How different are the outputs? Did you get the same solution?</p>
+      </div>
     </div>
   </section>
-  <!-- Slide 11: Start Adding Context -->
+  <!-- Slide 10: Start Adding Context -->
   <section class="slide" aria-label="Adding Context with AGENTS.md">
     <style>
       .slide-10 {
@@ -1404,58 +1597,208 @@
         color: var(--uw-gray-90);
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-10);
+        width: 100%;
+        height: 100%;
+      }
+      .slide-10 .content-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: var(--space-8);
+        width: 100%;
+      }
+      .slide-10 .left-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       .slide-10 .headline {
         font-family: var(--font-display-wide);
         font-weight: 700;
-        font-size: 2.6rem;
+        font-size: 2.4rem;
         color: var(--uw-husky-purple);
-        margin-bottom: var(--space-5);
+        margin-bottom: var(--space-4);
         line-height: 1.2;
       }
       .slide-10 .quote-block {
         font-family: var(--font-body);
-        font-size: 1.5rem;
+        font-size: 1.35rem;
         font-weight: 300;
         font-style: italic;
         color: var(--uw-gray-70);
         border-left: 5px solid var(--uw-spirit-gold);
-        padding: var(--space-4) var(--space-5);
-        margin: var(--space-4) 0;
-        max-width: 75%;
+        padding: var(--space-3) var(--space-5);
+        margin: var(--space-3) 0;
         line-height: 1.5;
       }
-      .slide-10 .source {
+      .slide-10 .adoption-note {
         font-family: var(--font-body);
-        font-size: 0.9rem;
-        color: var(--uw-gray-50);
-        margin-top: var(--space-3);
+        font-size: 1.05rem;
+        color: var(--uw-gray-70);
+        margin-top: var(--space-4);
+        line-height: 1.5;
       }
-      .slide-10 .source a {
+      .slide-10 .adoption-note strong {
+        color: var(--uw-gray-90);
+      }
+      .slide-10 .source-link {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        margin-top: var(--space-4);
+      }
+      .slide-10 .source-link a {
         color: var(--uw-spirit-purple);
         text-decoration: none;
+        font-weight: 600;
+        border-bottom: 2px solid var(--uw-spirit-gold);
+        padding-bottom: 2px;
+      }
+      .slide-10 .doc-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slide-10 .doc-card {
+        width: 240px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(75,46,131,0.12), 0 2px 8px rgba(0,0,0,0.06);
+        overflow: hidden;
+        border: 1px solid rgba(75,46,131,0.08);
+      }
+      .slide-10 .doc-header {
+        background: linear-gradient(135deg, #4b2e83 0%, #350056 100%);
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .slide-10 .doc-icon {
+        width: 32px;
+        height: 32px;
+        background: rgba(255,199,0,0.15);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .slide-10 .doc-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .slide-10 .doc-filename {
+        font-family: var(--font-mono);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: -0.02em;
+      }
+      .slide-10 .doc-body {
+        padding: 20px;
+      }
+      .slide-10 .doc-line {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .slide-10 .doc-line:last-child {
+        margin-bottom: 0;
+      }
+      .slide-10 .doc-bullet {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--uw-spirit-gold);
+        flex-shrink: 0;
+      }
+      .slide-10 .doc-text {
+        height: 10px;
+        border-radius: 5px;
+        background: linear-gradient(90deg, rgba(75,46,131,0.12) 0%, rgba(75,46,131,0.04) 100%);
+      }
+      .slide-10 .doc-heading {
+        height: 12px;
+        border-radius: 6px;
+        background: linear-gradient(90deg, rgba(75,46,131,0.25) 0%, rgba(75,46,131,0.10) 100%);
+        margin-bottom: 14px;
+      }
+      .slide-10 .doc-section {
+        margin-bottom: 18px;
+      }
+      .slide-10 .doc-section:last-child {
+        margin-bottom: 0;
       }
     </style>
     <div class="slide-10">
-      <h2 class="headline">How to guide the LLM with context?<br>Add a central context document</h2>
-      <blockquote class="quote-block">
-        "Think of AGENTS.md as a README for agents: a dedicated, predictable place to provide the context and instructions to help AI coding agents"
-      </blockquote>
-      <p class="source"><a href="https://agents.md">agents.md</a></p>
+      <div class="content-grid">
+      <div class="left-content">
+        <h2 class="headline">How to guide the LLM with context?<br>Add a central context document</h2>
+        <blockquote class="quote-block">
+          "Think of AGENTS.md as a README for agents: a dedicated, predictable place to provide the context and instructions to help AI coding agents"
+        </blockquote>
+        <p class="adoption-note"><strong>An open standard</strong> — supported by Copilot, Codex, Cursor, Claude Code, and many more. Used in 60k+ open-source projects.</p>
+        <p class="source-link">Further reading: <a href="https://agents.md" target="_blank">agents.md</a></p>
+      </div>
+      <div class="doc-visual">
+        <div class="doc-card">
+          <div class="doc-header">
+            <div class="doc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#ffc700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <span class="doc-filename">AGENTS.md</span>
+          </div>
+          <div class="doc-body">
+            <div class="doc-section">
+              <div class="doc-heading" style="width: 55%;"></div>
+              <div class="doc-line"><span class="doc-bullet"></span><span class="doc-text" style="width: 80%;"></span></div>
+              <div class="doc-line"><span class="doc-bullet"></span><span class="doc-text" style="width: 65%;"></span></div>
+              <div class="doc-line"><span class="doc-bullet"></span><span class="doc-text" style="width: 72%;"></span></div>
+            </div>
+            <div class="doc-section">
+              <div class="doc-heading" style="width: 45%;"></div>
+              <div class="doc-line"><span class="doc-bullet"></span><span class="doc-text" style="width: 90%;"></span></div>
+              <div class="doc-line"><span class="doc-bullet"></span><span class="doc-text" style="width: 58%;"></span></div>
+            </div>
+            <div class="doc-section">
+              <div class="doc-heading" style="width: 50%;"></div>
+              <div class="doc-line"><span class="doc-bullet"></span><span class="doc-text" style="width: 75%;"></span></div>
+              <div class="doc-line"><span class="doc-bullet"></span><span class="doc-text" style="width: 68%;"></span></div>
+              <div class="doc-line"><span class="doc-bullet"></span><span class="doc-text" style="width: 82%;"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   </section>
-  <!-- Slide 12: Writing Tips -->
-  <section class="slide" aria-label="Writing Tips">
+  <!-- Slide 11: Writing Tips -->
+  <section class="slide" aria-label="Writing Tips for AGENTS.md">
     <style>
       .slide-11 {
+        width: 100%;
+        height: 100%;
         background: var(--uw-white);
         color: var(--uw-gray-90);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+      }
+      .slide-11::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
       }
       .slide-11 .headline {
         font-family: var(--font-display-wide);
@@ -1463,60 +1806,118 @@
         font-size: 2.4rem;
         color: var(--uw-husky-purple);
         margin-bottom: var(--space-6);
+        line-height: 1.2;
+      }
+      .slide-11 .headline span {
+        border-bottom: 4px solid var(--uw-spirit-gold);
+        padding-bottom: 2px;
       }
       .slide-11 .tips-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: var(--space-4) var(--space-8);
-        max-width: 90%;
+        gap: var(--space-4) var(--space-6);
+        width: 100%;
       }
       .slide-11 .tip {
-        font-family: var(--font-body);
-        font-size: 1.15rem;
-        color: var(--uw-gray-70);
-        line-height: 1.5;
-        padding-left: var(--space-3);
-        border-left: 3px solid var(--uw-spirit-gold);
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-3) var(--space-4);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
       }
-      .slide-11 .tip strong {
+      .slide-11 .tip-icon {
+        font-size: 1.4rem;
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(75,46,131,0.08);
+        border-radius: 8px;
+        margin-top: 2px;
+      }
+      .slide-11 .tip-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-11 .tip-content {
+        display: flex;
+        flex-direction: column;
+      }
+      .slide-11 .tip-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.1rem;
         color: var(--uw-gray-90);
-        display: block;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
       }
-      .slide-11 .tip code {
+      .slide-11 .tip-desc {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: var(--uw-gray-70);
+        line-height: 1.4;
+      }
+      .slide-11 .tip-desc code {
         font-family: var(--font-mono);
-        font-size: 0.9rem;
-        background: rgba(75,46,131,0.06);
+        font-size: 0.85rem;
+        background: rgba(75,46,131,0.08);
         padding: 2px 6px;
         border-radius: 3px;
+        color: var(--uw-husky-purple);
       }
     </style>
     <div class="slide-11">
-      <h2 class="headline">A good AGENTS.md is concise and actionable</h2>
+      <h2 class="headline">A good AGENTS.md is <span>concise and actionable</span></h2>
       <div class="tips-grid">
         <div class="tip">
-          <strong>Start simple</strong>
-          Expand as needed over time
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Be specific</div>
+            <div class="tip-desc">Not "follow best practices" — instead <code>Run lint after every change</code></div>
+          </div>
         </div>
         <div class="tip">
-          <strong>Be specific</strong>
-          Not "follow best practices" — instead <code>Run lint after every change</code>
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Start simple</div>
+            <div class="tip-desc">Begin with a few lines — expand as you learn what the agent needs</div>
+          </div>
         </div>
         <div class="tip">
-          <strong>Keep it short</strong>
-          Under 200 lines or 32 KiB
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Keep it short</div>
+            <div class="tip-desc">Under 200 lines or 32 KiB — less to parse, less to contradict</div>
+          </div>
         </div>
         <div class="tip">
-          <strong>Nest for big repos</strong>
-          The "closest" AGENTS.md wins
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">It's a guide, not enforcement</div>
+            <div class="tip-desc">No guarantee agents honor "DO NOT EDIT" — verify what matters</div>
+          </div>
         </div>
         <div class="tip">
-          <strong>It's a guide, not enforcement</strong>
-          No guarantee "DO NOT EDIT" is honored
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zm11 0h7v7h-7zM3 14h7v7H3zm11 0h7v7h-7z"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Nest for big repos</div>
+            <div class="tip-desc">Subdirectory files override the root — the "closest" one wins</div>
+          </div>
         </div>
         <div class="tip">
-          <strong>Keep human docs in README</strong>
-          LLMs will read that too
+          <div class="tip-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="tip-content">
+            <div class="tip-title">Public repos: models may learn from it</div>
+            <div class="tip-desc">Future models might train on your file — keep secrets out</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1574,12 +1975,12 @@
       .slide-12 .demo-badge {
         font-family: var(--font-display-wide);
         font-weight: 800;
-        font-size: 1.1rem;
+        font-size: 2rem;
         text-transform: uppercase;
         letter-spacing: 0.2em;
         color: var(--uw-spirit-gold);
-        border: 2px solid var(--uw-spirit-gold);
-        padding: var(--space-1) var(--space-4);
+        border: 3px solid var(--uw-spirit-gold);
+        padding: var(--space-2) var(--space-6);
         border-radius: var(--radius-md);
         margin-bottom: var(--space-5);
         display: inline-block;
@@ -1609,6 +2010,28 @@
         width: 100%;
         text-align: center;
         line-height: 1.8;
+        margin-bottom: var(--space-5);
+      }
+      .slide-12 .discuss {
+        font-family: var(--font-body);
+        font-size: 1.4rem;
+        color: var(--uw-white);
+        line-height: 1.5;
+        background: rgba(255,199,0,0.08);
+        border: 1px solid rgba(255,199,0,0.3);
+        border-radius: 10px;
+        padding: var(--space-3) var(--space-5);
+        width: 100%;
+        text-align: center;
+      }
+      .slide-12 .discuss-label {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--uw-spirit-gold);
+        margin-bottom: var(--space-1);
       }
     </style>
     <div class="slide-12">
@@ -1619,105 +2042,648 @@
         <div class="demo-badge">Live Demo</div>
         <h2 class="demo-title">Re-run with AGENTS.md</h2>
         <p class="demo-cmd">claude</p>
-        <p class="demo-text">
-          Does it pick the right connection type?<br>
-          Does it still guess at filter options?
-        </p>
+        <p class="demo-text">Same prompt, same repo — but now with an AGENTS.md guiding the agent.</p>
+        <div class="discuss">
+          <p class="discuss-label">Watch for</p>
+          <p>Does it pick the right connection type? Does it still guess at filter options?</p>
+        </div>
       </div>
     </div>
   </section>
-  <!-- Slide 14: Hands On 02 -->
+  <!-- Slide 13: Hands On 02 -->
   <section class="slide" aria-label="Hands On: Compare Again">
-    <div class="handson-slide">
-      <div class="handson-badge">Hands On</div>
-      <h2 class="handson-headline">Compare again — what changed?</h2>
-      <p class="handson-instruction">
-        How different are the outputs from each other?<br>
-        From the first attempt?
-      </p>
+    <style>
+      .slide-13 {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+        color: var(--uw-white);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+        text-align: center;
+      }
+      .slide-13::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--uw-spirit-gold);
+      }
+      .slide-13 .badge {
+        font-family: var(--font-display-wide);
+        font-weight: 800;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--uw-spirit-gold);
+        border: 3px solid var(--uw-spirit-gold);
+        padding: var(--space-2) var(--space-6);
+        border-radius: var(--radius-md);
+        margin-bottom: var(--space-4);
+        display: inline-block;
+      }
+      .slide-13 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 800;
+        font-size: 2.8rem;
+        margin-bottom: var(--space-6);
+        line-height: 1.1;
+      }
+      .slide-13 .instructions {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        background: rgba(255,255,255,0.04);
+        padding: var(--space-5) var(--space-8);
+        border-radius: 12px;
+        border: 1px solid rgba(255,199,0,0.15);
+        max-width: 70%;
+      }
+      .slide-13 .instruction-item {
+        font-family: var(--font-body);
+        font-size: 1.3rem;
+        color: var(--uw-white);
+        opacity: 0.9;
+        line-height: 1.5;
+        text-align: left;
+        padding-left: 1.5em;
+        position: relative;
+      }
+      .slide-13 .instruction-item::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--uw-spirit-gold);
+        font-weight: 700;
+      }
+      .slide-13 .discuss {
+        font-family: var(--font-body);
+        font-size: 1.4rem;
+        color: var(--uw-white);
+        line-height: 1.5;
+        background: rgba(255,199,0,0.08);
+        border: 1px solid rgba(255,199,0,0.3);
+        border-radius: 10px;
+        padding: var(--space-3) var(--space-5);
+        max-width: 70%;
+        margin-top: var(--space-6);
+      }
+      .slide-13 .discuss-label {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--uw-spirit-gold);
+        margin-bottom: var(--space-1);
+      }
+    </style>
+    <div class="slide-13">
+      <div class="badge">Your Turn</div>
+      <h2 class="headline">Compare again — what changed?</h2>
+      <div class="instructions">
+        <p class="instruction-item">How different are the outputs from each other?</p>
+        <p class="instruction-item">How do they compare to the first attempt?</p>
+      </div>
+      <div class="discuss">
+        <p class="discuss-label">Discuss</p>
+        <p>Did the AGENTS.md make a difference? What improved? What still needs work?</p>
+      </div>
     </div>
   </section>
-  <!-- Slide 15: AGENTS.md Summary -->
+  <!-- Slide 14: AGENTS.md Summary -->
   <section class="slide" aria-label="What belongs in AGENTS.md">
     <style>
       .slide-14 {
+        width: 100%;
+        height: 100%;
         background: var(--uw-white);
         color: var(--uw-gray-90);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+      }
+      .slide-14::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
       }
       .slide-14 .headline {
         font-family: var(--font-display-wide);
         font-weight: 700;
         font-size: 2.4rem;
         color: var(--uw-husky-purple);
-        margin-bottom: var(--space-6);
+        margin-bottom: var(--space-5);
+        line-height: 1.2;
       }
       .slide-14 .columns {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: var(--space-8);
+        gap: var(--space-6);
         width: 100%;
       }
+      .slide-14 .col {
+        border-radius: var(--radius-lg);
+        padding: var(--space-4) var(--space-5);
+      }
+      .slide-14 .col-belongs {
+        background: rgba(75,46,131,0.04);
+        border: 1px solid rgba(75,46,131,0.12);
+      }
+      .slide-14 .col-avoid {
+        background: rgba(0,0,0,0.02);
+        border: 1px solid rgba(0,0,0,0.08);
+      }
       .slide-14 .col-header {
-        font-family: var(--font-display);
+        font-family: var(--font-display-wide);
         font-weight: 700;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         text-transform: uppercase;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.08em;
         margin-bottom: var(--space-3);
-        padding-bottom: var(--space-1);
-        border-bottom: 3px solid var(--uw-spirit-gold);
+        padding-bottom: var(--space-2);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
       }
       .slide-14 .col-belongs .col-header {
-        color: var(--uw-spirit-purple);
+        color: var(--uw-husky-purple);
+        border-bottom: 3px solid var(--uw-husky-purple);
       }
       .slide-14 .col-avoid .col-header {
         color: var(--uw-gray-50);
+        border-bottom: 3px solid var(--uw-gray-30, #ccc);
+      }
+      .slide-14 .col-header svg {
+        width: 22px;
+        height: 22px;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      .slide-14 .col-belongs .col-header svg {
+        stroke: var(--uw-husky-purple);
+      }
+      .slide-14 .col-avoid .col-header svg {
+        stroke: var(--uw-gray-50);
       }
       .slide-14 .col-item {
         font-family: var(--font-body);
+        font-size: 1.05rem;
+        line-height: 1.5;
+        padding: var(--space-2) 0;
+        padding-left: 1.4em;
+        position: relative;
+      }
+      .slide-14 .col-belongs .col-item {
+        color: var(--uw-gray-80, #333);
+      }
+      .slide-14 .col-avoid .col-item {
+        color: var(--uw-gray-60, #666);
+      }
+      .slide-14 .col-belongs .col-item::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--uw-husky-purple);
+        font-weight: 700;
+      }
+      .slide-14 .col-avoid .col-item::before {
+        content: "✗";
+        position: absolute;
+        left: 0;
+        color: var(--uw-gray-50);
+        font-weight: 700;
+      }
+      .slide-14 .principle {
+        font-family: var(--font-body);
         font-size: 1.1rem;
         color: var(--uw-gray-70);
-        line-height: 1.5;
-        padding: var(--space-1) 0;
+        margin-top: var(--space-5);
+        padding: var(--space-3) var(--space-4);
+        border-left: 4px solid var(--uw-spirit-gold);
+        font-style: italic;
       }
     </style>
     <div class="slide-14">
       <h2 class="headline">What goes in, what stays out</h2>
       <div class="columns">
-        <div class="col-belongs">
-          <div class="col-header">Belongs</div>
-          <p class="col-item">Project structure</p>
-          <p class="col-item">Naming conventions</p>
+        <div class="col col-belongs">
+          <div class="col-header">
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            Include
+          </div>
           <p class="col-item">Domain vocabulary the model can't infer</p>
-          <p class="col-item">Common pitfalls</p>
-          <p class="col-item">Standards for how work should be done</p>
+          <p class="col-item">Build and test commands</p>
+          <p class="col-item">Project structure overview</p>
+          <p class="col-item">Naming conventions</p>
+          <p class="col-item">Common pitfalls and gotchas</p>
         </div>
-        <div class="col-avoid">
-          <div class="col-header">Does not belong</div>
-          <p class="col-item">Anything the agent discovers by reading code</p>
+        <div class="col col-avoid">
+          <div class="col-header">
+            <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Leave out
+          </div>
+          <p class="col-item">Anything discoverable by reading code</p>
           <p class="col-item">Information that changes frequently</p>
           <p class="col-item">Contradictions with the actual codebase</p>
-          <p class="col-item">Personal preferences that don't apply to others</p>
+          <p class="col-item">Lengthy tutorials or explanations</p>
         </div>
+      </div>
+      <p class="principle">The guiding principle: if the agent can figure it out by reading, don't repeat it. If it can't, write it down.</p>
+    </div>
+  </section>
+  <!-- Slide 14b: Bridge to Skills -->
+  <section class="slide" aria-label="Bridge: From context documents to skills">
+    <style>
+      .slide-14b {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+        color: var(--uw-white);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-10) var(--space-12);
+        text-align: center;
+        position: relative;
+      }
+      .slide-14b::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--uw-spirit-gold);
+      }
+      .slide-14b .progress {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        margin-bottom: var(--space-10);
+        background: rgba(255,255,255,0.04);
+        padding: var(--space-4) var(--space-8);
+        border-radius: 60px;
+        border: 1px solid rgba(255,199,0,0.15);
+      }
+      .slide-14b .progress-step {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+      .slide-14b .progress-dot {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .slide-14b .progress-dot.done {
+        background: var(--uw-spirit-gold);
+      }
+      .slide-14b .progress-dot.done svg {
+        width: 22px;
+        height: 22px;
+        stroke: #350056;
+        fill: none;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-14b .progress-dot.next {
+        background: rgba(255,255,255,0.08);
+        border: 2px solid var(--uw-spirit-gold);
+      }
+      .slide-14b .progress-dot.next span {
+        font-family: var(--font-display-wide);
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: var(--uw-spirit-gold);
+      }
+      .slide-14b .progress-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.03em;
+      }
+      .slide-14b .progress-label.done {
+        color: var(--uw-spirit-gold);
+      }
+      .slide-14b .progress-label.next {
+        color: var(--uw-white);
+        opacity: 0.8;
+      }
+      .slide-14b .progress-line {
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--uw-spirit-gold), rgba(255,199,0,0.2));
+      }
+      .slide-14b .question {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 3.2rem;
+        line-height: 1.2;
+        max-width: 80%;
+        margin-bottom: var(--space-6);
+      }
+      .slide-14b .context-box {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,199,0,0.25);
+        border-radius: 12px;
+        padding: var(--space-4) var(--space-6);
+        max-width: 65%;
+        text-align: center;
+      }
+      .slide-14b .context-box p {
+        font-family: var(--font-body);
+        font-size: 1.4rem;
+        color: var(--uw-white);
+        line-height: 1.6;
+      }
+      .slide-14b .context-box strong {
+        color: var(--uw-spirit-gold);
+        font-weight: 600;
+      }
+    </style>
+    <div class="slide-14b">
+      <div class="progress">
+        <div class="progress-step">
+          <div class="progress-dot done">
+            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <span class="progress-label done">AGENTS.md</span>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step">
+          <div class="progress-dot next"><span>2</span></div>
+          <span class="progress-label next">Skills</span>
+        </div>
+      </div>
+      <h2 class="question">What if you need guidance<br>only for specific tasks?</h2>
+      <div class="context-box">
+        <p><strong>AGENTS.md loads every time</strong> — but some procedures only matter for specific kinds of work. You don't want a database query recipe firing on a plotting task.</p>
       </div>
     </div>
   </section>
-  <!-- Slide 16: Introduction to Skills -->
+  <!-- Slide 15: Introduction to Skills -->
   <section class="slide" aria-label="Introduction to Skills">
     <style>
       .slide-15 {
+        width: 100%;
+        height: 100%;
         background: var(--uw-white);
         color: var(--uw-gray-90);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+      }
+      .slide-15::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
       }
       .slide-15 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 2.4rem;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-6);
+        line-height: 1.2;
+      }
+      .slide-15 .contrast {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+        width: 100%;
+        margin-bottom: var(--space-5);
+      }
+      .slide-15 .contrast-card {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-4) var(--space-5);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
+      }
+      .slide-15 .contrast-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(75,46,131,0.08);
+        border-radius: 10px;
+      }
+      .slide-15 .contrast-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-15 .contrast-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .slide-15 .contrast-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: var(--uw-husky-purple);
+      }
+      .slide-15 .contrast-mode {
+        font-family: var(--font-display-condensed);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--uw-gray-50);
+        background: rgba(75,46,131,0.06);
+        padding: 2px 8px;
+        border-radius: 10px;
+        align-self: flex-start;
+      }
+      .slide-15 .contrast-desc {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        color: var(--uw-gray-70);
+        line-height: 1.5;
+        margin-top: var(--space-1);
+      }
+      .slide-15 .analogy {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        width: 100%;
+        background: rgba(255,199,0,0.06);
+        border: 1.5px solid rgba(255,199,0,0.3);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4) var(--space-5);
+        margin-top: var(--space-2);
+      }
+      .slide-15 .analogy-icon {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .slide-15 .analogy-icon svg {
+        width: 38px;
+        height: 38px;
+        stroke: var(--uw-spirit-gold);
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-15 .analogy-text {
+        font-family: var(--font-body);
+        font-size: 1.3rem;
+        color: var(--uw-gray-80, #333);
+        line-height: 1.5;
+        font-style: italic;
+      }
+      .slide-15 .analogy-text strong {
+        font-style: normal;
+        font-weight: 700;
+        color: var(--uw-husky-purple);
+      }
+      .slide-15 .tip {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        margin-top: var(--space-4);
+        width: 100%;
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        color: var(--uw-gray-70);
+        padding: var(--space-3) var(--space-4);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
+      }
+      .slide-15 .tip svg {
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-15 .tip strong {
+        color: var(--uw-husky-purple);
+        font-weight: 700;
+      }
+      .slide-15 .source-link {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        margin-top: var(--space-3);
+      }
+      .slide-15 .source-link a {
+        color: var(--uw-spirit-purple);
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 2px solid var(--uw-spirit-gold);
+        padding-bottom: 2px;
+      }
+    </style>
+    <div class="slide-15">
+      <h2 class="headline">Context documents are always-on.<br>Skills are on-demand.</h2>
+      <div class="contrast">
+        <div class="contrast-card">
+          <div class="contrast-icon">
+            <!-- Note pinned to a wall -->
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="5" r="1.2" fill="var(--uw-husky-purple)" stroke="none"/><line x1="7" y1="9" x2="17" y2="9"/><line x1="7" y1="12" x2="15" y2="12"/><line x1="7" y1="15" x2="13" y2="15"/><line x1="7" y1="18" x2="11" y2="18"/></svg>
+          </div>
+          <div class="contrast-content">
+            <div class="contrast-label">AGENTS.md</div>
+            <span class="contrast-mode">Always loaded</span>
+            <div class="contrast-desc">Fires every session, every task — the foundation of what your agent knows about this project</div>
+          </div>
+        </div>
+        <div class="contrast-card">
+          <div class="contrast-icon">
+            <!-- Card with lightning bolt — invoked on demand -->
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><polyline points="13 7 10 12 14 12 11 17"/></svg>
+          </div>
+          <div class="contrast-content">
+            <div class="contrast-label">Skill</div>
+            <span class="contrast-mode">On demand</span>
+            <div class="contrast-desc">A named procedure invoked only when the task matches — pulled from the drawer when you need that specific recipe</div>
+          </div>
+        </div>
+      </div>
+      <div class="analogy">
+        <div class="analogy-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="analogy-text"><strong>Think of it like a kitchen:</strong> AGENTS.md is the house rules posted on the wall. A skill is a recipe card you pull from the drawer when you're making a specific dish.</div>
+      </div>
+      <div class="tip">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
+        <span><strong>Tip:</strong> Reference your skills in AGENTS.md — any agent that reads it will discover them, regardless of tool.</span>
+      </div>
+      <p class="source-link">Further reading: <a href="https://agentskills.io" target="_blank">agentskills.io</a></p>
+    </div>
+  </section>
+  <!-- Slide 16: Skill Example -->
+  <section class="slide" aria-label="Skill Example: db-query">
+    <style>
+      .slide-16 {
+        width: 100%;
+        height: 100%;
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--space-8) var(--space-10);
+        position: relative;
+      }
+      .slide-16::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
+      }
+      .slide-16 .headline {
         font-family: var(--font-display-wide);
         font-weight: 700;
         font-size: 2.2rem;
@@ -1725,127 +2691,147 @@
         margin-bottom: var(--space-5);
         line-height: 1.2;
       }
-      .slide-15 .contrast {
+      .slide-16 .content-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.2fr 0.8fr;
         gap: var(--space-6);
-        margin-bottom: var(--space-6);
-        width: 90%;
-      }
-      .slide-15 .contrast-item {
-        padding: var(--space-3) var(--space-4);
-        border-top: 4px solid var(--uw-spirit-gold);
-      }
-      .slide-15 .contrast-label {
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--uw-spirit-purple);
-        margin-bottom: var(--space-1);
-      }
-      .slide-15 .contrast-desc {
-        font-family: var(--font-body);
-        font-size: 1.1rem;
-        color: var(--uw-gray-70);
-        line-height: 1.5;
-      }
-      .slide-15 .skill-structure {
-        font-family: var(--font-mono);
-        font-size: 1rem;
-        color: var(--uw-gray-70);
-        background: var(--uw-gray-10);
-        padding: var(--space-3) var(--space-4);
-        border-radius: var(--radius-lg);
-        line-height: 1.8;
-      }
-      .slide-15 .skill-structure .key {
-        color: var(--uw-spirit-purple);
-        font-weight: 700;
-      }
-      .slide-15 .source {
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        color: var(--uw-gray-50);
-        margin-top: var(--space-3);
-      }
-    </style>
-    <div class="slide-15">
-      <h2 class="headline">Context documents are always-on.<br>Skills are on-demand.</h2>
-      <div class="contrast">
-        <div class="contrast-item">
-          <div class="contrast-label">AGENTS.md</div>
-          <div class="contrast-desc">Fires every session, every task — the foundation</div>
-        </div>
-        <div class="contrast-item">
-          <div class="contrast-label">Skill</div>
-          <div class="contrast-desc">A named procedure invoked when the task matches — a recipe reached for only when cooking that dish</div>
-        </div>
-      </div>
-      <div class="skill-structure">
-        <span class="key">name:</span> db-query<br>
-        <span class="key">description:</span> "used for matching"<br>
-        <span class="key">instructions:</span> "step-by-step procedure"
-      </div>
-      <p class="source">agentskills.io</p>
-    </div>
-  </section>
-  <!-- Slide 17: Skill Example -->
-  <section class="slide" aria-label="Skill Example">
-    <style>
-      .slide-16 {
-        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
-        color: var(--uw-white);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: var(--space-10) var(--space-12);
-      }
-      .slide-16 .headline {
-        font-family: var(--font-display);
-        font-weight: 600;
-        font-size: 1.4rem;
-        color: var(--uw-spirit-gold);
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        margin-bottom: var(--space-5);
-        align-self: flex-start;
+        align-items: stretch;
+        width: 100%;
       }
       .slide-16 .code-block {
         font-family: var(--font-mono);
-        font-size: 1.15rem;
-        line-height: 1.9;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,199,0,0.2);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        background: rgba(75,46,131,0.04);
+        border: 1px solid rgba(75,46,131,0.12);
         border-radius: var(--radius-lg);
-        padding: var(--space-5) var(--space-6);
-        width: 75%;
+        padding: var(--space-4) var(--space-5);
       }
       .slide-16 .code-block .key {
-        color: var(--uw-spirit-gold);
+        color: var(--uw-husky-purple);
+        font-weight: 700;
       }
       .slide-16 .code-block .val {
-        color: var(--uw-gray-30);
+        color: var(--uw-gray-70);
       }
-      .slide-16 .code-block .comment {
-        color: var(--uw-gray-50);
-        font-style: italic;
+      .slide-16 .annotations {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .slide-16 .annotation {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-3) var(--space-4);
+        background: rgba(75,46,131,0.03);
+        border: 1px solid rgba(75,46,131,0.1);
+        border-radius: var(--radius-lg);
+      }
+      .slide-16 .annotation-icon {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(75,46,131,0.08);
+        border-radius: 6px;
+        margin-top: 2px;
+      }
+      .slide-16 .annotation-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-16 .annotation-content {
+        display: flex;
+        flex-direction: column;
+      }
+      .slide-16 .annotation-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--uw-gray-90);
+        margin-bottom: 2px;
+      }
+      .slide-16 .annotation-desc {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: var(--uw-gray-70);
+        line-height: 1.4;
+      }
+      .slide-16 .download-link {
+        margin-top: var(--space-3);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        padding: var(--space-2) var(--space-3);
+        background: rgba(255,199,0,0.08);
+        border: 1.5px solid rgba(255,199,0,0.3);
+        border-radius: var(--radius-lg);
+      }
+      .slide-16 .download-link svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-16 .download-link a {
+        color: var(--uw-husky-purple);
+        text-decoration: none;
+        font-weight: 600;
       }
     </style>
     <div class="slide-16">
-      <h2 class="headline">The db-query skill</h2>
-      <div class="code-block">
-        <span class="key">name:</span> <span class="val">db-query</span><br>
-        <span class="key">description:</span> <span class="val">"Query the SnowEx database</span><br>
-        <span class="val">&nbsp;&nbsp;for layer or point data"</span><br><br>
-        <span class="key">instructions:</span><br>
-        <span class="val">&nbsp;&nbsp;1. Use the simple API (not raw SQL)</span><br>
-        <span class="val">&nbsp;&nbsp;2. Connect with db_session()</span><br>
-        <span class="val">&nbsp;&nbsp;3. Use LayerData for profiles,</span><br>
-        <span class="val">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PointData for single values</span><br>
-        <span class="val">&nbsp;&nbsp;4. Filter with campaign=, date=</span><br>
-        <span class="val">&nbsp;&nbsp;5. Return as DataFrame</span>
+      <h2 class="headline">A real skill: <code style="font-family: var(--font-mono); background: rgba(75,46,131,0.08); padding: 2px 10px; border-radius: 4px;">db-query</code></h2>
+      <div class="content-grid">
+        <div class="code-block">
+          <span class="key">---</span><br>
+          <span class="key">name:</span> <span class="val">db-query</span><br>
+          <span class="key">description:</span> <span class="val">Guide to answering SnowEx database query questions</span><br>
+          <span class="key">whenToUse:</span> <span class="val">When the user asks how to query, access, or filter data</span><br>
+          <span class="key">---</span><br><br>
+          <span class="val">## No setup required</span><br>
+          <span class="val">Use the preferred Lambda client. No env vars, credentials, or AWS account.</span><br><br>
+          <span class="val" style="opacity: 0.5;">... (filtering, query limits)</span>
+        </div>
+        <div class="annotations">
+          <div class="annotation">
+            <div class="annotation-icon"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+            <div class="annotation-content">
+              <div class="annotation-title">name</div>
+              <div class="annotation-desc">How you invoke it — short and memorable</div>
+            </div>
+          </div>
+          <div class="annotation">
+            <div class="annotation-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="annotation-content">
+              <div class="annotation-title">description + whenToUse</div>
+              <div class="annotation-desc">How the agent decides whether to load this skill — match criteria</div>
+            </div>
+          </div>
+          <div class="annotation">
+            <div class="annotation-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="annotation-content">
+              <div class="annotation-title">body (instructions)</div>
+              <div class="annotation-desc">The procedure the agent follows — constraints, tips, and guardrails</div>
+            </div>
+          </div>
+          <div class="download-link">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <a href="https://github.com/user-attachments/files/31163900/db-query.md" target="_blank">Download full skill: db-query.md</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1902,12 +2888,12 @@
       .slide-17 .demo-badge {
         font-family: var(--font-display-wide);
         font-weight: 800;
-        font-size: 1.1rem;
+        font-size: 2rem;
         text-transform: uppercase;
         letter-spacing: 0.2em;
         color: var(--uw-spirit-gold);
-        border: 2px solid var(--uw-spirit-gold);
-        padding: var(--space-1) var(--space-4);
+        border: 3px solid var(--uw-spirit-gold);
+        padding: var(--space-2) var(--space-6);
         border-radius: var(--radius-md);
         margin-bottom: var(--space-5);
         display: inline-block;
@@ -1937,6 +2923,28 @@
         width: 100%;
         text-align: center;
         line-height: 1.8;
+        margin-bottom: var(--space-5);
+      }
+      .slide-17 .discuss {
+        font-family: var(--font-body);
+        font-size: 1.4rem;
+        color: var(--uw-white);
+        line-height: 1.5;
+        background: rgba(255,199,0,0.08);
+        border: 1px solid rgba(255,199,0,0.3);
+        border-radius: 10px;
+        padding: var(--space-3) var(--space-5);
+        width: 100%;
+        text-align: center;
+      }
+      .slide-17 .discuss-label {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--uw-spirit-gold);
+        margin-bottom: var(--space-1);
       }
     </style>
     <div class="slide-17">
@@ -1947,34 +2955,144 @@
         <div class="demo-badge">Live Demo</div>
         <h2 class="demo-title">Adding a skill and re-running</h2>
         <p class="demo-cmd">claude</p>
-        <p class="demo-text">
-          Does the agent invoke the skill?<br>
-          Does the output follow the skill's prescribed pattern?
-        </p>
+        <p class="demo-text">Same prompt again — but now with a skill registered for database queries.</p>
+        <div class="discuss">
+          <p class="discuss-label">Watch for</p>
+          <p>Does the agent invoke the skill? Does the output follow the skill's prescribed pattern?</p>
+        </div>
       </div>
     </div>
   </section>
-  <!-- Slide 19: Hands On 03 -->
+  <!-- Slide 18: Hands On 03 -->
   <section class="slide" aria-label="Hands On: What changed with the skill?">
-    <div class="handson-slide">
-      <div class="handson-badge">Hands On</div>
-      <h2 class="handson-headline">What changed with the skill?</h2>
-      <p class="handson-instruction">
-        Is the output more consistent between partners?<br>
-        Think of ways to improve the skill.
-      </p>
+    <style>
+      .slide-18 {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+        color: var(--uw-white);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+        text-align: center;
+      }
+      .slide-18::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--uw-spirit-gold);
+      }
+      .slide-18 .badge {
+        font-family: var(--font-display-wide);
+        font-weight: 800;
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--uw-spirit-gold);
+        border: 3px solid var(--uw-spirit-gold);
+        padding: var(--space-2) var(--space-6);
+        border-radius: var(--radius-md);
+        margin-bottom: var(--space-4);
+        display: inline-block;
+      }
+      .slide-18 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 800;
+        font-size: 2.8rem;
+        margin-bottom: var(--space-6);
+        line-height: 1.1;
+      }
+      .slide-18 .instructions {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        background: rgba(255,255,255,0.04);
+        padding: var(--space-5) var(--space-8);
+        border-radius: 12px;
+        border: 1px solid rgba(255,199,0,0.15);
+        max-width: 70%;
+      }
+      .slide-18 .instruction-item {
+        font-family: var(--font-body);
+        font-size: 1.3rem;
+        color: var(--uw-white);
+        opacity: 0.9;
+        line-height: 1.5;
+        text-align: left;
+        padding-left: 1.5em;
+        position: relative;
+      }
+      .slide-18 .instruction-item::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--uw-spirit-gold);
+        font-weight: 700;
+      }
+      .slide-18 .discuss {
+        font-family: var(--font-body);
+        font-size: 1.4rem;
+        color: var(--uw-white);
+        line-height: 1.5;
+        background: rgba(255,199,0,0.08);
+        border: 1px solid rgba(255,199,0,0.3);
+        border-radius: 10px;
+        padding: var(--space-3) var(--space-5);
+        max-width: 70%;
+        margin-top: var(--space-6);
+      }
+      .slide-18 .discuss-label {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--uw-spirit-gold);
+        margin-bottom: var(--space-1);
+      }
+    </style>
+    <div class="slide-18">
+      <div class="badge">Your Turn</div>
+      <h2 class="headline">What changed with the skill?</h2>
+      <div class="instructions">
+        <p class="instruction-item">Is the output more consistent between partners?</p>
+        <p class="instruction-item">Think of ways to improve the skill</p>
+      </div>
+      <div class="discuss">
+        <p class="discuss-label">Discuss</p>
+        <p>What would you add or change in the skill to get better results?</p>
+      </div>
     </div>
   </section>
-  <!-- Slide 20: Context vs Skill -->
-  <section class="slide" aria-label="Context vs Skill">
+  <!-- Slide 19: What We Built -->
+  <section class="slide" aria-label="What We Built Today">
     <style>
       .slide-19 {
+        width: 100%;
+        height: 100%;
         background: var(--uw-white);
         color: var(--uw-gray-90);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: var(--space-10) var(--space-12);
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+      }
+      .slide-19::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
       }
       .slide-19 .headline {
         font-family: var(--font-display-wide);
@@ -1982,123 +3100,270 @@
         font-size: 2.4rem;
         color: var(--uw-husky-purple);
         margin-bottom: var(--space-6);
+        line-height: 1.2;
       }
-      .slide-19 .comparison {
+      .slide-19 .journey {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-6);
-        width: 90%;
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        gap: var(--space-3);
+        align-items: center;
+        width: 100%;
         margin-bottom: var(--space-5);
       }
-      .slide-19 .comp-card {
-        padding: var(--space-4);
-        border-top: 4px solid var(--uw-spirit-gold);
-        background: var(--uw-gray-10);
-        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      .slide-19 .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-5) var(--space-4);
+        background: rgba(75,46,131,0.04);
+        border: 1.5px solid rgba(75,46,131,0.15);
+        border-radius: var(--radius-lg);
+        text-align: center;
       }
-      .slide-19 .comp-label {
+      .slide-19 .step-icon {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(75,46,131,0.1);
+        border-radius: 14px;
+      }
+      .slide-19 .step-icon svg {
+        width: 32px;
+        height: 32px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-19 .step-label {
         font-family: var(--font-display);
         font-weight: 700;
-        font-size: 1.1rem;
-        color: var(--uw-spirit-purple);
-        margin-bottom: var(--space-2);
+        font-size: 1.4rem;
+        color: var(--uw-husky-purple);
       }
-      .slide-19 .comp-when {
+      .slide-19 .step-desc {
         font-family: var(--font-body);
-        font-size: 1.05rem;
+        font-size: 1.1rem;
         color: var(--uw-gray-70);
+        line-height: 1.4;
+      }
+      .slide-19 .step-result {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--uw-gray-90);
+        background: rgba(75,46,131,0.08);
+        padding: 6px 12px;
+        border-radius: 8px;
+        margin-top: var(--space-1);
+      }
+      .slide-19 .arrow {
+        font-size: 2.4rem;
+        color: var(--uw-spirit-gold);
+        font-weight: 700;
+      }
+      .slide-19 .outcome {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        width: 100%;
+        padding: var(--space-4) var(--space-5);
+        background: rgba(255,199,0,0.08);
+        border: 2px solid rgba(255,199,0,0.4);
+        border-radius: var(--radius-lg);
+      }
+      .slide-19 .outcome-icon {
+        flex-shrink: 0;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .slide-19 .outcome-icon svg {
+        width: 36px;
+        height: 36px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-19 .outcome-text {
+        font-family: var(--font-body);
+        font-size: 1.25rem;
+        color: var(--uw-gray-90);
         line-height: 1.5;
       }
-      .slide-19 .bridge-note {
-        font-family: var(--font-body);
-        font-size: 1.15rem;
-        color: var(--uw-gray-70);
-        border-left: 4px solid var(--uw-spirit-gold);
-        padding-left: var(--space-3);
-        margin-top: var(--space-4);
+      .slide-19 .outcome-text strong {
+        font-weight: 700;
+        color: var(--uw-husky-purple);
       }
     </style>
     <div class="slide-19">
-      <h2 class="headline">Always-on context vs. on-demand procedure</h2>
-      <div class="comparison">
-        <div class="comp-card">
-          <div class="comp-label">Context document</div>
-          <p class="comp-when">Information needed regardless of task — structure, vocabulary, conventions</p>
+      <h2 class="headline">What we built today</h2>
+      <div class="journey">
+        <div class="step">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="step-label">Bare repo</div>
+          <div class="step-desc">No guidance</div>
+          <div class="step-result">Confident but wrong</div>
         </div>
-        <div class="comp-card">
-          <div class="comp-label">Skill</div>
-          <p class="comp-when">A specific procedure that only applies to certain tasks — querying the DB, running tests</p>
+        <span class="arrow">→</span>
+        <div class="step">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="step-label">+ AGENTS.md</div>
+          <div class="step-desc">Always-on context</div>
+          <div class="step-result">Right direction</div>
+        </div>
+        <span class="arrow">→</span>
+        <div class="step">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><polyline points="13 7 10 12 14 12 11 17"/></svg>
+          </div>
+          <div class="step-label">+ Skill</div>
+          <div class="step-desc">On-demand procedure</div>
+          <div class="step-result">Consistent output</div>
         </div>
       </div>
-      <p class="bridge-note">Create bridges to skills in the AGENTS.md so the LLM knows about them</p>
+      <div class="outcome">
+        <div class="outcome-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="outcome-text"><strong>Each layer reduced guessing</strong> — the agent spent tokens following your instructions instead of reverse-engineering your project.</div>
+      </div>
     </div>
   </section>
-  <!-- Slide 21: Takeaways -->
+  <!-- Slide 20: Takeaways -->
   <section class="slide" aria-label="Takeaways">
     <style>
       .slide-20 {
-        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
-        color: var(--uw-white);
+        width: 100%;
+        height: 100%;
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: var(--space-12) var(--space-16);
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+      }
+      .slide-20::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--uw-spirit-gold);
       }
       .slide-20 .headline {
         font-family: var(--font-display-wide);
         font-weight: 700;
-        font-size: 2.6rem;
-        margin-bottom: var(--space-8);
+        font-size: 2.4rem;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-5);
         line-height: 1.2;
       }
-      .slide-20 .headline span {
-        color: var(--uw-spirit-gold);
+      .slide-20 .columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+        width: 100%;
+        margin-bottom: var(--space-5);
       }
-      .slide-20 .takeaways {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-        max-width: 80%;
+      .slide-20 .col {
+        border-radius: var(--radius-lg);
+        padding: var(--space-4) var(--space-5);
       }
-      .slide-20 .takeaway {
-        display: flex;
-        align-items: baseline;
-        gap: var(--space-3);
+      .slide-20 .col-context {
+        background: rgba(75,46,131,0.04);
+        border: 1px solid rgba(75,46,131,0.12);
       }
-      .slide-20 .takeaway-num {
+      .slide-20 .col-skill {
+        background: rgba(75,46,131,0.04);
+        border: 1px solid rgba(75,46,131,0.12);
+      }
+      .slide-20 .col-header {
         font-family: var(--font-display-wide);
-        font-weight: 800;
-        font-size: 1.8rem;
-        color: var(--uw-spirit-gold);
-        min-width: 40px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-3);
+        padding-bottom: var(--space-2);
+        border-bottom: 3px solid var(--uw-husky-purple);
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
       }
-      .slide-20 .takeaway-text {
+      .slide-20 .col-header svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--uw-husky-purple);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-20 .col-item {
         font-family: var(--font-body);
-        font-size: 1.3rem;
-        font-weight: 300;
-        line-height: 1.4;
+        font-size: 1.05rem;
+        line-height: 1.5;
+        padding: var(--space-2) 0;
+        padding-left: 1.4em;
+        position: relative;
+        color: var(--uw-gray-80, #333);
+      }
+      .slide-20 .col-item::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--uw-spirit-gold);
+        font-weight: 700;
+      }
+      .slide-20 .principle {
+        font-family: var(--font-body);
+        font-size: 1.15rem;
+        color: var(--uw-gray-70);
+        padding: var(--space-3) var(--space-4);
+        border-left: 4px solid var(--uw-spirit-gold);
+        font-style: italic;
       }
     </style>
     <div class="slide-20">
-      <h2 class="headline">Context engineering is the<br><span>researcher's primary lever</span></h2>
-      <div class="takeaways">
-        <div class="takeaway">
-          <span class="takeaway-num">1</span>
-          <span class="takeaway-text">The model's built-in knowledge ends at your project boundary</span>
+      <h2 class="headline">You're a context engineer now</h2>
+      <div class="columns">
+        <div class="col col-context">
+          <div class="col-header">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            AGENTS.md
+          </div>
+          <p class="col-item">Start with 5 lines — project name, build command, test command</p>
+          <p class="col-item">Add domain vocabulary the model gets wrong</p>
+          <p class="col-item">Grow it as you observe agent mistakes</p>
         </div>
-        <div class="takeaway">
-          <span class="takeaway-num">2</span>
-          <span class="takeaway-text">Domain knowledge of your work must be engineered in</span>
-        </div>
-        <div class="takeaway">
-          <span class="takeaway-num">3</span>
-          <span class="takeaway-text">Add context as you observe LLM behavior</span>
-        </div>
-        <div class="takeaway">
-          <span class="takeaway-num">4</span>
-          <span class="takeaway-text">Choose the mechanism that matches how broadly the context applies</span>
+        <div class="col col-skill">
+          <div class="col-header">
+            <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><polyline points="13 7 10 12 14 12 11 17"/></svg>
+            Skills
+          </div>
+          <p class="col-item">Identify a task you repeat — that's your first skill</p>
+          <p class="col-item">Write the steps you'd tell a colleague</p>
+          <p class="col-item">Reference the skill from AGENTS.md so the agent finds it</p>
         </div>
       </div>
+      <p class="principle">Context engineering is iterative: observe what the agent gets wrong, then write the context that would have prevented it.</p>
     </div>
   </section>
 
