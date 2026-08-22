@@ -1,0 +1,109 @@
+  <!-- Slide 09: First Result -->
+  <section class="slide" aria-label="First Result">
+    <style>
+      .slide-08 {
+        width: 100%;
+        height: 100%;
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--space-10) var(--space-12);
+        position: relative;
+      }
+      .slide-08::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--uw-spirit-gold);
+      }
+      .slide-08 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 3rem;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-8);
+      }
+      .slide-08 .observations {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--space-5);
+        width: 100%;
+      }
+      .slide-08 .obs-card {
+        padding: var(--space-5) var(--space-4);
+        border-radius: var(--radius-lg);
+        background: rgba(75,46,131,0.04);
+        border-top: 4px solid var(--uw-spirit-gold);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .slide-08 .obs-icon {
+        width: 56px;
+        height: 56px;
+      }
+      .slide-08 .obs-icon path,
+      .slide-08 .obs-icon line,
+      .slide-08 .obs-icon circle,
+      .slide-08 .obs-icon polyline {
+        fill: none;
+        stroke: var(--uw-spirit-gold);
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .slide-08 .obs-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: var(--uw-spirit-purple);
+      }
+      .slide-08 .obs-desc {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        color: var(--uw-gray-70);
+        line-height: 1.5;
+      }
+    </style>
+    <div class="slide-08">
+      <h2 class="headline">Confident, fast, and complicated</h2>
+      <div class="observations">
+        <div class="obs-card">
+          <svg class="obs-icon" viewBox="0 0 56 56">
+            <!-- Magnifying glass = reverse engineering -->
+            <circle cx="24" cy="24" r="14"/>
+            <line x1="34" y1="34" x2="46" y2="46"/>
+            <line x1="18" y1="20" x2="30" y2="20"/>
+            <line x1="18" y1="26" x2="26" y2="26"/>
+          </svg>
+          <span class="obs-label">Reverse engineered</span>
+          <span class="obs-desc">Dove into the source code instead of using documented patterns</span>
+        </div>
+        <div class="obs-card">
+          <svg class="obs-icon" viewBox="0 0 56 56">
+            <!-- Wrong path = chose complex over simple -->
+            <polyline points="8,40 20,28 32,36 48,12"/>
+            <polyline points="38,12 48,12 48,22"/>
+          </svg>
+          <span class="obs-label">Chose the complex path</span>
+          <span class="obs-desc">Suggested the advanced solution when the README shows simpler as preferred</span>
+        </div>
+        <div class="obs-card">
+          <svg class="obs-icon" viewBox="0 0 56 56">
+            <!-- Tokens burning = wasted effort -->
+            <circle cx="28" cy="28" r="18"/>
+            <path d="M28,14 L28,28 L38,34"/>
+            <line x1="12" y1="8" x2="16" y2="12"/>
+            <line x1="44" y1="8" x2="40" y2="12"/>
+          </svg>
+          <span class="obs-label">Burned tokens guessing</span>
+          <span class="obs-desc">Spent effort guessing query parameters it could have been told</span>
+        </div>
+      </div>
+    </div>
+  </section>

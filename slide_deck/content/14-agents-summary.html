@@ -1,0 +1,69 @@
+  <!-- Slide 15: AGENTS.md Summary -->
+  <section class="slide" aria-label="What belongs in AGENTS.md">
+    <style>
+      .slide-14 {
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: var(--space-10) var(--space-12);
+      }
+      .slide-14 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 2.4rem;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-6);
+      }
+      .slide-14 .columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+        width: 100%;
+      }
+      .slide-14 .col-header {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: var(--space-3);
+        padding-bottom: var(--space-1);
+        border-bottom: 3px solid var(--uw-spirit-gold);
+      }
+      .slide-14 .col-belongs .col-header {
+        color: var(--uw-spirit-purple);
+      }
+      .slide-14 .col-avoid .col-header {
+        color: var(--uw-gray-50);
+      }
+      .slide-14 .col-item {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        color: var(--uw-gray-70);
+        line-height: 1.5;
+        padding: var(--space-1) 0;
+      }
+    </style>
+    <div class="slide-14">
+      <h2 class="headline">What goes in, what stays out</h2>
+      <div class="columns">
+        <div class="col-belongs">
+          <div class="col-header">Belongs</div>
+          <p class="col-item">Project structure</p>
+          <p class="col-item">Naming conventions</p>
+          <p class="col-item">Domain vocabulary the model can't infer</p>
+          <p class="col-item">Common pitfalls</p>
+          <p class="col-item">Standards for how work should be done</p>
+        </div>
+        <div class="col-avoid">
+          <div class="col-header">Does not belong</div>
+          <p class="col-item">Anything the agent discovers by reading code</p>
+          <p class="col-item">Information that changes frequently</p>
+          <p class="col-item">Contradictions with the actual codebase</p>
+          <p class="col-item">Personal preferences that don't apply to others</p>
+        </div>
+      </div>
+    </div>
+  </section>

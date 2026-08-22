@@ -1,0 +1,85 @@
+  <!-- Slide 16: Introduction to Skills -->
+  <section class="slide" aria-label="Introduction to Skills">
+    <style>
+      .slide-15 {
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: var(--space-10) var(--space-12);
+      }
+      .slide-15 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 2.2rem;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-5);
+        line-height: 1.2;
+      }
+      .slide-15 .contrast {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+        margin-bottom: var(--space-6);
+        width: 90%;
+      }
+      .slide-15 .contrast-item {
+        padding: var(--space-3) var(--space-4);
+        border-top: 4px solid var(--uw-spirit-gold);
+      }
+      .slide-15 .contrast-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--uw-spirit-purple);
+        margin-bottom: var(--space-1);
+      }
+      .slide-15 .contrast-desc {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        color: var(--uw-gray-70);
+        line-height: 1.5;
+      }
+      .slide-15 .skill-structure {
+        font-family: var(--font-mono);
+        font-size: 1rem;
+        color: var(--uw-gray-70);
+        background: var(--uw-gray-10);
+        padding: var(--space-3) var(--space-4);
+        border-radius: var(--radius-lg);
+        line-height: 1.8;
+      }
+      .slide-15 .skill-structure .key {
+        color: var(--uw-spirit-purple);
+        font-weight: 700;
+      }
+      .slide-15 .source {
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        color: var(--uw-gray-50);
+        margin-top: var(--space-3);
+      }
+    </style>
+    <div class="slide-15">
+      <h2 class="headline">Context documents are always-on.<br>Skills are on-demand.</h2>
+      <div class="contrast">
+        <div class="contrast-item">
+          <div class="contrast-label">AGENTS.md</div>
+          <div class="contrast-desc">Fires every session, every task — the foundation</div>
+        </div>
+        <div class="contrast-item">
+          <div class="contrast-label">Skill</div>
+          <div class="contrast-desc">A named procedure invoked when the task matches — a recipe reached for only when cooking that dish</div>
+        </div>
+      </div>
+      <div class="skill-structure">
+        <span class="key">name:</span> db-query<br>
+        <span class="key">description:</span> "used for matching"<br>
+        <span class="key">instructions:</span> "step-by-step procedure"
+      </div>
+      <p class="source">agentskills.io</p>
+    </div>
+  </section>

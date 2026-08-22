@@ -1,0 +1,68 @@
+  <!-- Slide 20: Context vs Skill -->
+  <section class="slide" aria-label="Context vs Skill">
+    <style>
+      .slide-19 {
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: var(--space-10) var(--space-12);
+      }
+      .slide-19 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 2.4rem;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-6);
+      }
+      .slide-19 .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+        width: 90%;
+        margin-bottom: var(--space-5);
+      }
+      .slide-19 .comp-card {
+        padding: var(--space-4);
+        border-top: 4px solid var(--uw-spirit-gold);
+        background: var(--uw-gray-10);
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      }
+      .slide-19 .comp-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--uw-spirit-purple);
+        margin-bottom: var(--space-2);
+      }
+      .slide-19 .comp-when {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        color: var(--uw-gray-70);
+        line-height: 1.5;
+      }
+      .slide-19 .bridge-note {
+        font-family: var(--font-body);
+        font-size: 1.15rem;
+        color: var(--uw-gray-70);
+        border-left: 4px solid var(--uw-spirit-gold);
+        padding-left: var(--space-3);
+        margin-top: var(--space-4);
+      }
+    </style>
+    <div class="slide-19">
+      <h2 class="headline">Always-on context vs. on-demand procedure</h2>
+      <div class="comparison">
+        <div class="comp-card">
+          <div class="comp-label">Context document</div>
+          <p class="comp-when">Information needed regardless of task — structure, vocabulary, conventions</p>
+        </div>
+        <div class="comp-card">
+          <div class="comp-label">Skill</div>
+          <p class="comp-when">A specific procedure that only applies to certain tasks — querying the DB, running tests</p>
+        </div>
+      </div>
+      <p class="bridge-note">Create bridges to skills in the AGENTS.md so the LLM knows about them</p>
+    </div>
+  </section>

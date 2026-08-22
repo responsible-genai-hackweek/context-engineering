@@ -1,0 +1,178 @@
+  <!-- Slide 05: Introducing SnowEx -->
+  <section class="slide" aria-label="Introducing SnowEx">
+    <style>
+      .slide-05 {
+        width: 100%;
+        height: 100%;
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--space-8) var(--space-12);
+        position: relative;
+      }
+      .slide-05::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--uw-spirit-gold);
+      }
+      .slide-05 .logo {
+        position: absolute;
+        top: var(--space-5);
+        right: var(--space-8);
+        width: 280px;
+        height: 280px;
+        object-fit: contain;
+        opacity: 0.9;
+      }
+      .slide-05 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 2.6rem;
+        color: var(--uw-husky-purple);
+        line-height: 1.15;
+        margin-bottom: var(--space-5);
+      }
+      .slide-05 .headline code {
+        font-family: var(--font-mono);
+        color: var(--uw-spirit-purple);
+      }
+      .slide-05 .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: var(--space-6);
+        width: 100%;
+        align-items: center;
+      }
+      .slide-05 .summary {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .slide-05 .summary-item {
+        font-family: var(--font-body);
+        font-size: 1.15rem;
+        color: var(--uw-gray-70);
+        line-height: 1.5;
+        padding-left: var(--space-3);
+        border-left: 3px solid var(--uw-spirit-gold);
+      }
+      .slide-05 .summary-item strong {
+        color: var(--uw-gray-90);
+      }
+      .slide-05 .schematic {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .slide-05 .schematic svg {
+        width: 100%;
+        max-width: 580px;
+        height: auto;
+      }
+      .slide-05 .schematic text {
+        font-family: 'Encode Sans Condensed', sans-serif;
+        font-size: 14px;
+        fill: var(--uw-gray-70);
+      }
+      .slide-05 .schematic text.label-bold {
+        font-weight: 700;
+        font-size: 15px;
+        fill: var(--uw-spirit-purple);
+      }
+      .slide-05 .schematic text.label-gold {
+        font-weight: 700;
+        font-size: 15px;
+        fill: #350056;
+      }
+      .slide-05 .schematic rect {
+        fill: rgba(75,46,131,0.06);
+        stroke: var(--uw-spirit-purple);
+        stroke-width: 1.5;
+        rx: 8;
+      }
+      .slide-05 .schematic rect.highlight {
+        fill: rgba(255,199,0,0.12);
+        stroke: var(--uw-spirit-gold);
+        stroke-width: 2.5;
+      }
+      .slide-05 .schematic rect.user-box {
+        fill: rgba(53,0,86,0.1);
+        stroke: #350056;
+        stroke-width: 2.5;
+        rx: 30;
+        ry: 30;
+      }
+      .slide-05 .schematic line {
+        stroke: var(--uw-gray-50);
+        stroke-width: 2;
+      }
+      .slide-05 .schematic polyline {
+        stroke: var(--uw-spirit-gold);
+        stroke-width: 2;
+        fill: none;
+        stroke-dasharray: 6 4;
+      }
+      .slide-05 .schematic polygon {
+        fill: var(--uw-gray-50);
+      }
+      .slide-05 .schematic polygon.gold {
+        fill: var(--uw-spirit-gold);
+      }
+      .slide-05 .callout {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--uw-spirit-purple);
+        margin-top: var(--space-5);
+        padding: var(--space-2) var(--space-3);
+        border-left: 4px solid var(--uw-spirit-gold);
+      }
+    </style>
+    <div class="slide-05">
+      <img class="logo" src="https://snowexsql.readthedocs.io/en/latest/_static/logo.png" alt="SnowEx logo">
+      <h2 class="headline"><code>snowexsql</code> — A Python library<br>for the SnowEx database</h2>
+      <div class="content-grid">
+        <div class="summary">
+          <p class="summary-item"><strong>NASA SnowEx campaigns</strong> — multi-year field and airborne snow measurements across western US and Alaska</p>
+          <p class="summary-item"><strong>PostgreSQL/PostGIS database</strong> — snow depths, density, temperature, stratigraphy, SWE</p>
+          <p class="summary-item"><strong>Python package</strong> — query via a Lambda client (no credentials) or direct DB connection</p>
+          <p class="summary-item"><strong>Returns DataFrames</strong> — filters by campaign, date, type, location</p>
+        </div>
+        <div class="schematic">
+          <svg viewBox="0 0 460 280" aria-label="Schematic: User queries database through snowexsql Python package">
+            <!-- Your code box -->
+            <rect class="user-box" x="10" y="90" width="110" height="60"/>
+            <text class="label-gold" x="65" y="126" text-anchor="middle">Your code</text>
+            <!-- Arrow 1 -->
+            <line x1="120" y1="120" x2="150" y2="120"/>
+            <polygon points="148,114 160,120 148,126"/>
+            <!-- snowexsql package -->
+            <rect class="highlight" x="160" y="60" width="160" height="120"/>
+            <text class="label-bold" x="240" y="90" text-anchor="middle">snowexsql</text>
+            <text x="240" y="115" text-anchor="middle">PointMeasurements</text>
+            <text x="240" y="137" text-anchor="middle">LayerMeasurements</text>
+            <text x="240" y="159" text-anchor="middle">.from_filter()</text>
+            <!-- Arrow 2 -->
+            <line x1="320" y1="120" x2="350" y2="120"/>
+            <polygon points="348,114 360,120 348,126"/>
+            <!-- Database cylinder -->
+            <path d="M355,95 A45,15 0 0,1 445,95 L445,155 A45,15 0 0,1 355,155 Z" fill="rgba(75,46,131,0.06)" stroke="var(--uw-spirit-purple)" stroke-width="1.5"/>
+            <ellipse cx="400" cy="95" rx="45" ry="15" fill="rgba(75,46,131,0.1)" stroke="var(--uw-spirit-purple)" stroke-width="1.5"/>
+            <text class="label-bold" x="400" y="128" text-anchor="middle">SnowEx</text>
+            <text x="400" y="148" text-anchor="middle">DB</text>
+            <!-- DataFrame return arrow -->
+            <polyline points="240,180 240,225 65,225 65,150"/>
+            <polygon class="gold" points="59,152 65,140 71,152"/>
+            <text x="155" y="248" text-anchor="middle" style="font-size:14px; fill: var(--uw-spirit-gold); font-weight: 700;">returns DataFrame</text>
+          </svg>
+        </div>
+      </div>
+      <p class="callout">Clone the forked repo: <a href="https://github.com/jomey/snowexsql" style="color: var(--uw-spirit-purple); text-decoration: underline;">github.com/jomey/snowexsql</a> — Hint: Agents cheat!</p>
+    </div>
+  </section>

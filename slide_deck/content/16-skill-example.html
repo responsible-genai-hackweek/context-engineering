@@ -1,0 +1,58 @@
+  <!-- Slide 17: Skill Example -->
+  <section class="slide" aria-label="Skill Example">
+    <style>
+      .slide-16 {
+        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+        color: var(--uw-white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-10) var(--space-12);
+      }
+      .slide-16 .headline {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 1.4rem;
+        color: var(--uw-spirit-gold);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: var(--space-5);
+        align-self: flex-start;
+      }
+      .slide-16 .code-block {
+        font-family: var(--font-mono);
+        font-size: 1.15rem;
+        line-height: 1.9;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,199,0,0.2);
+        border-radius: var(--radius-lg);
+        padding: var(--space-5) var(--space-6);
+        width: 75%;
+      }
+      .slide-16 .code-block .key {
+        color: var(--uw-spirit-gold);
+      }
+      .slide-16 .code-block .val {
+        color: var(--uw-gray-30);
+      }
+      .slide-16 .code-block .comment {
+        color: var(--uw-gray-50);
+        font-style: italic;
+      }
+    </style>
+    <div class="slide-16">
+      <h2 class="headline">The db-query skill</h2>
+      <div class="code-block">
+        <span class="key">name:</span> <span class="val">db-query</span><br>
+        <span class="key">description:</span> <span class="val">"Query the SnowEx database</span><br>
+        <span class="val">&nbsp;&nbsp;for layer or point data"</span><br><br>
+        <span class="key">instructions:</span><br>
+        <span class="val">&nbsp;&nbsp;1. Use the simple API (not raw SQL)</span><br>
+        <span class="val">&nbsp;&nbsp;2. Connect with db_session()</span><br>
+        <span class="val">&nbsp;&nbsp;3. Use LayerData for profiles,</span><br>
+        <span class="val">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PointData for single values</span><br>
+        <span class="val">&nbsp;&nbsp;4. Filter with campaign=, date=</span><br>
+        <span class="val">&nbsp;&nbsp;5. Return as DataFrame</span>
+      </div>
+    </div>
+  </section>

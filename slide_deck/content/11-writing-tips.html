@@ -1,0 +1,75 @@
+  <!-- Slide 12: Writing Tips -->
+  <section class="slide" aria-label="Writing Tips">
+    <style>
+      .slide-11 {
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: var(--space-10) var(--space-12);
+      }
+      .slide-11 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 2.4rem;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-6);
+      }
+      .slide-11 .tips-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4) var(--space-8);
+        max-width: 90%;
+      }
+      .slide-11 .tip {
+        font-family: var(--font-body);
+        font-size: 1.15rem;
+        color: var(--uw-gray-70);
+        line-height: 1.5;
+        padding-left: var(--space-3);
+        border-left: 3px solid var(--uw-spirit-gold);
+      }
+      .slide-11 .tip strong {
+        color: var(--uw-gray-90);
+        display: block;
+        margin-bottom: 4px;
+      }
+      .slide-11 .tip code {
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        background: rgba(75,46,131,0.06);
+        padding: 2px 6px;
+        border-radius: 3px;
+      }
+    </style>
+    <div class="slide-11">
+      <h2 class="headline">A good AGENTS.md is concise and actionable</h2>
+      <div class="tips-grid">
+        <div class="tip">
+          <strong>Start simple</strong>
+          Expand as needed over time
+        </div>
+        <div class="tip">
+          <strong>Be specific</strong>
+          Not "follow best practices" — instead <code>Run lint after every change</code>
+        </div>
+        <div class="tip">
+          <strong>Keep it short</strong>
+          Under 200 lines or 32 KiB
+        </div>
+        <div class="tip">
+          <strong>Nest for big repos</strong>
+          The "closest" AGENTS.md wins
+        </div>
+        <div class="tip">
+          <strong>It's a guide, not enforcement</strong>
+          No guarantee "DO NOT EDIT" is honored
+        </div>
+        <div class="tip">
+          <strong>Keep human docs in README</strong>
+          LLMs will read that too
+        </div>
+      </div>
+    </div>
+  </section>

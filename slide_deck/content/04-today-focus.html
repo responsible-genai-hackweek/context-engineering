@@ -1,0 +1,95 @@
+  <!-- Slide 04: Today's Focus -->
+  <section class="slide" aria-label="Today's Focus">
+    <style>
+      .slide-04 {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+        color: var(--uw-white);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: var(--space-12) var(--space-16);
+        position: relative;
+      }
+      .slide-04::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--uw-spirit-gold);
+      }
+      .slide-04 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 3.2rem;
+        line-height: 1.15;
+        margin-bottom: var(--space-10);
+      }
+      .slide-04 .headline span {
+        color: var(--uw-spirit-gold);
+      }
+      .slide-04 .focus-items {
+        display: flex;
+        gap: var(--space-8);
+        width: 100%;
+      }
+      .slide-04 .focus-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        padding: var(--space-5) var(--space-5);
+        border: 1px solid rgba(255,199,0,0.25);
+        border-radius: var(--radius-lg);
+        background: rgba(255,255,255,0.04);
+      }
+      .slide-04 .focus-num {
+        font-family: var(--font-display-wide);
+        font-weight: 800;
+        font-size: 3.5rem;
+        color: var(--uw-spirit-gold);
+        line-height: 1;
+      }
+      .slide-04 .focus-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.6rem;
+        color: var(--uw-white);
+        line-height: 1.3;
+      }
+      .slide-04 .focus-label code {
+        font-family: var(--font-mono);
+        background: rgba(255,199,0,0.15);
+        padding: 3px 12px;
+        border-radius: 3px;
+        font-weight: 600;
+      }
+      .slide-04 .focus-desc {
+        font-family: var(--font-body);
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--uw-white);
+        opacity: 0.8;
+        line-height: 1.6;
+      }
+    </style>
+    <div class="slide-04">
+      <h2 class="headline">Today: <span>Two options</span> on the spectrum</h2>
+      <div class="focus-items">
+        <div class="focus-item">
+          <span class="focus-num">1</span>
+          <span class="focus-label">Context document <code>AGENTS.md</code></span>
+          <span class="focus-desc">Always-on, loaded every session — the foundation of what your agent knows</span>
+        </div>
+        <div class="focus-item">
+          <span class="focus-num">2</span>
+          <span class="focus-label">Skill</span>
+          <span class="focus-desc">On-demand, invoked when the task matches — a recipe reached for only when needed</span>
+        </div>
+      </div>
+    </div>
+  </section>

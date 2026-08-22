@@ -24,7 +24,13 @@ Duration: 60 minutes (slides + live demos interleaved)
 - Default to one anchoring element per slide: a phrase, a number, or a small structural composition. When in doubt, less text.
 - Maintain visual continuity: consistent type scale, generous whitespace, and the gold accent from the title slide.
 
-**Live demo slides:** Slides marked `[LIVE DEMO]` are holding-screen placeholders shown while the instructor works in a terminal. They should display a short orienting statement and the prompt or task being demonstrated — enough for the audience to follow along without reading code off the projector's second screen. Use a dark background with monospace type to signal "we are in the terminal now."
+**Live demo slides:** Slides marked `[LIVE DEMO]` are holding-screen placeholders shown while the instructor works in a terminal. They should display a short orienting statement and the prompt or task being demonstrated — enough for the audience to follow along without reading code off the projector's second screen. Never use black or near-black backgrounds anywhere in this deck. Demo slide visual treatment:
+  - Purple gradient background
+  - A semi-transparent dark terminal window shape (rounded rect, 70% width, 60% height) centered on the slide with three dots (traffic light) in the top-left corner
+  - Bold gold "LIVE DEMO" badge
+  - Title in large monospace
+  - A `$ claude` command line in gold to show what's being executed
+  - Orienting questions in white body text below
 
 ---
 
@@ -41,62 +47,83 @@ Title slide with UW branding.
 ## 02-the-problem
 
 - Key message: "Your agent does not remember most of your project context"
-- An Agent is good at reverse engineering (and eager to). It does not know your data, your conventions, or your goals.
-- Every new session starts from minimal "memory"
-- Persistent durability into the context is dependent on you.
+- Layout: Headline spans the full width. Four supporting points arranged in a 2×2 grid below, each with a gold left-border accent. Use the full slide width — no narrow column.
+- Bullets (rendered as 2×2 grid, reading order top-left → top-right → bottom-left → bottom-right):
+  1. Every new session starts from minimal "memory" (concrete problem)
+  2. Doesn't know your data, your conventions, or your goals (what's missing)
+  3. Good at reverse engineering — and eager to try (the trap: fills the gap confidently but wrong)
+  4. Persistent durability is dependent on you (call to action, transitions to next slide)
 
 ## 03-durability-spectrum
 
 - Key message: "Persistent context options in current landscape"
-- Agents are starting to build "memory" features, but the durability of context is still largely in your hands.
-- Present as a horizontal spectrum from "always present" to "on demand":
-  - **Always loaded** — Context documents (AGENTS.md). Read every time, regardless of task.
-  - **Invoked on match** — Skills, named procedures. Loaded when a task fits.
-  - **Auto-triggered** — Rules, path-scoped constraints. Fire when specific files are touched.
-  - **Delegated** — Subagents, specialized personas. Summoned for specific expertise.
+- Subhead (rendered): "Agents are building 'memory' features, but durability is still largely in your hands."
+- Layout: Four equal cards in a horizontal grid spanning full width. Each card has a gold top border, a bold uppercase label, a one-line description, and a monospace example. Below the cards, a gradient line (gold → gray) with axis labels: "Always present" on the left, "On demand" on the right.
+- Cards (left to right):
+  1. **Always loaded** — Context documents read every time, regardless of task. Example: AGENTS.md
+  2. **Invoked on match** — Skills and named procedures loaded when a task fits. Example: Skills
+  3. **Auto-triggered** — Rules and path-scoped constraints that fire on specific files. Example: Rules
+  4. **Delegated** — Subagents and specialized personas summoned for expertise. Example: Subagents
 
 ## 04-today-focus
 
 - Key message: "Today: Two options on the spectrum"
-- We'll work with the two most common and transferable mechanisms:
-  - A context document (AGENTS.md) — always-on, loaded every session
-  - A skill — on-demand, invoked when the task matches
-- These cover most researchers' needs. The others are refinements you'll reach for as projects grow.
+- Layout: Two side-by-side cards spanning the full slide width below the headline. Each card contains a large number, a bold label, and a short description. Cards have a subtle gold border and translucent background on the purple gradient.
+- Card 1: Context document (AGENTS.md) — always-on, loaded every session, the foundation of what your agent knows
+- Card 2: Skill — on-demand, invoked when the task matches, a recipe reached for only when needed
+- Note to self: These cover most researchers' needs. The others are refinements you'll reach for as projects grow.
 
 ## 05-introducing-snowex
 
-- Key message: "SnowEx: a Python library for a research database"
-- SnowEx ....
-- Clone the forked repo - Hint: Agents cheat!
+- Key message: "snowexsql — A Python library for the SnowEx database"
+- Layout: Logo top-left beside headline. Below, a two-column grid: left column has 4 summary bullets with gold left-border; right column has a schematic diagram showing the data flow (Your code → snowexsql package → SnowEx DB → DataFrame). Bottom callout about cloning the repo.
+- Logo: https://snowexsql.readthedocs.io/en/latest/_static/logo.png
+- Summary points:
+  - NASA SnowEx campaigns — multi-year field and airborne snow measurements across western US and Alaska
+  - PostgreSQL/PostGIS database — snow depths, density, temperature, stratigraphy, SWE
+  - Python package — query via a Lambda client (no credentials) or direct DB connection
+  - Returns DataFrames — filters by campaign, date, type, location
+- Schematic: Your code → snowexsql (PointMeasurements, LayerMeasurements) → SnowEx DB, returns DataFrame
+- Callout: "Clone the forked repo: github.com/jomey/snowexsql — Hint: Agents cheat!"
 
 ## 06-scientific-use-case
 
 - Key message: "Scientific use case: Querying snow depth layer data"
+- Layout: centered on purple background, three vertical sections
+- Top: headline in gold uppercase, prompt in bordered monospace box (80% width, centered)
+- Middle: forking-path SVG diagram showing decision point branching into two paths
+- Bottom: two side-by-side cards comparing answer paths:
+  - Left card (gold border, "Start here" badge): Standard user — simple high-level API query
+  - Right card (subtle border): Power user — advanced joins and raw SQL
+- Footer note: "This question has multiple valid answers — we guide the agent to recommend the simple solution first."
 - Display the exact prompt in large monospace:
   "Create me a code block that queries the database and returns snow depth layer data for a snow pit and date during the Alaska campaign"
 - This question has multiple answers. One for a standard user and one for a power user.
 - For the default answer, we want to guide users to the simple solution first.
 
-## 08-demo-no-context
+## 07-demo-no-context
 
 [LIVE DEMO]
 
 - Display text: "Demo: Repository with no context"
 
-## 09-first-result
+## 08-first-result
 
 - Key message: "Confident, fast, and complicated"
-- After the demo, highlight the observed issues:
-  - The agent went straight into reverse engineering
-  - It confidently suggested the more technical solution, even though the README shows the simpler as preferred
-  - It burned a lot of tokens guessing the query parameters
+- Layout: Three equal cards in a horizontal grid, each with an SVG icon, bold label, and description. Cards have gold top border and subtle purple-tinted background. Order builds pedagogically: what it did → why it's wrong → what it cost.
+- Card 1: Reverse engineered — dove into source code instead of using documented patterns (magnifying glass icon)
+- Card 2: Chose the complex path — suggested advanced solution when README shows simpler as preferred (upward trend arrow icon)
+- Card 3: Burned tokens guessing — spent effort guessing query parameters it could have been told (clock icon)
 
-## 10-hands-on-01
+## 09-hands-on-01
 
-- Key message: "HANDS ON - Compare your output with a partner"
-- Instruction slide: "Buddy up. Compare your agent's output. How different are they?"
+- Key message: "YOUR TURN - Run the prompt, then compare with a partner"
+- Layout: Purple gradient background. "Your Turn" badge (gold border). Headline. A 3-step activity row inside a subtle bordered container with SVG icons: Run prompt → Compare outputs → Discuss. Below, a dark prompt box with explicit "Paste this prompt" instruction and the query. A discussion question at the bottom in gold-accented text.
+- Activity steps with icons: terminal window (run prompt) → two side-by-side panels with dashed connector (compare) → two overlapping circles (discuss)
+- Prompt box: "Create me a code block that queries the database and returns snow depth layer data for a snow pit and date during the Alaska campaign"
+- Discussion prompt: "How different are the outputs? Did you get the same solution?"
 
-## 11-start-adding-context
+## 10-start-adding-context
 
 - Key message: "How to guide the LLM with context?"
 - First option: Add a central context document - AGENTS.md
@@ -104,7 +131,7 @@ Title slide with UW branding.
 - Put the quote as the central message on the slide:
 - "Think of AGENTS.md as a README for agents: a dedicated, predictable place to provide the context and instructions to help AI coding agents"
 
-## 12-writing-tips
+## 11-writing-tips
 
 - Key message: "A good AGENTS.md is concise and actionable"
 - Start simple and expand as needed
@@ -115,7 +142,7 @@ Title slide with UW branding.
 - Keep everything for humans in the repo README, LLMs will read that too
 - Be aware that future version of LLM models might have learned from public information
 
-## 13-demo-with-agents
+## 12-demo-with-agents
 
 [LIVE DEMO]
 
@@ -124,7 +151,7 @@ Title slide with UW branding.
   - Does it pick the right connection type?
   - Does it still guess at filter options?
 
-## 14-hands-on-02
+## 13-hands-on-02
 
 - Key message: "Compare again — what changed?"
 - Instruction slide:
@@ -132,7 +159,7 @@ Title slide with UW branding.
     - How different are they from each other?
     - From the first attempt?
 
-## 15-agents-summary
+## 14-agents-summary
 
 - Key message: "What goes in, what stays out"
 - Two columns or a split layout:
@@ -140,7 +167,7 @@ Title slide with UW branding.
   - **Does not belong:** Anything the agent can discover by reading code, information that changes frequently, contradictions with the actual codebase, personal preferences that don't apply to others
 - KISS principle: Keep it simple stup...
 
-## 16-introduction-skills
+## 15-introduction-skills
 
 - Key message: "Context documents are always-on. Skills are on-demand."
 - AGENTS.md fires on every session, every task — it's the foundation.
@@ -150,12 +177,12 @@ Title slide with UW branding.
   - name, description (used for matching), and instructions.
 - This is the very basic start. Skills can be advanced through multiple options. See: <https://agentskills.io>
 
-## 17-skill-example
+## 16-skill-example
 
 - Key message: Show the db-query skill structure
 - Display the skeleton of the skill file in monospace: name, description, the key steps it encodes.
 
-## 18-demo-adding-skill
+## 17-demo-adding-skill
 
 [LIVE DEMO]
 
@@ -165,7 +192,7 @@ Title slide with UW branding.
   - Does the agent invoke the skill?
   - Does the output follow the skill's prescribed pattern?
 
-## 19-hands-on03
+## 18-hands-on-03
 
 - Key message: "What changed with the skill?"
 - Instruction slide:
@@ -173,7 +200,7 @@ Title slide with UW branding.
   - Is the output more consistent between partners?
   - Think of ways to improve the skill.
 
-## 20-context-vs-skill
+## 19-context-vs-skill
 
 - Key message: "Always-on context vs. on-demand procedure"
 - When to use each:
@@ -181,7 +208,7 @@ Title slide with UW branding.
   - Skill: a specific procedure that only applies to tasks (querying the DB, running the test suite)
 - Create bridges to skills in the AGENTS.md so the LLM knows about them
 
-## 21-takeaways
+## 20-takeaways
 
 - Key message: "Context engineering is the researcher's primary lever"
 - Three takeaways:

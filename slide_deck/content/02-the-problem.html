@@ -1,0 +1,125 @@
+  <!-- Slide 02: The Problem -->
+  <section class="slide" aria-label="The Problem">
+    <style>
+      .slide-02 {
+        width: 100%;
+        height: 100%;
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--space-10) var(--space-12);
+        position: relative;
+      }
+      .slide-02::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--uw-spirit-gold);
+      }
+      .slide-02 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 3.4rem;
+        line-height: 1.12;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-8);
+      }
+      .slide-02 .points {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-5) var(--space-8);
+        max-width: 70%;
+      }
+      .slide-02 .point {
+        font-family: var(--font-body);
+        font-size: 1.3rem;
+        font-weight: 300;
+        color: var(--uw-gray-70);
+        line-height: 1.5;
+        padding-left: var(--space-3);
+        border-left: 3px solid var(--uw-spirit-gold);
+      }
+      .slide-02 .point em {
+        color: var(--uw-spirit-purple);
+        font-style: normal;
+        font-weight: 600;
+      }
+      .slide-02 .visual {
+        position: absolute;
+        right: var(--space-8);
+        bottom: var(--space-8);
+        width: 420px;
+        height: 300px;
+      }
+      .slide-02 .visual circle.outline {
+        fill: none;
+        stroke: var(--uw-spirit-gold);
+        stroke-width: 2;
+      }
+      .slide-02 .visual line.connector {
+        stroke: var(--uw-spirit-gold);
+        stroke-width: 1.5;
+        stroke-dasharray: 8 6;
+      }
+      .slide-02 .visual circle.dot {
+        fill: var(--uw-spirit-gold);
+      }
+      .slide-02 .visual circle.dot-faint {
+        fill: var(--uw-spirit-gold);
+        opacity: 0.25;
+      }
+      .slide-02 .visual text {
+        font-family: var(--font-display-condensed);
+        font-size: 13px;
+        fill: var(--uw-gray-50);
+        text-anchor: middle;
+      }
+    </style>
+    <div class="slide-02">
+      <h2 class="headline">Your agent does not remember<br>most of your project context</h2>
+      <div class="points">
+        <p class="point">Every new session starts from <em>minimal memory</em>.</p>
+        <p class="point">It doesn't know your data, your conventions, or your goals.</p>
+        <p class="point">It's good at reverse engineering — and eager to try.</p>
+        <p class="point">Persistent durability is dependent on <em>you</em>.</p>
+      </div>
+      <svg class="visual" viewBox="0 0 420 300" aria-hidden="true">
+        <!-- Left circle: researcher's knowledge (dense) -->
+        <circle class="outline" cx="115" cy="140" r="90"/>
+        <text x="115" y="260">YOU</text>
+        <!-- Dense dots — representing rich domain knowledge -->
+        <circle class="dot" cx="80" cy="105" r="4"/>
+        <circle class="dot" cx="105" cy="95" r="3.5"/>
+        <circle class="dot" cx="135" cy="100" r="4"/>
+        <circle class="dot" cx="90" cy="125" r="3.5"/>
+        <circle class="dot" cx="120" cy="120" r="4"/>
+        <circle class="dot" cx="145" cy="125" r="3"/>
+        <circle class="dot" cx="75" cy="145" r="3.5"/>
+        <circle class="dot" cx="100" cy="140" r="4"/>
+        <circle class="dot" cx="130" cy="138" r="3.5"/>
+        <circle class="dot" cx="150" cy="145" r="3"/>
+        <circle class="dot" cx="85" cy="160" r="4"/>
+        <circle class="dot" cx="110" cy="158" r="3.5"/>
+        <circle class="dot" cx="138" cy="162" r="4"/>
+        <circle class="dot" cx="95" cy="178" r="3"/>
+        <circle class="dot" cx="125" cy="175" r="3.5"/>
+        <circle class="dot" cx="108" cy="115" r="3"/>
+        <circle class="dot" cx="140" cy="155" r="3"/>
+        <circle class="dot" cx="68" cy="130" r="3"/>
+        <!-- Dashed connector with arrow -->
+        <line class="connector" x1="210" y1="140" x2="270" y2="140"/>
+        <polygon points="268,134 280,140 268,146" fill="var(--uw-spirit-gold)" opacity="0.6"/>
+        <!-- Right circle: agent's knowledge (nearly empty) -->
+        <circle class="outline" cx="340" cy="140" r="70" stroke-dasharray="4 3"/>
+        <text x="340" y="235">AGENT</text>
+        <!-- Sparse faint dots -->
+        <circle class="dot-faint" cx="330" cy="130" r="3.5"/>
+        <circle class="dot-faint" cx="350" cy="150" r="3"/>
+      </svg>
+    </div>
+  </section>

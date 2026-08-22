@@ -1,0 +1,105 @@
+  <!-- Slide 18: Demo - Adding Skill [LIVE DEMO] -->
+  <section class="slide" aria-label="Live Demo: Adding a Skill">
+    <style>
+      .slide-17 {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+        color: var(--uw-white);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--space-10);
+        text-align: center;
+        position: relative;
+      }
+      .slide-17 .terminal-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        height: 75%;
+        background: rgba(0,0,0,0.25);
+        border-radius: 12px;
+        border: 1px solid rgba(255,199,0,0.2);
+      }
+      .slide-17 .terminal-dots {
+        position: absolute;
+        top: 12px;
+        left: 16px;
+        display: flex;
+        gap: 8px;
+      }
+      .slide-17 .terminal-dots span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255,199,0,0.4);
+      }
+      .slide-17 .terminal-dots span:nth-child(2) {
+        background: rgba(255,199,0,0.25);
+      }
+      .slide-17 .terminal-dots span:nth-child(3) {
+        background: rgba(255,199,0,0.15);
+      }
+      .slide-17 .content {
+        position: relative;
+        z-index: 2;
+      }
+      .slide-17 .demo-badge {
+        font-family: var(--font-display-wide);
+        font-weight: 800;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--uw-spirit-gold);
+        border: 2px solid var(--uw-spirit-gold);
+        padding: var(--space-1) var(--space-4);
+        border-radius: var(--radius-md);
+        margin-bottom: var(--space-5);
+        display: inline-block;
+      }
+      .slide-17 .demo-title {
+        font-family: var(--font-mono);
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: var(--space-4);
+      }
+      .slide-17 .demo-cmd {
+        font-family: var(--font-mono);
+        font-size: 1.3rem;
+        color: var(--uw-spirit-gold);
+        margin-bottom: var(--space-4);
+        opacity: 0.9;
+      }
+      .slide-17 .demo-cmd::before {
+        content: '$ ';
+        opacity: 0.5;
+      }
+      .slide-17 .demo-text {
+        font-family: var(--font-body);
+        font-size: 1.2rem;
+        color: var(--uw-white);
+        opacity: 0.75;
+        width: 100%;
+        text-align: center;
+        line-height: 1.8;
+      }
+    </style>
+    <div class="slide-17">
+      <div class="terminal-bg">
+        <div class="terminal-dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="content">
+        <div class="demo-badge">Live Demo</div>
+        <h2 class="demo-title">Adding a skill and re-running</h2>
+        <p class="demo-cmd">claude</p>
+        <p class="demo-text">
+          Does the agent invoke the skill?<br>
+          Does the output follow the skill's prescribed pattern?
+        </p>
+      </div>
+    </div>
+  </section>

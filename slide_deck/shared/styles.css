@@ -1,0 +1,187 @@
+/* ─── SHARED SLIDE CLASSES ────────────────────────────────────────────── */
+
+/* Base slide layout */
+.slide-full {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+/* Background variants */
+.slide-purple {
+  background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+  color: var(--uw-white);
+}
+
+.slide-white {
+  background: var(--uw-white);
+  color: var(--uw-gray-90);
+}
+
+.slide-white::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--uw-spirit-gold);
+}
+
+/* ─── DEMO SLIDES (08, 13, 18) ──────────────────────────────────────── */
+
+.demo-slide {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+  color: var(--uw-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-10);
+  text-align: center;
+  position: relative;
+}
+
+.terminal-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 75%;
+  background: rgba(0,0,0,0.25);
+  border-radius: 12px;
+  border: 1px solid rgba(255,199,0,0.2);
+}
+
+.terminal-dots {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,199,0,0.4);
+}
+
+.terminal-dots span:nth-child(2) {
+  background: rgba(255,199,0,0.25);
+}
+
+.terminal-dots span:nth-child(3) {
+  background: rgba(255,199,0,0.15);
+}
+
+.demo-content {
+  position: relative;
+  z-index: 2;
+}
+
+.demo-badge {
+  font-family: var(--font-display-wide);
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--uw-spirit-gold);
+  border: 2px solid var(--uw-spirit-gold);
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+  display: inline-block;
+}
+
+.demo-title {
+  font-family: var(--font-mono);
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.demo-cmd {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--uw-spirit-gold);
+  margin-bottom: var(--space-4);
+  opacity: 0.9;
+}
+
+.demo-cmd::before {
+  content: '$ ';
+  opacity: 0.5;
+}
+
+.demo-text {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--uw-white);
+  opacity: 0.75;
+  width: 100%;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* ─── HANDS-ON SLIDES (10, 14, 19) ──────────────────────────────────── */
+
+.handson-slide {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #582c83 0%, #350056 100%);
+  color: var(--uw-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-10);
+  text-align: center;
+}
+
+.handson-badge {
+  font-family: var(--font-display-condensed);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--uw-spirit-gold);
+  margin-bottom: var(--space-4);
+}
+
+.handson-headline {
+  font-family: var(--font-display-wide);
+  font-weight: 800;
+  font-size: 3.2rem;
+  margin-bottom: var(--space-6);
+  line-height: 1.1;
+}
+
+.handson-instruction {
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--uw-husky-gold-web);
+  max-width: 60%;
+  line-height: 1.6;
+}
+
+/* ─── CONTENT SLIDE SHARED ───────────────────────────────────────────── */
+
+.content-headline {
+  font-family: var(--font-display-wide);
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--uw-husky-purple);
+  line-height: 1.15;
+}
+
+.gold-border-left {
+  padding-left: var(--space-3);
+  border-left: 3px solid var(--uw-spirit-gold);
+}

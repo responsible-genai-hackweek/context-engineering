@@ -1,0 +1,132 @@
+  <!-- Slide 03: Durability Spectrum -->
+  <section class="slide" aria-label="Durability Spectrum">
+    <style>
+      .slide-03 {
+        width: 100%;
+        height: 100%;
+        background: var(--uw-white);
+        color: var(--uw-gray-90);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--space-10) var(--space-12);
+        position: relative;
+      }
+      .slide-03::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--uw-spirit-gold);
+      }
+      .slide-03 .headline {
+        font-family: var(--font-display-wide);
+        font-weight: 700;
+        font-size: 2.6rem;
+        color: var(--uw-husky-purple);
+        margin-bottom: var(--space-3);
+      }
+      .slide-03 .subhead {
+        font-family: var(--font-body);
+        font-size: 1.2rem;
+        color: var(--uw-gray-50);
+        margin-bottom: var(--space-8);
+        font-weight: 400;
+      }
+      .slide-03 .spectrum {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-4);
+        width: 100%;
+      }
+      .slide-03 .spectrum-item {
+        padding: var(--space-5) var(--space-4);
+        border-radius: var(--radius-lg);
+        background: linear-gradient(135deg, rgba(75,46,131,0.06) 0%, rgba(75,46,131,0.02) 100%);
+        border-top: 4px solid var(--uw-spirit-gold);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .slide-03 .spectrum-label {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: var(--uw-spirit-purple);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+      .slide-03 .spectrum-desc {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        color: var(--uw-gray-70);
+        line-height: 1.5;
+      }
+      .slide-03 .spectrum-example {
+        font-family: var(--font-mono);
+        font-size: 0.95rem;
+        color: var(--uw-spirit-purple);
+        font-weight: 600;
+        background: rgba(75,46,131,0.08);
+        padding: 4px 10px;
+        border-radius: var(--radius-md);
+        margin-top: auto;
+        display: inline-block;
+      }
+      .slide-03 .axis {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: var(--space-4);
+        padding: 0 var(--space-2);
+      }
+      .slide-03 .axis span {
+        font-family: var(--font-display-condensed);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--uw-heritage-gold);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .slide-03 .axis-line {
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, var(--uw-spirit-gold), var(--uw-gray-30));
+        margin-top: var(--space-2);
+        border-radius: 1px;
+      }
+    </style>
+    <div class="slide-03">
+      <h2 class="headline">Persistent context options in current landscape</h2>
+      <p class="subhead">Agents are building "memory" features, but durability is still largely in your hands.</p>
+      <div class="spectrum">
+        <div class="spectrum-item">
+          <div class="spectrum-label">Always loaded</div>
+          <div class="spectrum-desc">Context documents read every time, regardless of task</div>
+          <div class="spectrum-example">AGENTS.md</div>
+        </div>
+        <div class="spectrum-item">
+          <div class="spectrum-label">Invoked on match</div>
+          <div class="spectrum-desc">Skills and named procedures loaded when a task fits</div>
+          <div class="spectrum-example">Skills</div>
+        </div>
+        <div class="spectrum-item">
+          <div class="spectrum-label">Auto-triggered</div>
+          <div class="spectrum-desc">Rules and path-scoped constraints that fire on specific files</div>
+          <div class="spectrum-example">Rules</div>
+        </div>
+        <div class="spectrum-item">
+          <div class="spectrum-label">Delegated</div>
+          <div class="spectrum-desc">Subagents and specialized personas summoned for expertise</div>
+          <div class="spectrum-example">Subagents</div>
+        </div>
+      </div>
+      <div class="axis-line"></div>
+      <div class="axis">
+        <span>&larr; Always present</span>
+        <span>On demand &rarr;</span>
+      </div>
+    </div>
+  </section>
