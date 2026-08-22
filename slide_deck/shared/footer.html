@@ -10,7 +10,7 @@
       bottom: 24px;
       right: 24px;
       font-family: var(--font-body);
-      font-size: 18px;
+      font-size: 24px;
       color: #fff;
       background: rgba(0, 0, 0, 0.5);
       padding: 8px 16px;
@@ -83,6 +83,15 @@
 
       // Otherwise show first slide
       showSlide(0);
+
+      // Accessibility: mark all decorative icon SVGs as aria-hidden
+      document.querySelectorAll([
+        '.point-icon svg', '.tip-icon svg', '.obs-icon', '.activity-icon',
+        '.contrast-icon svg', '.analogy-icon svg', '.tip > svg',
+        '.step-icon svg', '.outcome-icon svg', '.col-header svg',
+        '.doc-icon svg', '.annotation-icon svg', '.download-link svg',
+        '.progress-dot svg'
+      ].join(', ')).forEach(el => el.setAttribute('aria-hidden', 'true'));
     });
 
     // Handle browser back/forward buttons
